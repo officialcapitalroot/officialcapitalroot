@@ -25,7 +25,7 @@ export default function Videos({ videos }) {
           "name": video.title,
           "description": video.description,
           "thumbnailUrl": video.thumbnail,
-          "uploadDate": video.UploadDate,
+          "uploadDate": video.uploadDate,
           "duration": video.duration,
           "url": `https://capitalroot.vercel.app/video/${video.videoId}`,
           "embedUrl": video.videoSource === 'youtube' 

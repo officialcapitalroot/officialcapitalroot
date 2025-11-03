@@ -32,7 +32,7 @@ export default function Home({ videos, channelData }) {
       "name": video.title,
       "description": video.description,
       "thumbnailUrl": video.thumbnail,
-      "uploadDate": video.UploadDate,
+      "uploadDate": video.uploadDate,
       "duration": video.duration,
       "url": `${canonicalUrl}/video/${video.videoId}`,
       "embedUrl": video.videoSource === 'youtube' 
