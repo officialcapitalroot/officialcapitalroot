@@ -46,14 +46,14 @@ export default function Document() {
         <meta name="msvalidate.01" content="your-bing-verification" />
         
         {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-EQXVBX4R6M"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGJEF0RJQF"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-EQXVBX4R6M', {
+              gtag('config', 'G-KGJEF0RJQF', {
                 page_title: document.title,
                 page_location: window.location.href
               });
