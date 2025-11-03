@@ -1,19 +1,14 @@
 const fs = require('fs');
 const path = require('path');
-const { promisify } = require('util');
-const xml2js = require('xml2js');
 
-const readFile = promisify(fs.readFile);
-const writeFile = promisify(fs.writeFile);
-
-async function generateSitemaps() {
+function generateSitemaps() {
   try {
     // Read the data.json file
     const dataPath = path.join(process.cwd(), 'data', 'data.json');
-    const data = JSON.parse(await readFile(dataPath, 'utf8'));
+    const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
     
     const baseUrl = 'https://capitalroot.vercel.app';
-    const currentDate = new Date().toISOString();
+    const currentDate = new Date().toISOString().split('T')[0];
 
     // Generate main sitemap.xml
     const staticPages = [
@@ -25,43 +20,36 @@ async function generateSitemaps() {
       { url: '/terms', changefreq: 'monthly', priority: '0.5' }
     ];
 
-    const sitemapUrls = [
-      ...staticPages.map(page => ({
-        loc: `${baseUrl}${page.url}`,
-        lastmod: currentDate,
-        changefreq: page.changefreq,
-        priority: page.priority
-      })),
-      ...data.videos.map(video => ({
-        loc: `${baseUrl}/video/${video.videoId}`,
-        lastmod: new Date(video.uploadDate).toISOString(),
-        changefreq: 'monthly',
-        priority: '0.9'
-      }))
-    ];
+    let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+`;
 
-    const sitemapBuilder = new xml2js.Builder({
-      xmldec: { version: '1.0', encoding: 'UTF-8' }
+    // Add static pages
+    staticPages.forEach(page => {
+      sitemapXml += `  <url>
+    <loc>${baseUrl}${page.url}</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>${page.changefreq}</changefreq>
+    <priority>${page.priority}</priority>
+  </url>
+`;
     });
 
-    const sitemapObj = {
-      urlset: {
-        $: {
-          xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9'
-        },
-        url: sitemapUrls.map(url => ({
-          loc: url.loc,
-          lastmod: url.lastmod,
-          changefreq: url.changefreq,
-          priority: url.priority
-        }))
-      }
-    };
+    // Add video pages
+    data.videos.forEach(video => {
+      sitemapXml += `  <url>
+    <loc>${baseUrl}/video/${video.videoId}</loc>
+    <lastmod>${video.uploadDate}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+`;
+    });
 
-    const sitemapXml = sitemapBuilder.buildObject(sitemapObj);
-    
+    sitemapXml += `</urlset>`;
+
     // Write sitemap.xml to public folder
-    await writeFile(
+    fs.writeFileSync(
       path.join(process.cwd(), 'public', 'sitemap.xml'),
       sitemapXml
     );
@@ -93,47 +81,46 @@ async function generateSitemaps() {
       return parseInt(viewCount.replace(/[^0-9]/g, '')) || 1000;
     };
 
-    const videoSitemapUrls = data.videos.map(video => ({
-      loc: `${baseUrl}/video/${video.videoId}`,
-      video: {
-        'video:thumbnail_loc': video.thumbnail,
-        'video:title': { _: video.title },
-        'video:description': { _: video.description },
-        'video:content_loc': video.videoSource === 'youtube' 
-          ? `https://www.youtube.com/watch?v=${video.videoId}`
-          : `https://short.icu/${video.videoId}`,
-        'video:player_loc': video.videoSource === 'youtube'
-          ? `https://www.youtube.com/embed/${video.videoId}`
-          : `https://short.icu/${video.videoId}`,
-        'video:duration': durationToSeconds(video.duration),
-        'video:view_count': viewCountToNumber(video.viewCount),
-        'video:publication_date': new Date(video.uploadDate).toISOString(),
-        'video:family_friendly': 'yes',
-        'video:requires_subscription': 'no',
-        'video:uploader': { _: 'Capital Root', $: { info: baseUrl } },
-        'video:live': 'no',
-        'video:tags': video.tags.join(', '),
-        'video:category': 'Entertainment'
-      }
-    }));
+    let videoSitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+`;
 
-    const videoSitemapObj = {
-      urlset: {
-        $: {
-          xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9',
-          'xmlns:video': 'http://www.google.com/schemas/sitemap-video/1.1'
-        },
-        url: videoSitemapUrls.map(item => ({
-          loc: item.loc,
-          'video:video': item.video
-        }))
-      }
-    };
+    data.videos.forEach(video => {
+      const videoUrl = `${baseUrl}/video/${video.videoId}`;
+      const contentUrl = video.videoSource === 'youtube' 
+        ? `https://www.youtube.com/watch?v=${video.videoId}`
+        : `https://short.icu/${video.videoId}`;
+      const playerUrl = video.videoSource === 'youtube'
+        ? `https://www.youtube.com/embed/${video.videoId}`
+        : `https://short.icu/${video.videoId}`;
+      
+      videoSitemapXml += `  <url>
+    <loc>${videoUrl}</loc>
+    <video:video>
+      <video:thumbnail_loc>${video.thumbnail}</video:thumbnail_loc>
+      <video:title><![CDATA[${video.title}]]></video:title>
+      <video:description><![CDATA[${video.description}]]></video:description>
+      <video:content_loc>${contentUrl}</video:content_loc>
+      <video:player_loc>${playerUrl}</video:player_loc>
+      <video:duration>${durationToSeconds(video.duration)}</video:duration>
+      <video:view_count>${viewCountToNumber(video.viewCount)}</video:view_count>
+      <video:publication_date>${video.uploadDate}</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:uploader info="${baseUrl}">Capital Root</video:uploader>
+      <video:live>no</video:live>
+      <video:tags>${video.tags.join(', ')}</video:tags>
+      <video:category>Entertainment</video:category>
+    </video:video>
+  </url>
+`;
+    });
 
-    const videoSitemapXml = sitemapBuilder.buildObject(videoSitemapObj);
-    
+    videoSitemapXml += `</urlset>`;
+
     // Write video-sitemap.xml to public folder
-    await writeFile(
+    fs.writeFileSync(
       path.join(process.cwd(), 'public', 'video-sitemap.xml'),
       videoSitemapXml
     );
@@ -146,7 +133,7 @@ Allow: /
 Sitemap: ${baseUrl}/sitemap.xml
 Sitemap: ${baseUrl}/video-sitemap.xml`;
 
-    await writeFile(
+    fs.writeFileSync(
       path.join(process.cwd(), 'public', 'robots.txt'),
       robotsTxt
     );
