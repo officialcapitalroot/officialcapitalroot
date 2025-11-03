@@ -79,7 +79,7 @@ export default function VideoPage({ video }) {
     "name": video.title,
     "description": video.description,
     "thumbnailUrl": video.thumbnail,
-    "uploadDate": video.publishedAt,
+    "uploadDate": video.UploadDate,
     "duration": `PT${durationInSeconds}S`,
     "contentUrl": videoUrl,
     "embedUrl": embedUrl,
@@ -227,7 +227,7 @@ export default function VideoPage({ video }) {
                 <div className="video-meta">
                   <span className="views">{video.viewCount} views</span>
                   <span className="date">
-                    {new Date(video.publishedAt).toLocaleDateString('en-US', {
+                    {new Date(video.UploadDate).toLocaleDateString('en-US', {
                       year: 'numeric',
                       month: 'long',
                       day: 'numeric'

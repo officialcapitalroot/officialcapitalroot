@@ -53,7 +53,7 @@ export default function VideoCard({ video }) {
         <div className="video-meta">
           <span className="views" itemProp="interactionCount">{video.viewCount} views</span>
           <span className="date">
-            {isClient ? formatDate(video.publishedAt) : formatDate(video.publishedAt)}
+            {isClient ? formatDate(video.UploadDate) : formatDate(video.UploadDate)}
           </span>
         </div>
         

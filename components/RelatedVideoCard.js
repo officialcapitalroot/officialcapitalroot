@@ -25,7 +25,7 @@ export default function RelatedVideoCard({ video }) {
           <div className="related-video-meta">
             <span className="views">{video.viewCount} views</span>
             <span className="date">
-              {new Date(video.publishedAt).toLocaleDateString('en-US', {
+              {new Date(video.UploadDate).toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'short',
                 day: 'numeric'
