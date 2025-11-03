@@ -1,7 +1,7 @@
 {
   "name": "official-capital-root",
   "version": "1.0.0",
-  "description": "Capital Root blends storytelling with every video reveals the drama behind both screens—Holly,Bolly & Stockwood Market",
+  "description": "Official Capital Root - Financial Education & Investment Strategies YouTube Channel. Learn stock market investing, trading strategies, and wealth building techniques.",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,23 +11,20 @@
     "export": "next export"
   },
   "dependencies": {
-    "fs": "^0.0.1-security",
     "next": "13.5.6",
-    "path": "^0.12.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.12.0",
-    "yarn": "^1.22.22"
+    "react-icons": "^4.12.0"
   },
   "devDependencies": {
     "eslint": "8.51.0",
     "eslint-config-next": "13.5.6"
   },
   "keywords": [
-    "movies",
-    "tvshow",
-    "web series",
-    "financial ",
+    "stock market",
+    "investing",
+    "trading",
+    "financial education",
     "wealth building",
     "investment strategies"
   ],
