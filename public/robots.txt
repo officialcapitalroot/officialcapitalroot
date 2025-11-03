@@ -1,14 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /api/
-Disallow: /_next/
-
 Sitemap: https://capitalroot.vercel.app/sitemap.xml
 Sitemap: https://capitalroot.vercel.app/video-sitemap.xml
-
-User-agent: Mediapartners-Google
-Allow: /
-
-
-
-
