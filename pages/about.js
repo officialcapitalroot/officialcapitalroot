@@ -9,13 +9,13 @@ export default function About() {
         <title>About - Official Capital Root | Financial Education Channel</title>
         <meta name="description" content="Learn about Official Capital Root - Your trusted source for financial education, stock market investing, and wealth building strategies." />
         <meta name="keywords" content="about capital root, financial education, stock market channel, investment strategies" />
-        <link rel="canonical" href="https://officialcapitalroot.vercel.app/about" />
+        <link rel="canonical" href="https://capitalroot.vercel.app/about" />
         
         {/* Open Graph */}
         <meta property="og:title" content="About - Official Capital Root" />
         <meta property="og:description" content="Learn about Official Capital Root - Your trusted source for financial education and investment strategies." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://officialcapitalroot.vercel.app/about" />
+        <meta property="og:url" content="https://capitalroot.vercel.app/about" />
       </Head>
       <Header />
       <main className="page-main">

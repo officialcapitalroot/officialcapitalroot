@@ -77,8 +77,8 @@ export default function Document() {
               "@type": "Organization",
               "name": "Official Capital Root",
               "description": "Financial Education & Investment Strategies YouTube Channel",
-              "url": "https://officialcapitalroot.vercel.app",
-              "logo": "https://officialcapitalroot.vercel.app/icon-512.png",
+              "url": "https://capitalroot.vercel.app",
+              "logo": "https://capitalroot.vercel.app/icon-512.png",
               "sameAs": [
                 "https://www.youtube.com/channel/UCS7Ahfb_tr9uUz_XuiNJtGg",
                 "https://x.com/capital_root",

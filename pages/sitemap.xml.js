@@ -3,7 +3,7 @@ import videoData from '../data/data.json'
 const Sitemap = () => {}
 
 export const getServerSideProps = async ({ res }) => {
-  const baseUrl = 'https://officialcapitalroot.vercel.app'
+  const baseUrl = 'https://capitalroot.vercel.app'
   
   const staticPages = [
     '',

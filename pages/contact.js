@@ -9,13 +9,13 @@ export default function Contact() {
         <title>Contact - Official Capital Root | Get in Touch</title>
         <meta name="description" content="Contact Official Capital Root for financial education inquiries, collaboration opportunities, and investment guidance." />
         <meta name="keywords" content="contact capital root, financial education contact, investment guidance" />
-        <link rel="canonical" href="https://officialcapitalroot.vercel.app/contact" />
+        <link rel="canonical" href="https://capitalroot.vercel.app/contact" />
         
         {/* Open Graph */}
         <meta property="og:title" content="Contact - Official Capital Root" />
         <meta property="og:description" content="Get in touch with Official Capital Root for financial education and investment guidance." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://officialcapitalroot.vercel.app/contact" />
+        <meta property="og:url" content="https://capitalroot.vercel.app/contact" />
       </Head>
       <Header />
       <main className="page-main">

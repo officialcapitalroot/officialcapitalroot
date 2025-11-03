@@ -67,7 +67,7 @@ export default function VideoPage({ video }) {
     ? `https://www.youtube.com/embed/${video.videoId}`
     : `https://short.icu/${video.videoId}`
 
-  const canonicalUrl = `https://officialcapitalroot.vercel.app/video/${video.videoId}`
+  const canonicalUrl = `https://capitalroot.vercel.app/video/${video.videoId}`
   
   // Calculate duration in seconds for schema
   const durationInSeconds = video.duration.split(':').reduce((acc, time) => (60 * acc) + +time)
@@ -94,7 +94,7 @@ export default function VideoPage({ video }) {
       "name": "Official Capital Root",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://officialcapitalroot.vercel.app/icon-512.png",
+        "url": "https://capitalroot.vercel.app/icon-512.png",
         "width": 512,
         "height": 512
       }
@@ -122,13 +122,13 @@ export default function VideoPage({ video }) {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://officialcapitalroot.vercel.app"
+        "item": "https://capitalroot.vercel.app"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Videos",
-        "item": "https://officialcapitalroot.vercel.app/videos"
+        "item": "https://capitalroot.vercel.app/videos"
       },
       {
         "@type": "ListItem",

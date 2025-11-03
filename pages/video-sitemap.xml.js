@@ -3,7 +3,7 @@
 // const VideoSitemap = () => {}
 
 // export const getServerSideProps = async ({ res }) => {
-//   const baseUrl = 'https://officialcapitalroot.vercel.app'
+//   const baseUrl = 'https://capitalroot.vercel.app'
 
 //   const videoSitemap = `<?xml version="1.0" encoding="UTF-8"?>
 //     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -67,7 +67,7 @@ import videoData from '../data/data.json'
 const VideoSitemap = () => {}
 
 export const getServerSideProps = async ({ res }) => {
-  const baseUrl = 'https://officialcapitalroot.vercel.app'
+  const baseUrl = 'https://capitalroot.vercel.app'
 
   // Helper function to convert duration to seconds
   const durationToSeconds = (duration) => {

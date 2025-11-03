@@ -3,8 +3,8 @@ Allow: /
 Disallow: /api/
 Disallow: /_next/
 
-Sitemap: https://officialcapitalroot.vercel.app/sitemap.xml
-Sitemap: https://officialcapitalroot.vercel.app/video-sitemap.xml
+Sitemap: https://capitalroot.vercel.app/sitemap.xml
+Sitemap: https://capitalroot.vercel.app/video-sitemap.xml
 
 User-agent: Mediapartners-Google
 Allow: /
