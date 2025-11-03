@@ -13,7 +13,11 @@ export default function ShortICUPlayer({ videoId, title }) {
       position: 'relative',
       backgroundColor: '#000',
       borderRadius: '8px',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      // ULTRA SHARP CINEMATIC FILTERS
+        filter: 'url(#ultraSharp) brightness(1.25) contrast(1.15) saturate(1.5) hue-rotate(5deg)',
+        transform: 'translateZ(0)',
+        // imageRendering: 'pixelated'
     }}>
       <iframe
         src={`https://short.icu/${videoId}`}
@@ -23,7 +27,8 @@ export default function ShortICUPlayer({ videoId, title }) {
           left: '0',
           width: '100%',
           height: '100%',
-          border: 'none'
+          border: 'none', // ADDED COMMA HERE
+          
         }}
         frameBorder="0"
         scrolling="no"

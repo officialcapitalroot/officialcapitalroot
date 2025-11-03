@@ -23,6 +23,11 @@ export default function VideoPlayer({ videoId, title, autoplay = false, videoSou
         height: '100%',
         width: '100%',
         videoId: videoId,
+        // ULTRA SHARP CINEMATIC FILTERS
+        filter: 'url(#ultraSharp) brightness(1.25) contrast(1.15) saturate(1.5) hue-rotate(5deg)',
+        transform: 'translateZ(0)',
+        imageRendering: 'pixelated',
+
         playerVars: {
           'playsinline': 1,
           'rel': 0,
@@ -33,6 +38,7 @@ export default function VideoPlayer({ videoId, title, autoplay = false, videoSou
           'origin': typeof window !== 'undefined' ? window.location.origin : '',
           'fs': 1,
           'autoplay': autoplay ? 1 : 0,
+          
         },
         events: {
           'onReady': () => {
