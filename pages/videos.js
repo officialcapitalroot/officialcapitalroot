@@ -11,8 +11,8 @@ export default function Videos({ videos }) {
   const collectionSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "All Videos - Official Capital Root",
-    "description": "Complete collection of Holly,Bolly & Stockwood Market content from Official Capital Root",
+    "name": "All Videos - Capital Root",
+    "description": "Complete collection of Holly,Bolly & Stockwood Market content from Capital Root",
     "url": canonicalUrl,
     "mainEntity": {
       "@type": "ItemList",
@@ -39,21 +39,21 @@ export default function Videos({ videos }) {
   return (
     <>
       <Head>
-        <title>All Videos - Official Capital Root | Holly,Bolly & Stockwood Market Content</title>
-        <meta name="description" content="Browse all videos from Official Capital Root. Complete collection of Holly,Bolly & Stockwood Market content including financial education, stock market analysis, and investment strategies." />
+        <title>All Videos - Capital Root | Holly,Bolly & Stockwood Market Content</title>
+        <meta name="description" content="Browse all videos from Capital Root. Complete collection of Holly,Bolly & Stockwood Market content including financial education, stock market analysis, and investment strategies." />
         <meta name="keywords" content="all videos, financial education, stock market videos, investment tutorials, movie analysis, business documentaries" />
         <link rel="canonical" href={canonicalUrl} />
         
         {/* Open Graph */}
-        <meta property="og:title" content="All Videos - Official Capital Root" />
-        <meta property="og:description" content="Browse all Holly,Bolly & Stockwood Market content from Official Capital Root." />
+        <meta property="og:title" content="All Videos - Capital Root" />
+        <meta property="og:description" content="Browse all Holly,Bolly & Stockwood Market content from Capital Root." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:image" content="https://capitalroot.vercel.app/og-image.jpg" />
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="All Videos - Official Capital Root" />
+        <meta name="twitter:title" content="All Videos - Capital Root" />
         <meta name="twitter:description" content="Complete collection of Holly,Bolly & Stockwood Market content" />
         
         {/* Structured Data */}

@@ -6,14 +6,14 @@ export default function Contact() {
   return (
     <>
       <Head>
-        <title>Contact - Official Capital Root | Get in Touch</title>
-        <meta name="description" content="Contact Official Capital Root for financial education inquiries, collaboration opportunities, and investment guidance." />
+        <title>Contact - Capital Root | Get in Touch</title>
+        <meta name="description" content="Contact Capital Root for financial education inquiries, collaboration opportunities, and investment guidance." />
         <meta name="keywords" content="contact capital root, financial education contact, investment guidance" />
         <link rel="canonical" href="https://capitalroot.vercel.app/contact" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="Contact - Official Capital Root" />
-        <meta property="og:description" content="Get in touch with Official Capital Root for financial education and investment guidance." />
+        <meta property="og:title" content="Contact - Capital Root" />
+        <meta property="og:description" content="Get in touch with Capital Root for financial education and investment guidance." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://capitalroot.vercel.app/contact" />
       </Head>
@@ -22,7 +22,7 @@ export default function Contact() {
         <div className="container">
           <div className="page-header">
             <h1>Contact Us</h1>
-            <p className="page-subtitle">Get in touch with Official Capital Root</p>
+            <p className="page-subtitle">Get in touch with Capital Root</p>
           </div>
           
           <div className="contact-content">

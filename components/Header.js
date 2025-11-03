@@ -21,9 +21,10 @@ export default function Header() {
       <div className="container">
         <nav className="nav" itemScope itemType="https://schema.org/SiteNavigationElement">
           <Link href="/" className="logo" onClick={closeMenu} itemProp="url">
-            <span style={{color: '#dc2626'}} itemProp="name">Official</span> Capital Root
+            <span style={{color: '#6308f5ff'}} itemProp="name">Capital Root</span> 
             {/* <br>
             </br>
+              <span style={{color: '#6308f5ff'}}>Capital Root </span> 
              <span style={{color: '#dc2626'}} itemProp="name"> Holly,Bolly & Stockwood Market. </span> */}
           </Link>
           

@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="footer-content">
           <div className="footer-section">
             <div className="footer-logo">
-              <span style={{color: '#dc2626'}}>Official</span> Capital Root
+              <span style={{color: '#6308f5ff'}}>Capital Root </span> 
             </div>
             <p className="footer-description">
               Capital Root blends storytelling with every video reveals the drama behind screens — Holly,Bolly & Stockwood Market.
@@ -97,7 +97,7 @@ export default function Footer() {
                 <li><a href="/terms">Terms of Service</a></li>
                 <li><a href="/disclaimer">Disclaimer</a></li>
               </ul>
-              <p>&copy; 2025 Official Capital Root. All rights reserved.</p>
+              <p>&copy; 2025 Capital Root. All rights reserved.</p>
             </div>
           </div>
         </div>

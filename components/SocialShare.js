@@ -1,7 +1,7 @@
 import { FaTwitter, FaFacebook, FaLinkedin, FaLink, FaWhatsapp } from 'react-icons/fa'
 
 export default function SocialShare({ url, title, description }) {
-  const shareText = `${title} - Official Capital Root`
+  const shareText = `${title} - Capital Root`
   
   const shareLinks = {
     twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(url)}`,

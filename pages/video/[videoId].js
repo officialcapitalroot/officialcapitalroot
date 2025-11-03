@@ -14,7 +14,7 @@ export default function VideoPage({ video }) {
     return (
       <>
         <Head>
-          <title>Loading... - Official Capital Root</title>
+          <title>Loading... - Capital Root</title>
         </Head>
         <Header />
         <main className="page-main">
@@ -34,7 +34,7 @@ export default function VideoPage({ video }) {
     return (
       <>
         <Head>
-          <title>Video Not Found - Official Capital Root</title>
+          <title>Video Not Found - Capital Root</title>
         </Head>
         <Header />
         <main className="page-main">
@@ -86,12 +86,12 @@ export default function VideoPage({ video }) {
     "interactionCount": parseInt(video.viewCount.replace('K', '000')) || 1000,
     "author": {
       "@type": "Organization",
-      "name": "Official Capital Root",
+      "name": "Capital Root",
       "url": "https://www.youtube.com/channel/UCS7Ahfb_tr9uUz_XuiNJtGg"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Official Capital Root",
+      "name": "Capital Root",
       "logo": {
         "@type": "ImageObject",
         "url": "https://capitalroot.vercel.app/icon-512.png",
@@ -142,7 +142,7 @@ export default function VideoPage({ video }) {
   return (
     <>
       <Head>
-        <title>{video.title} - Official Capital Root</title>
+        <title>{video.title} - Capital Root</title>
         <meta name="description" content={video.description.substring(0, 160)} />
         <meta name="keywords" content={video.tags.join(', ')} />
         <link rel="canonical" href={canonicalUrl} />
@@ -160,7 +160,7 @@ export default function VideoPage({ video }) {
         <meta property="og:video:width" content="1280" />
         <meta property="og:video:height" content="720" />
         <meta property="og:video:secure_url" content={embedUrl} />
-        <meta property="og:site_name" content="Official Capital Root" />
+        <meta property="og:site_name" content="Capital Root" />
         <meta property="og:locale" content="en_US" />
         
         {/* Twitter Card */}
@@ -177,7 +177,7 @@ export default function VideoPage({ video }) {
         
         {/* Additional Meta Tags */}
         <meta name="robots" content="index, follow" />
-        <meta name="author" content="Official Capital Root" />
+        <meta name="author" content="Capital Root" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         
         {/* Structured Data */}

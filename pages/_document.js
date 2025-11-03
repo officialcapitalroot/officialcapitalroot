@@ -23,15 +23,15 @@ export default function Document() {
         
         {/* SEO Meta Tags */}
         <meta name="description" content="Capital Root blends storytelling with every video reveals the drama behind both screens—Holly,Bolly & Stockwood Market" />
-        <meta name="keywords" content="stock market, investing, trading, financial education, wealth building, capital growth, YouTube finance, investment strategies, personal finance" />
-        <meta name="author" content="Official Capital Root" />
+        <meta name="keywords" content="capital root,movie analysis,film breakdown,hollywood movies,financial storytelling,wall street,stock market,business documentaries,profit and loss,company analysis,investor stories,cinematic storytelling,corporate drama,global finance,movie reviews,web series,ai visuals,storytelling meets,finance,film vs finance,market analysis,hollywood insights,data storytelling,cinematic finance,company reports,business news,global economy,stock market" />
+        <meta name="author" content="Capital Root" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="googlebot" content="index, follow" />
         <meta name="language" content="English" />
         <meta name="revisit-after" content="7 days" />
         
         {/* Open Graph */}
-        <meta property="og:site_name" content="Official Capital Root" />
+        <meta property="og:site_name" content="Capital Root" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_US" />
         
@@ -75,7 +75,7 @@ export default function Document() {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": "Official Capital Root",
+              "name": "Capital Root",
               "description": "Financial Education & Investment Strategies YouTube Channel",
               "url": "https://capitalroot.vercel.app",
               "logo": "https://capitalroot.vercel.app/icon-512.png",
