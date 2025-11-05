@@ -10,13 +10,22 @@
 //   const siteName = 'Capital Root'
 //   const siteDescription = 'Capital Root blends storytelling with every video reveals the drama behind both screens—Holly,Bolly & Stockwood Market'
 
-//   // VideoChannel Schema
-//   const videoChannelSchema = {
+//   // VideoObject Schema for each video
+//   const videoSchemas = videos.slice(0, 10).map(video => ({
 //     "@context": "https://schema.org",
-//     "@type": "VideoChannel",
-//     "name": siteName,
-//     "description": siteDescription,
-//     "url": canonicalUrl,
+//     "@type": "VideoObject",
+//     "name": video.title,
+//     "description": video.description,
+//     "thumbnailUrl": video.thumbnail,
+//     "uploadDate": video.uploadDate,
+//     "duration": video.duration,
+//     "contentUrl": video.videoSource === 'youtube' 
+//       ? `https://www.youtube.com/watch?v=${video.videoId}`
+//       : `https://short.icu/${video.videoId}`,
+//     "embedUrl": video.videoSource === 'youtube' 
+//       ? `https://www.youtube.com/embed/${video.videoId}`
+//       : `https://short.icu/${video.videoId}`,
+//     "url": `${canonicalUrl}/video/${video.videoId}`,
 //     "publisher": {
 //       "@type": "Organization",
 //       "name": siteName,
@@ -26,20 +35,8 @@
 //         "width": 512,
 //         "height": 512
 //       }
-//     },
-//     "hasPart": videos.slice(0, 10).map(video => ({
-//       "@type": "VideoObject",
-//       "name": video.title,
-//       "description": video.description,
-//       "thumbnailUrl": video.thumbnail,
-//       "uploadDate": video.uploadDate,
-//       "duration": video.duration,
-//       "url": `${canonicalUrl}/video/${video.videoId}`,
-//       "embedUrl": video.videoSource === 'youtube' 
-//         ? `https://www.youtube.com/embed/${video.videoId}`
-//         : `https://short.icu/${video.videoId}`
-//     }))
-//   }
+//     }
+//   }))
 
 //   return (
 //     <>
@@ -96,13 +93,32 @@
 //           }}
 //         />
         
-//         {/* Structured Data for Video Channel */}
+//         {/* Structured Data for Organization */}
 //         <script
 //           type="application/ld+json"
 //           dangerouslySetInnerHTML={{
-//             __html: JSON.stringify(videoChannelSchema)
+//             __html: JSON.stringify({
+//               "@context": "https://schema.org",
+//               "@type": "Organization",
+//               "name": siteName,
+//               "description": siteDescription,
+//               "url": canonicalUrl,
+//               "logo": `${canonicalUrl}/icon-512.png`,
+//               "sameAs": Object.values(channelData.social)
+//             })
 //           }}
 //         />
+        
+//         {/* Structured Data for Videos */}
+//         {videoSchemas.map((schema, index) => (
+//           <script
+//             key={index}
+//             type="application/ld+json"
+//             dangerouslySetInnerHTML={{
+//               __html: JSON.stringify(schema)
+//             }}
+//           />
+//         ))}
 //       </Head>
       
 //       <Header />
@@ -132,8 +148,6 @@
 
 
 
-
-
 import Head from 'next/head'
 import Header from '../components/Header'
 import Hero from '../components/Hero'
@@ -144,35 +158,58 @@ import videoData from '../data/data.json'
 export default function Home({ videos, channelData }) {
   const canonicalUrl = 'https://capitalroot.vercel.app'
   const siteName = 'Capital Root'
-  const siteDescription = 'Capital Root blends storytelling with every video reveals the drama behind both screens—Holly,Bolly & Stockwood Market'
+  const siteDescription = 'Capital Root blends storytelling with every video reveals the drama behind trio Holly,Bolly & Stockwood Market'
 
-  // VideoObject Schema for each video
-  const videoSchemas = videos.slice(0, 10).map(video => ({
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    "name": video.title,
-    "description": video.description,
-    "thumbnailUrl": video.thumbnail,
-    "uploadDate": video.uploadDate,
-    "duration": video.duration,
-    "contentUrl": video.videoSource === 'youtube' 
-      ? `https://www.youtube.com/watch?v=${video.videoId}`
-      : `https://short.icu/${video.videoId}`,
-    "embedUrl": video.videoSource === 'youtube' 
-      ? `https://www.youtube.com/embed/${video.videoId}`
-      : `https://short.icu/${video.videoId}`,
-    "url": `${canonicalUrl}/video/${video.videoId}`,
-    "publisher": {
-      "@type": "Organization",
-      "name": siteName,
-      "logo": {
-        "@type": "ImageObject",
-        "url": `${canonicalUrl}/icon-512.png`,
-        "width": 512,
-        "height": 512
+  // Helper function to get proper video URLs
+  const getVideoUrls = (video) => {
+    if (video.videoSource === 'youtube') {
+      return {
+        contentUrl: `https://www.youtube.com/watch?v=${video.videoId}`,
+        embedUrl: `https://www.youtube.com/embed/${video.videoId}`
+      }
+    } else {
+      return {
+        contentUrl: `https://short.icu/${video.videoId}`,
+        embedUrl: `https://short.icu/${video.videoId}`
       }
     }
-  }))
+  }
+
+  // VideoObject Schema for each video
+  const videoSchemas = videos.slice(0, 10).map(video => {
+    const urls = getVideoUrls(video)
+    
+    return {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": video.title,
+      "description": video.description,
+      "thumbnailUrl": [
+        video.thumbnail,
+        video.thumbnail // You can add multiple thumbnail sizes if available
+      ],
+      "uploadDate": video.uploadDate,
+      "duration": video.duration,
+      "contentUrl": urls.contentUrl,
+      "embedUrl": urls.embedUrl,
+      "url": `${canonicalUrl}/video/${video.videoId}`,
+      "interactionStatistic": {
+        "@type": "InteractionCounter",
+        "interactionType": { "@type": "WatchAction" },
+        "userInteractionCount": video.viewCount
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": siteName,
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${canonicalUrl}/icon-512.png`,
+          "width": 512,
+          "height": 512
+        }
+      }
+    }
+  })
 
   return (
     <>

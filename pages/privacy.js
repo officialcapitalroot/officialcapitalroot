@@ -17,9 +17,9 @@ export default function Privacy() {
   return (
     <>
       <Head>
-        <title>Privacy Policy - Media Processor Pro</title>
-        <meta name="description" content="Privacy Policy for Media Processor Pro - Your data security and privacy matters" />
-        <meta name="keywords" content="privacy policy, data protection, media processor privacy, image processing privacy" />
+        <title>Privacy Policy - Capital Root</title>
+        <meta name="description" content="Privacy Policy for Capital Root - Your data security and privacy matters" />
+        <meta name="keywords" content="privacy policy, data protection, capital root, movie analysis, film breakdown, hollywood movies, financial storytelling, wall street, stock market, business documentaries, profit and loss, company analysis, investor stories, cinematic storytelling, corporate drama, global finance, movie reviews, web series,storytelling meets finance, film vs finance, market analysis, hollywood insights, data storytelling, cinematic finance,company reports, business news, global economy" />
       </Head>
       
       {/* Header */}
@@ -85,7 +85,7 @@ export default function Privacy() {
             <div style={{lineHeight: '1.8', color: '#444'}}>
               <section style={{marginBottom: '30px'}}>
                 <h2 style={{color: '#333', marginBottom: '15px', fontSize: '1.5rem'}}>🔒 Information We Collect</h2>
-                <p>We are committed to protecting your privacy. Media Processor Pro does not collect, store, or share any personal data from users. All media processing occurs either locally in your browser or through secure third-party services.</p>
+                <p>We are committed to protecting your privacy. Capital Root does not collect, store, or share any personal data from users. All media processing occurs either locally in your browser or through secure third-party services.</p>
               </section>
 
               <section style={{marginBottom: '30px'}}>
@@ -155,7 +155,7 @@ export default function Privacy() {
                   display: 'inline-block'
                 }}
               >
-                Try MagaicSpace Media Processor Pro Free
+                Try MagaicSpace Capital Root Free
               </a>
             </div>
           </div>

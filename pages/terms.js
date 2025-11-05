@@ -17,9 +17,9 @@ export default function Terms() {
   return (
     <>
       <Head>
-        <title>Terms of Service - Media Processor Pro</title>
-        <meta name="description" content="Terms of Service for Media Processor Pro - Understand our terms and conditions" />
-        <meta name="keywords" content="terms of service, media processor terms, user agreement" />
+        <title>Terms of Service - Capital Root</title>
+        <meta name="description" content="Terms of Service for Capital Root - Understand our terms and conditions" />
+        <meta name="keywords" content="terms of service, capital root, movie analysis, film breakdown, hollywood movies, financial storytelling, wall street, stock market, business documentaries, profit and loss, company analysis, investor stories, cinematic storytelling, corporate drama, global finance, movie reviews, web series,storytelling meets finance, film vs finance, market analysis, hollywood insights, data storytelling, cinematic finance,company reports, business news, global economy, user agreement" />
       </Head>
       
       {/* Header */}
@@ -85,32 +85,32 @@ export default function Terms() {
             <div style={{lineHeight: '1.8', color: '#444'}}>
               <section style={{marginBottom: '30px'}}>
                 <h2 style={{color: '#333', marginBottom: '15px', fontSize: '1.5rem'}}>📄 Acceptance of Terms</h2>
-                <p>By accessing and using Media Processor Pro, you accept and agree to be bound by the terms and provision of this agreement.</p>
+                <p>By accessing and using Capital Root, you accept and agree to be bound by the terms and provision of this agreement.</p>
               </section>
 
               <section style={{marginBottom: '30px'}}>
                 <h2 style={{color: '#333', marginBottom: '15px', fontSize: '1.5rem'}}>📝 Use License</h2>
-                <p>Permission is granted to temporarily use Media Processor Pro for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title.</p>
+                <p>Permission is granted to temporarily use Capital Root for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title.</p>
               </section>
 
               <section style={{marginBottom: '30px'}}>
                 <h2 style={{color: '#333', marginBottom: '15px', fontSize: '1.5rem'}}>⚠️ Disclaimer</h2>
-                <p>The materials on Media Processor Pro are provided on an 'as is' basis. We make no warranties, expressed or implied, and hereby disclaim and negate all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.</p>
+                <p>The materials on Capital Root are provided on an 'as is' basis. We make no warranties, expressed or implied, and hereby disclaim and negate all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.</p>
               </section>
 
               <section style={{marginBottom: '30px'}}>
                 <h2 style={{color: '#333', marginBottom: '15px', fontSize: '1.5rem'}}>🚫 Limitations</h2>
-                <p>In no event shall Media Processor Pro or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on Media Processor Pro.</p>
+                <p>In no event shall Capital Root or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on Capital Root.</p>
               </section>
 
               <section style={{marginBottom: '30px'}}>
                 <h2 style={{color: '#333', marginBottom: '15px', fontSize: '1.5rem'}}>✅ Accuracy of Materials</h2>
-                <p>The materials appearing on Media Processor Pro could include technical, typographical, or photographic errors. We do not warrant that any of the materials on its website are accurate, complete or current.</p>
+                <p>The materials appearing on Capital Root could include technical, typographical, or photographic errors. We do not warrant that any of the materials on its website are accurate, complete or current.</p>
               </section>
 
               <section style={{marginBottom: '30px'}}>
                 <h2 style={{color: '#333', marginBottom: '15px', fontSize: '1.5rem'}}>🔗 Links</h2>
-                <p>Media Processor Pro has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site.</p>
+                <p>Capital Root has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site.</p>
               </section>
 
               <section style={{marginBottom: '30px'}}>

@@ -5,8 +5,12 @@ export default function Hero() {
         <div className="hero-content">
           <h1>Holly,Bolly & Stockwood Market with <span>Capital Root</span></h1>
           <p className="hero-subtitle">
-            Capital Root blends storytelling with every video reveals the drama behind screens — Holly,Bolly & Stockwood Market.
+            Capital Root blends storytelling with every video reveals the drama behind trio — Holly,Bolly & Stockwood Market.
           </p>
+          <p className="hero-subtitle">
+            Want To Be in Big Market Value.
+          </p>
+
           <div className="hero-stats">
             <div className="stat">
               <span className="stat-number">50K+</span>

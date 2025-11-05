@@ -7,8 +7,8 @@ export default function Contact() {
     <>
       <Head>
         <title>Contact - Capital Root | Get in Touch</title>
-        <meta name="description" content="Contact Capital Root for financial education inquiries, collaboration opportunities, and investment guidance." />
-        <meta name="keywords" content="contact capital root, financial education contact, investment guidance" />
+        <meta name="description" content="Contact Capital Root blends storytelling with every video reveals the drama behind trio Holly,Bolly & Stockwood Market" />
+        <meta name="keywords" content="capital root, movie analysis, film breakdown, hollywood movies, financial storytelling, wall street, stock market, business documentaries, profit and loss, company analysis, investor stories, cinematic storytelling, corporate drama, global finance, movie reviews, web series,storytelling meets finance, film vs finance, market analysis, hollywood insights, data storytelling, cinematic finance,company reports, business news,global economy" />
         <link rel="canonical" href="https://capitalroot.vercel.app/contact" />
         
         {/* Open Graph */}

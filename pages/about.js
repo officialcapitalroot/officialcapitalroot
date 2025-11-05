@@ -6,14 +6,14 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About - Capital Root | Financial Education Channel</title>
-        <meta name="description" content="Learn about Capital Root - Your trusted source for financial education, stock market investing, and wealth building strategies." />
-        <meta name="keywords" content="about capital root, financial education, stock market channel, investment strategies" />
+        <title>About - Capital Root | Holly,Bolly & Stockwood Market</title>
+        <meta name="description" content="Learn about Capital Root - blends storytelling with every video reveals the drama behind trio Holly,Bolly & Stockwood Market" />
+        <meta name="keywords" content="capital root, movie analysis, film breakdown, hollywood movies, financial storytelling, wall street, stock market, business documentaries, profit and loss, company analysis, investor stories, cinematic storytelling, corporate drama, global finance, movie reviews, web series,storytelling meets finance, film vs finance, market analysis, hollywood insights, data storytelling, cinematic finance,company reports, business news,global economy" />
         <link rel="canonical" href="https://capitalroot.vercel.app/about" />
         
         {/* Open Graph */}
         <meta property="og:title" content="About - Capital Root" />
-        <meta property="og:description" content="Learn about Capital Root - Your trusted source for financial education and investment strategies." />
+        <meta property="og:description" content="Learn about Capital Root - blends storytelling with every video reveals the drama behind trio Holly,Bolly & Stockwood Market" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://capitalroot.vercel.app/about" />
       </Head>
@@ -29,7 +29,7 @@ export default function About() {
             <section className="about-section">
               <h2>Our Mission</h2>
               <p>
-                Capital Root blends storytelling with every video reveals the drama behind both screens—Holly,Bolly & Stockwood Market
+                Capital Root blends storytelling with every video reveals the drama behind trio Holly,Bolly & Stockwood Market
               </p>
             </section>
             
