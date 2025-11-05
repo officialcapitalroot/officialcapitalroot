@@ -360,18 +360,87 @@
 
 
 
-import Head from 'next/head'
-import Header from '../../components/Header'
-import VideoPlayerWrapper from '../../components/VideoPlayerWrapper'
-import RelatedVideoCard from '../../components/RelatedVideoCard'
-import Footer from '../../components/Footer'
-import videoData from '../../data/data.json'
+
+
+
+
+
+
+// import Head from 'next/head'
+// import Header from '../../components/Header'
+// import VideoPlayerWrapper from '../../components/VideoPlayerWrapper'
+// import RelatedVideoCard from '../../components/RelatedVideoCard'
+// import Footer from '../../components/Footer'
+// import videoData from '../../data/data.json'
+
+import Head from "next/head";
+import { useRouter } from "next/router";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import VideoPlayerWrapper from "../../components/VideoPlayerWrapper";
+import SocialShare from "../../components/SocialShare";
+import RelatedVideoCard from "../../components/RelatedVideoCard";
+import videoData from "../../data/data.json";
 
 export default function VideoPage({ video, relatedVideos }) {
   if (!video) {
     return <div>Video not found</div>
   }
 
+    const router = useRouter();
+
+  if (router.isFallback) {
+    return (
+      <>
+        <Head>
+          <title>Loading... - Capital Root</title>
+        </Head>
+        <Header />
+        <main className="page-main">
+          <div className="container">
+            <div className="loading">
+              <div className="loading-spinner"></div>
+              <p>Loading video...</p>
+            </div>
+          </div>
+        </main>
+        <Footer />
+      </>
+    );
+  }
+
+  if (!video) {
+    return (
+      <>
+        <Head>
+          <title>Video Not Found - Capital Root</title>
+        </Head>
+        <Header />
+        <main className="page-main">
+          <div className="container">
+            <div className="error-message">
+              <h1>Video Not Found</h1>
+              <p>
+                The video you're looking for doesn't exist or has been removed.
+              </p>
+              <div className="navigation-buttons">
+                <button
+                  onClick={() => router.back()}
+                  className="cta-button secondary"
+                >
+                  Go Back
+                </button>
+                <a href="/videos" className="cta-button primary">
+                  Browse All Videos
+                </a>
+              </div>
+            </div>
+          </div>
+        </main>
+        <Footer />
+      </>
+    );
+  }
   const canonicalUrl = `https://capitalroot.vercel.app/video/${video.videoId}`
   
   // Helper function to get proper video URLs
@@ -461,83 +530,133 @@ export default function VideoPage({ video, relatedVideos }) {
       </Head>
       
       <Header />
-      <main className="video-page">
+            <main className="video-page-main">
         <div className="container">
-          <article className="video-content" itemScope itemType="https://schema.org/VideoObject">
-            <div className="video-player-section">
-              <VideoPlayerWrapper 
+          {/* Back to Videos Button */}
+          <div className="page-navigation">
+            <button
+              onClick={() => router.push("/videos")}
+              className="back-button"
+              aria-label="Go back to all videos"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+              </svg>
+              Back to All Videos
+            </button>
+          </div>
+
+          <div className="video-page-content">
+            {/* Video Player Section */}
+            <section className="video-player-section">
+              <VideoPlayerWrapper
                 videoId={video.videoId}
                 videoSource={video.videoSource}
                 title={video.title}
               />
-            </div>
-            
-            <div className="video-info">
-              <h1 itemProp="name">{video.title}</h1>
-              <div className="video-meta">
-                <span className="views" itemProp="interactionCount">
-                  {typeof video.viewCount === 'number' ? video.viewCount.toLocaleString() : video.viewCount} views
-                </span>
-                <span className="date">
-                  {new Date(video.uploadDate).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                  })}
-                </span>
-              </div>
-              <p className="video-description" itemProp="description">
-                {video.description}
-              </p>
-              
-              <div className="video-tags">
-                {video.tags.map((tag, index) => (
-                  <span key={index} className="tag">{tag}</span>
-                ))}
-              </div>
-            </div>
-          </article>
-          
-          {/* Related Videos Section */}
-          {relatedVideos && relatedVideos.length > 0 && (
-            <section className="related-videos-section">
-              <h2>Related Videos</h2>
-              <div className="related-videos-grid">
-                {relatedVideos.map(relatedVideo => (
-                  <RelatedVideoCard key={relatedVideo.id} video={relatedVideo} />
-                ))}
+
+              <div className="video-info">
+                <h1 className="video-title">{video.title}</h1>
+
+                <div className="video-meta">
+                  <span className="views">{video.viewCount} views</span>
+                  <span className="date">
+                    {new Date(video.uploadDate).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </span>
+                  <span className="duration">{video.duration}</span>
+                  <span className="source-badge">{video.videoSource}</span>
+                </div>
+
+                <div className="video-description">
+                  <p>{video.description}</p>
+                </div>
+
+                <div className="video-tags">
+                  {video.tags.map((tag, index) => (
+                    <span key={index} className="tag">
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+
+                <SocialShare
+                  title={video.title}
+                  description={video.description}
+                  videoSource={video.videoSource}
+                  videoId={video.videoId}
+                  thumbnail={video.thumbnail}
+                />
+                <div className="video-navigation">
+                  <button
+                    onClick={() => router.push("/videos")}
+                    className="cta-button secondary"
+                  >
+                    ← Back to All Videos
+                  </button>
+                </div>
               </div>
             </section>
-          )}
+
+            {/* Related Videos Section */}
+            <section className="related-videos-section">
+              <h2 className="related-videos-title">
+                More Videos You Might Like
+              </h2>
+              <div className="related-videos-grid">
+                {videoData.videos
+                  .filter((v) => v.videoId !== video.videoId)
+                  .slice(0, 8)
+                  .map((relatedVideo) => (
+                    <RelatedVideoCard
+                      key={relatedVideo.id}
+                      video={relatedVideo}
+                    />
+                  ))}
+              </div>
+            </section>
+          </div>
         </div>
       </main>
       <Footer />
     </>
-  )
+  );
 }
 
 export async function getStaticPaths() {
-  const paths = videoData.videos.map(video => ({
-    params: { videoId: video.videoId }
-  }))
+  const videos = videoData.videos;
+
+  const paths = videos.map((video) => ({
+    params: { videoId: video.videoId.toString() },
+  }));
 
   return {
     paths,
-    fallback: false
-  }
+    fallback: false,
+  };
 }
 
 export async function getStaticProps({ params }) {
-  const video = videoData.videos.find(v => v.videoId === params.videoId)
-  const relatedVideos = videoData.videos
-    .filter(v => v.videoId !== params.videoId)
-    .slice(0, 6)
+  const video = videoData.videos.find((v) => v.videoId === params.videoId);
+
+  if (!video) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {
       video,
-      relatedVideos
     },
-    revalidate: 3600
-  }
+    revalidate: 3600,
+  };
 }
