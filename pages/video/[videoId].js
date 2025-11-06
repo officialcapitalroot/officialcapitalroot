@@ -828,8 +828,10 @@ export default function VideoPage({ video, relatedVideos }) {
   const urls = getVideoUrls(video);
   const displayDuration = getDisplayDuration(video.duration);
 
-  // Convert duration to seconds for schema
+  // Convert duration to seconds for schema - FIXED FOR SHORTICU
   const convertDurationToSeconds = (duration) => {
+    if (!duration) return 300; // default 5 minutes
+    
     if (duration.includes('PT')) {
       // ISO 8601 format
       const time = duration.replace('PT', '');
@@ -845,11 +847,27 @@ export default function VideoPage({ video, relatedVideos }) {
       
       return seconds;
     }
+    
+    // Handle other duration formats (like "5:30" or "5 minutes")
+    if (duration.includes(':')) {
+      const parts = duration.split(':');
+      if (parts.length === 2) {
+        return parseInt(parts[0]) * 60 + parseInt(parts[1]);
+      } else if (parts.length === 3) {
+        return parseInt(parts[0]) * 3600 + parseInt(parts[1]) * 60 + parseInt(parts[2]);
+      }
+    }
+    
     return 300; // default 5 minutes
   }
 
-  // Get proper thumbnail URL
+  // Get proper thumbnail URL with fallback
   const getThumbnailUrl = () => {
+    if (!video.thumbnail) {
+      // Default thumbnail for ShortICU videos
+      return "https://capitalroot.vercel.app/images/default-video-thumbnail.jpg";
+    }
+    
     if (video.thumbnail.startsWith('http')) {
       return video.thumbnail;
     } else {
@@ -857,27 +875,44 @@ export default function VideoPage({ video, relatedVideos }) {
     }
   }
 
-  const thumbnailUrl = getThumbnailUrl();
-  const durationSeconds = convertDurationToSeconds(video.duration);
+  // Safe data extraction with fallbacks for ShortICU
+  const getSafeVideoData = () => {
+    return {
+      title: video.title || "Untitled Video",
+      description: video.description || "Watch this video on Capital Root",
+      thumbnailUrl: getThumbnailUrl(),
+      uploadDate: video.uploadDate || new Date().toISOString().split('T')[0], // Current date as fallback
+      viewCount: typeof video.viewCount === 'string' 
+        ? parseInt(video.viewCount.replace(/[^0-9]/g, '')) || 1000 
+        : video.viewCount || 1000,
+      duration: video.duration || "PT5M",
+      tags: video.tags || [],
+      category: video.category || "Entertainment"
+    }
+  }
 
-  // VideoObject Schema for this specific video - COMPLETELY FIXED
+  const safeVideo = getSafeVideoData();
+  const thumbnailUrl = safeVideo.thumbnailUrl;
+  const durationSeconds = convertDurationToSeconds(safeVideo.duration);
+
+  // VideoObject Schema - COMPLETELY FIXED WITH FALLBACKS FOR SHORTICU
   const videoSchema = {
     "@context": "https://schema.org",
     "@type": "VideoObject",
-    "name": video.title,
-    "description": video.description,
-    "thumbnailUrl": thumbnailUrl,
-    "uploadDate": video.uploadDate,
+    "name": safeVideo.title, // REQUIRED - using safe title
+    "description": safeVideo.description, // REQUIRED - using safe description
+    "thumbnailUrl": thumbnailUrl, // REQUIRED - using safe thumbnail
+    "uploadDate": safeVideo.uploadDate, // REQUIRED - using safe upload date
     "duration": `PT${durationSeconds}S`,
-    "contentUrl": urls.contentUrl,
-    "embedUrl": urls.embedUrl,
-    "url": canonicalUrl, // THIS WAS MISSING - CRITICAL FIX
+    "contentUrl": urls.contentUrl, // REQUIRED - one of these must be present
+    "embedUrl": urls.embedUrl, // REQUIRED - one of these must be present
+    "url": canonicalUrl,
     "interactionStatistic": {
       "@type": "InteractionCounter",
       "interactionType": { 
         "@type": "WatchAction" 
       },
-      "userInteractionCount": typeof video.viewCount === 'string' ? parseInt(video.viewCount.replace(/[^0-9]/g, '')) || 1000 : video.viewCount
+      "userInteractionCount": safeVideo.viewCount
     },
     "publisher": {
       "@type": "Organization",
@@ -906,7 +941,7 @@ export default function VideoPage({ video, relatedVideos }) {
       {
         "@type": "ListItem",
         "position": 3,
-        "name": video.title,
+        "name": safeVideo.title,
         "item": canonicalUrl
       }
     ]
@@ -915,20 +950,20 @@ export default function VideoPage({ video, relatedVideos }) {
   return (
     <>
       <Head>
-        <title>{video.title} - Capital Root</title>
-        <meta name="description" content={video.description} />
-        <meta name="keywords" content={video.tags.join(', ')} />
+        <title>{safeVideo.title} - Capital Root</title>
+        <meta name="description" content={safeVideo.description} />
+        <meta name="keywords" content={safeVideo.tags.join(', ')} />
         <link rel="canonical" href={canonicalUrl} />
         
         {/* Open Graph */}
-        <meta property="og:title" content={video.title} />
-        <meta property="og:description" content={video.description} />
+        <meta property="og:title" content={safeVideo.title} />
+        <meta property="og:description" content={safeVideo.description} />
         <meta property="og:type" content="video.movie" />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:image" content={thumbnailUrl} />
         <meta property="og:image:width" content="1280" />
         <meta property="og:image:height" content="720" />
-        <meta property="og:image:alt" content={video.title} />
+        <meta property="og:image:alt" content={safeVideo.title} />
         <meta property="og:video" content={urls.embedUrl} />
         <meta property="og:video:type" content="text/html" />
         <meta property="og:video:width" content="1280" />
@@ -937,8 +972,8 @@ export default function VideoPage({ video, relatedVideos }) {
         {/* Twitter Card */}
         <meta name="twitter:card" content="player" />
         <meta name="twitter:site" content="@capitalroot" />
-        <meta name="twitter:title" content={video.title} />
-        <meta name="twitter:description" content={video.description} />
+        <meta name="twitter:title" content={safeVideo.title} />
+        <meta name="twitter:description" content={safeVideo.description} />
         <meta name="twitter:image" content={thumbnailUrl} />
         <meta name="twitter:player" content={urls.embedUrl} />
         <meta name="twitter:player:width" content="1280" />
@@ -991,20 +1026,18 @@ export default function VideoPage({ video, relatedVideos }) {
               <VideoPlayerWrapper
                 videoId={video.videoId}
                 videoSource={video.videoSource}
-                title={video.title}
+                title={safeVideo.title}
               />
 
               <div className="video-info">
-                <h1 className="video-title">{video.title}</h1>
+                <h1 className="video-title">{safeVideo.title}</h1>
 
                 <div className="video-meta">
                   <span className="views">
-                    {typeof video.viewCount === 'number' 
-                      ? video.viewCount.toLocaleString() 
-                      : video.viewCount} views
+                    {safeVideo.viewCount.toLocaleString()} views
                   </span>
                   <span className="date">
-                    {new Date(video.uploadDate).toLocaleDateString("en-US", {
+                    {new Date(safeVideo.uploadDate).toLocaleDateString("en-US", {
                       year: "numeric",
                       month: "long",
                       day: "numeric",
@@ -1012,17 +1045,17 @@ export default function VideoPage({ video, relatedVideos }) {
                   </span>
                   <span className="duration">{displayDuration}</span>
                   <span className="source-badge">{video.videoSource}</span>
-                  {video.category && (
-                    <span className="category">{video.category}</span>
+                  {safeVideo.category && (
+                    <span className="category">{safeVideo.category}</span>
                   )}
                 </div>
 
                 <div className="video-description">
-                  <p>{video.description}</p>
+                  <p>{safeVideo.description}</p>
                 </div>
 
                 <div className="video-tags">
-                  {video.tags.map((tag, index) => (
+                  {safeVideo.tags.map((tag, index) => (
                     <span key={index} className="tag">
                       #{tag}
                     </span>
@@ -1030,8 +1063,8 @@ export default function VideoPage({ video, relatedVideos }) {
                 </div>
 
                 <SocialShare
-                  title={video.title}
-                  description={video.description}
+                  title={safeVideo.title}
+                  description={safeVideo.description}
                   videoSource={video.videoSource}
                   videoId={video.videoId}
                   thumbnail={thumbnailUrl}
