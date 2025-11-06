@@ -1,3 +1,4 @@
+
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Header from "../../components/Header";
@@ -104,21 +105,34 @@ export default function VideoPage({ video, relatedVideos }) {
     return 300; // default 5 minutes
   }
 
-  // VideoObject Schema for this specific video - ONLY on watch page
+  // Get proper thumbnail URL
+  const getThumbnailUrl = () => {
+    if (video.thumbnail.startsWith('http')) {
+      return video.thumbnail;
+    } else {
+      return `https://capitalroot.vercel.app${video.thumbnail}`;
+    }
+  }
+
+  const thumbnailUrl = getThumbnailUrl();
+  const durationSeconds = convertDurationToSeconds(video.duration);
+
+  // VideoObject Schema for this specific video - FIXED STRUCTURE
   const videoSchema = {
     "@context": "https://schema.org",
     "@type": "VideoObject",
     "name": video.title,
     "description": video.description,
-    "thumbnailUrl": video.thumbnail.startsWith('http') ? video.thumbnail : `https://capitalroot.vercel.app${video.thumbnail}`,
+    "thumbnailUrl": thumbnailUrl,
     "uploadDate": video.uploadDate,
-    "duration": `PT${convertDurationToSeconds(video.duration)}S`,
+    "duration": `PT${durationSeconds}S`,
     "contentUrl": urls.contentUrl,
     "embedUrl": urls.embedUrl,
-    "url": canonicalUrl,
     "interactionStatistic": {
       "@type": "InteractionCounter",
-      "interactionType": { "@type": "WatchAction" },
+      "interactionType": { 
+        "@type": "WatchAction" 
+      },
       "userInteractionCount": typeof video.viewCount === 'string' ? parseInt(video.viewCount.replace(/[^0-9]/g, '')) || 1000 : video.viewCount
     },
     "publisher": {
@@ -131,9 +145,7 @@ export default function VideoPage({ video, relatedVideos }) {
         "width": 512,
         "height": 512
       }
-    },
-    "genre": video.category || "Entertainment",
-    "isFamilyFriendly": video.familyFriendly !== undefined ? video.familyFriendly : true
+    }
   }
 
   // Breadcrumb Schema
@@ -175,7 +187,7 @@ export default function VideoPage({ video, relatedVideos }) {
         <meta property="og:description" content={video.description} />
         <meta property="og:type" content="video.movie" />
         <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:image" content={video.thumbnail.startsWith('http') ? video.thumbnail : `https://capitalroot.vercel.app${video.thumbnail}`} />
+        <meta property="og:image" content={thumbnailUrl} />
         <meta property="og:image:width" content="1280" />
         <meta property="og:image:height" content="720" />
         <meta property="og:image:alt" content={video.title} />
@@ -189,7 +201,7 @@ export default function VideoPage({ video, relatedVideos }) {
         <meta name="twitter:site" content="@capitalroot" />
         <meta name="twitter:title" content={video.title} />
         <meta name="twitter:description" content={video.description} />
-        <meta name="twitter:image" content={video.thumbnail.startsWith('http') ? video.thumbnail : `https://capitalroot.vercel.app${video.thumbnail}`} />
+        <meta name="twitter:image" content={thumbnailUrl} />
         <meta name="twitter:player" content={urls.embedUrl} />
         <meta name="twitter:player:width" content="1280" />
         <meta name="twitter:player:height" content="720" />
@@ -200,6 +212,7 @@ export default function VideoPage({ video, relatedVideos }) {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(videoSchema)
           }}
+          key="video-schema"
         />
         
         {/* Breadcrumb Schema */}
@@ -208,6 +221,7 @@ export default function VideoPage({ video, relatedVideos }) {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(breadcrumbSchema)
           }}
+          key="breadcrumb-schema"
         />
       </Head>
       
@@ -282,7 +296,7 @@ export default function VideoPage({ video, relatedVideos }) {
                   description={video.description}
                   videoSource={video.videoSource}
                   videoId={video.videoId}
-                  thumbnail={video.thumbnail}
+                  thumbnail={thumbnailUrl}
                 />
                 
                 <div className="video-navigation">
