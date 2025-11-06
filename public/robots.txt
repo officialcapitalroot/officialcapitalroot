@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://capitalroot.vercel.app/sitemap.xml
+Sitemap: https://capitalroot.vercel.app/video-sitemap.xml
