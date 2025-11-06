@@ -7,7 +7,7 @@ import videoData from '../data/data.json'
 export default function Videos({ videos }) {
   const canonicalUrl = 'https://capitalroot.vercel.app/videos'
 
-  // CollectionPage Schema
+  // CollectionPage Schema without VideoObject
   const collectionSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -20,18 +20,7 @@ export default function Videos({ videos }) {
       "itemListElement": videos.map((video, index) => ({
         "@type": "ListItem",
         "position": index + 1,
-        "item": {
-          "@type": "VideoObject",
-          "name": video.title,
-          "description": video.description,
-          "thumbnailUrl": video.thumbnail,
-          "uploadDate": video.uploadDate,
-          "duration": video.duration,
-          "url": `https://capitalroot.vercel.app/video/${video.videoId}`,
-          "embedUrl": video.videoSource === 'youtube' 
-            ? `https://www.youtube.com/embed/${video.videoId}`
-            : `https://short.icu/${video.videoId}`
-        }
+        "url": `https://capitalroot.vercel.app/video/${video.videoId}`
       }))
     }
   }
