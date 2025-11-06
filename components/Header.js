@@ -42,6 +42,18 @@ export default function Header() {
           </button>
          <div id="nav-links" className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
             <div className="footer-social"style={{ display: 'flex', gap: '16px' }}>
+             
+              <a 
+                href="https://t.me/capitalroot" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="social-link telegram"
+                aria-label="Telegram Channel"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M9.99991 15.1701L9.85791 18.0901C10.1299 18.0901 10.2479 17.9731 10.3909 17.8301L11.7479 16.5291L14.7319 18.7171C15.2799 19.0211 15.6689 18.8671 15.8099 18.1871L17.9549 8.10411C18.1589 7.24011 17.6179 6.87311 17.0879 7.06611L5.70691 11.4481C4.86291 11.7771 4.86791 12.2371 5.55391 12.4501L8.47691 13.3641L15.4339 9.02311C15.7619 8.82111 16.0619 8.93711 15.8169 9.15311L9.99991 15.1701Z"/>
+                </svg>
+              </a>
               <a 
                 href="https://www.youtube.com/channel/UCS7Ahfb_tr9uUz_XuiNJtGg" 
                 target="_blank" 
@@ -100,15 +112,16 @@ export default function Header() {
             <Link href="/contact" onClick={closeMenu} itemProp="url">
               <span itemProp="name">Contact</span>
             </Link>
+
             <a 
-              href="https://www.youtube.com/channel/UCS7Ahfb_tr9uUz_XuiNJtGg" 
+              href="https://t.me/capitalroot" 
               target="_blank" 
               rel="noopener noreferrer"
               className="youtube-btn"
               onClick={closeMenu}
               itemProp="url"
             >
-              YouTube Channel
+               <span style={{color: '#ffffff'}} itemProp="name">Telegram Channel</span>
             </a>
           </div>
 

@@ -1,16 +1,52 @@
 {
   "videos": [
     {
+      "id": "24",
+      "videoId": "k4PFrxvn6MAJ9nE9MBY",
+      "videoSource": "dailymotion",
+      "title": "Greater Kalesh (2025) Full Movie",
+      "description": "Twinkle returns home for a surprise Diwali trip, but secrets and disagreements test her family's bonds in ways she never imagined.",
+      "thumbnail": "/GreaterKalesh.jpg",
+      "uploadDate": "2025-11-06T00:00:00Z",
+      "viewCount": 1,
+      "duration": "PT51M50S",
+      "tags": ["Greater Kalesh", "Greater Kalesh 2025", "Streaming", "video", "Stream", "Streaming media", "TV", "Online movie streaming services", "Video","streaming"]
+    },
+        {
+      "id": "23",
+      "videoId": "k7nTcMUErN5FTfE9N0m",
+      "videoSource": "dailymotion",
+      "title": "Tu Haan Kar Ya Naa Kar Part 1 (2025) Full Movie",
+      "description": "In the mundane life of Bimal and Antara, new neighbors bring in a fresh breeze of excitement. But behind all the fun and games lies a secret game of dangerous proportion that will change their relationships forever. The question is, for better or for worse?",
+      "thumbnail": "/TuHaanKarYaNaaKarPart1.jpg",
+      "uploadDate": "2025-11-06T00:00:00Z",
+      "viewCount": 1,
+      "duration": "PT1H17M36S",
+      "tags": ["Tu Haan Kar Ya Naa Kar Part 1", "Tu Haan Kar Ya Naa Kar Part 1 2025", "Streaming", "video", "Stream", "Streaming media", "TV", "Online movie streaming services", "Video","streaming"]
+    },
+     {
+      "id": "22",
+      "videoId": "k7nqehpaA00q8hE9NPq",
+      "videoSource": "dailymotion",
+      "title": "Dark Nuns (2025) Full Movie",
+      "description": "A young boy Hee-Joon is possessed by an evil spirit. Nun Yunia tries to save him, assisted by Nun Mikaela. Priest Paul attempts medical treatment, while Priest Andrew performs an exorcism to rid Hee-Joon of the spirit.",
+      "thumbnail": "/DarkNuns.jpg",
+      "uploadDate": "2025-11-06T00:00:00Z",
+      "viewCount": 1,
+      "duration": "PT1H54M3",
+      "tags": ["Dark Nuns", "Dark Nuns 2025", "Streaming", "video", "Stream", "Streaming media", "TV", "Online movie streaming services", "Video","streaming"]
+    },
+    {
       "id": "21",
-      "videoId": "zu0xW4qe5",
-      "videoSource": "shorticu",
+      "videoId": "k6pgUVtZ2Ud8lZE9NEC",
+      "videoSource": "dailymotion",
       "title": "Obsession (2025) Full Movie",
       "description": "Adi's love turns into obsession when Aarti rejects him. Torn between guilt and fear, she faces blackmail through a recording that threatens to destroy everything.",
       "thumbnail": "/Obsession.jpg",
       "uploadDate": "2025-11-04T00:00:00Z",
       "viewCount": 32000,
       "duration": "PT1H6M",
-      "tags": ["Obsession", "Obsession2025", "ObsessionExplained", "ObsessionAnalysis", "ObsessionExplained", "ObsessionExplanation", "ObsessionStorytelling", "ObsessionMovieBreakdown"]
+      "tags": ["Obsession", "Obsession 2025", "Streaming", "video", "Stream", "Streaming media", "TV", "Online movie streaming services", "Video","streaming"]
     },
     {
       "id": "20",
@@ -22,19 +58,19 @@
       "uploadDate": "2025-11-04T00:00:00Z",
       "viewCount": 12000,
       "duration": "PT1H15M",
-      "tags": ["Nympho", "Nympho2025", "NymphoExplained", "NymphoAnalysis", "NymphonExplained", "NymphoExplanation", "NymphoStorytelling", "NymphoMovieBreakdown"]
+      "tags": ["Nympho", "Nympho 2025", "Streaming", "video", "Stream", "Streaming media", "TV", "Online movie streaming services", "Video","streaming"]
     },
     {
       "id": "19",
-      "videoId": "1GkUlBOYRc",
-      "videoSource": "shorticu",
+      "videoId": "k37kRVCAI83OssE9N2c",
+      "videoSource": "dailymotion",
       "title": "Mamasan (2025) Full Movie",
       "description": "A seasoned woman and a budding one collide when passion ignites between them. Tanya, a mamasan, protects Pinky, the new girl in the bar, until she discovers her boyfriend Ador is having an affair with her.",
       "thumbnail": "/Mamasan.jpg",
       "uploadDate": "2025-11-04T00:00:00Z",
       "viewCount": 2000,
       "duration": "PT1H15M",
-      "tags": ["Mamasan", "Mamasan2025", "MamasanExplained", "MamasanAnalysis", "MamasanExplained", "MamasanExplanation", "MamasanStorytelling", "MamasanMovieBreakdown"]
+      "tags": ["Mamasan", "Mamasan 2025", "Streaming", "video", "Stream", "Streaming media", "TV", "Online movie streaming services", "Video","streaming"]
     },
     {
       "id": "18",
@@ -46,7 +82,7 @@
       "uploadDate": "2025-11-04T00:00:00Z",
       "viewCount": 22000,
       "duration": "PT2H45M",
-      "tags": ["KantaraChapter1", "KantaraChapter12025", "KantaraChapter1Explained", "KantaraChapter1Analysis", "KantaraChapter1Explained", "KantaraChapter1Explanation", "KantaraChapter1Storytelling", "KantaraChapter1MovieBreakdown"]
+      "tags": ["Kantara Chapter 1", "Kantara Chapter 1 2025", "Streaming", "video", "Stream", "Streaming media", "TV", "Online movie streaming services", "Video","streaming"]
     },
     {
       "id": "17",
@@ -58,7 +94,7 @@
       "uploadDate": "2025-11-04T00:00:00Z",
       "viewCount": 12000,
       "duration": "PT1H52M",
-      "tags": ["AHouseOfDynamite", "AHouseOfDynamite2025", "AHouseOfDynamiteExplained", "AHouseOfDynamiteAnalysis", "AHouseOfDynamiteEndingExplained", "AHouseOfDynamiteExplanation", "AHouseOfDynamiteStorytelling", "AHouseOfDynamiteMovieBreakdown"]
+      "tags": ["A House Of Dynamite", "A House Of Dynamite 2025", "Streaming", "video", "Stream", "Streaming media", "TV", "Online movie streaming services", "Video","streaming"]
     },
     {
       "id": "16",
@@ -70,7 +106,7 @@
       "uploadDate": "2025-11-04T00:00:00Z",
       "viewCount": 13000,
       "duration": "PT1H30M",
-      "tags": ["Tornado", "Tornadot2025", "TornadotExplained", "TornadoMovieAnalysis", "TornadoEndingExplained", "TornadooExplanation", "TornadoStorytelling", "TornadoMovieBreakdown"]
+      "tags": ["Tornado", "Tornado 2025", "Streaming", "video", "Stream", "Streaming media", "TV", "Online movie streaming services", "Video","streaming"]
     },
     {
       "id": "15",
@@ -82,7 +118,7 @@
       "uploadDate": "2025-11-04T00:00:00Z",
       "viewCount": 25000,
       "duration": "PT1H22M",
-      "tags": ["TheRatsAWitcherTale", "TheRatsAWitcherTalet2025", "TheRatsAWitcherTaletExplained", "TheRatsAWitcherTaleMovieAnalysis", "TheRatsAWitcherTaleEndingExplained", "TheRatsAWitcherTaleExplanation", "TheRatsAWitcherTaleStorytelling", "TheRatsAWitcherTaleMovieBreakdown"]
+      "tags": ["The Rats A Witcher Tale", "The Rats A Witcher Talet 2025", "Streaming", "video", "Stream", "Streaming media", "TV", "Online movie streaming services", "Video","streaming"]
     },
     {
       "id": "14",
@@ -94,7 +130,7 @@
       "uploadDate": "2025-11-04T00:00:00Z",
       "viewCount": 15000,
       "duration": "PT1H30M",
-      "tags": ["TheAstronaut", "TheAstronaut2025", "TheAstronautExplained", "TheAstronautMovieAnalysis", "TheAstronautEndingExplained", "TheAstronautrExplanation", "TheAstronautStorytelling", "TheAstronautMovieBreakdown"]
+      "tags": ["The Astronaut", "The Astronaut 2025", "Streaming", "video", "Stream", "Streaming media", "TV", "Online movie streaming services", "Video","streaming"]
     },
     {
       "id": "13",
@@ -106,7 +142,7 @@
       "uploadDate": "2024-01-15T00:00:00Z",
       "viewCount": 15000,
       "duration": "PT2H7M",
-      "tags": ["PlayDirty", "PlayDirty2025", "PlayDirtyExplained", "PlayDirtyMovieAnalysis", "PlayDirtyEndingExplained", "PlayDirtyrExplanation", "PlayDirtyaStorytelling", "PlayDirtyMovieBreakdown"]
+      "tags": ["Play Dirty", "Play Dirty 2025", "Streaming", "video", "Stream", "Streaming media", "TV", "Online movie streaming services", "Video","streaming"]
     },
     {
       "id": "12",
@@ -118,7 +154,7 @@
       "uploadDate": "2024-01-15T00:00:00Z",
       "viewCount": 15000,
       "duration": "PT15M30S",
-      "tags": ["investing", "beginners", "stock market", "tutorial"]
+      "tags": ["Streaming", "video", "Stream", "Streaming media", "TV", "Online movie streaming services", "Video","streaming"]
     },
     {
       "id": "11",
@@ -131,7 +167,7 @@
       "viewCount": "150",
       "duration": "PT15M30S",
       
-      "tags": ["trading", "advanced", "strategies", "2024"]
+      "tags": ["Streaming", "video", "Stream", "Streaming media", "TV", "Online movie streaming services", "Video","streaming"]
     },
     {
       "id": "10",
@@ -143,7 +179,7 @@
       "uploadDate": "2024-01-15T00:00:00Z",
       "viewCount": "6",
       "duration": "PT18M20S",
-      "tags": ["wealth", "long term", "financial freedom", "principles"]
+      "tags": ["Streaming", "video", "Stream", "Streaming media", "TV", "Online movie streaming services", "Video","streaming"]
     },
     {
       "id": "9",
@@ -155,7 +191,7 @@
       "uploadDate": "2024-01-15T00:00:00Z",
       "viewCount": "15",
       "duration": "PT25M15S",
-      "tags": ["market analysis", "day trading", "techniques", "trading"]
+      "tags": ["Streaming", "video", "Stream", "Streaming media", "TV", "Online movie streaming services", "Video","streaming"]
     },
     {
       "id": "8",
@@ -167,7 +203,7 @@
       "uploadDate": "2024-01-15T00:00:00Z",
       "viewCount": "46",
       "duration": "PT05M25S",
-      "tags": ["SemBreak", "SemBreak2025", "SemBreakExplained", "SemBreakMovieAnalysis", "SemBreakEndingExplained", "HorrorThrillerExplanation", "DarkCinemaStorytelling", "DisturbingMovieBreakdown"]
+      "tags": ["Sem Break", "Sem Break 2025", "Streaming", "video", "Stream", "Streaming media", "TV", "Online movie streaming services", "Video","streaming"]
     },
     {
       "id": "7",
@@ -179,7 +215,7 @@
       "uploadDate": "2024-01-15T00:00:00Z",
       "viewCount": "35",
       "duration": "PT06M20S",
-      "tags": ["PaalamSalamat", "LigayaStory", "TragicLoveFilm", "HeartbreakMovieAnalysis", "UntoldStoryOfResilience", "UnspokenLoveTragedy", "CharacterStudyAnalysis", "HauntingLoveStory"]
+      "tags": ["Paalam Salamat", "Ligaya Story", "Streaming", "video", "Stream", "Streaming media", "TV", "Online movie streaming services", "Video","streaming"]
     },
     {
       "id": "6",
@@ -259,8 +295,8 @@
     "subscribers": "50,000+",
     "totalVideos": "100+",
     "totalViews": "1,000,000+",
-    "description": "Capital Root blends storytelling with every video reveals the drama behind both screens—Holly,Bolly & Stockwood Market",
-    "keywords": ["stock market education", "investment strategies", "trading courses", "financial freedom", "wealth management", "personal finance", "market analysis"],
+    "description": "Capital Root | Watch Movies On Demand Only",
+    "keywords": ["Streaming", "video", "Stream", "Streaming media", "TV", "Online movie streaming services", "Video","streaming"],
     "social": {
       "youtube": "https://www.youtube.com/channel/UCS7Ahfb_tr9uUz_XuiNJtGg",
       "twitter": "https://twitter.com/capitalroot",

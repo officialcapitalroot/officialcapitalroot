@@ -35,6 +35,18 @@ export default function Contact() {
               
               <div className="contact-methods">
                 <div className="contact-method">
+                  <h3>Telegram Channel</h3>
+                  <p>Subscribe and Denamd </p>
+                  <a 
+                    href="https://t.me/capitalroot" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="contact-link"
+                  >
+                    Visit Telegram Channel
+                  </a>
+                </div>
+                <div className="contact-method">
                   <h3>YouTube Channel</h3>
                   <p>Subscribe and engage with our content</p>
                   <a 
@@ -82,9 +94,6 @@ export default function Contact() {
                     Visit Instagram Profile 
                   </a>
                 </div>
-                
-                
-              </div>
                 <div className="contact-method flex flex-col items-center text-center">
                   <h3>Business Inquiries</h3>
                   <p>For partnerships and collaborations</p>
@@ -95,6 +104,18 @@ export default function Contact() {
                     officialcapitalroot@gmail.com
                   </a>
                 </div>
+                
+              </div>
+                {/* <div className="contact-method flex flex-col items-center text-center">
+                  <h3>Business Inquiries</h3>
+                  <p>For partnerships and collaborations</p>
+                  <a 
+                    href="mailto:officialcapitalroot@gmail.com"
+                    className="contact-link"
+                  >
+                    officialcapitalroot@gmail.com
+                  </a>
+                </div> */}
             </div>
             
             <div className="contact-faq">

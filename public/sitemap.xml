@@ -2,15 +2,75 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   
-  <!-- ShortICU Videos -->
+  
   <url>
-    <loc>https://capitalroot.vercel.app/video/zu0xW4qe5</loc>
+    <loc>https://capitalroot.vercel.app/video/k4PFrxvn6MAJ9nE9MBY</loc>
+    <video:video>
+      <video:thumbnail_loc>https://capitalroot.vercel.app/GreaterKalesh.jpg</video:thumbnail_loc>
+      <video:title><![CDATA[Greater Kalesh (2025) Full Movie]]></video:title>
+      <video:description><![CDATA[Twinkle returns home for a surprise Diwali trip, but secrets and disagreements test her family's bonds in ways she never imagined.]]></video:description>
+      <video:content_loc>https://www.dailymotion.com/video/k4PFrxvn6MAJ9nE9MBY</video:content_loc>
+      <video:player_loc>https://www.dailymotion.com/video/k4PFrxvn6MAJ9nE9MBY</video:player_loc>
+      <video:duration>3960</video:duration>
+      <video:view_count>1</video:view_count>
+      <video:publication_date>2025-11-06</video:publication_date>
+      <video:family_friendly>no</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:uploader info="https://capitalroot.vercel.app">Capital Root</video:uploader>
+      <video:live>no</video:live>
+      <video:tags>Greater Kalesh, Greater Kalesh 2025, Streaming, video, Stream, Streaming media, TV, Online movie streaming services</video:tags>
+      <video:category>Entertainment</video:category>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://capitalroot.vercel.app/video/k7nTcMUErN5FTfE9N0m</loc>
+    <video:video>
+      <video:thumbnail_loc>https://capitalroot.vercel.app/TuHaanKarYaNaaKarPart1.jpg</video:thumbnail_loc>
+      <video:title><![CDATA[Tu Haan Kar Ya Naa Kar Part 1 (2025) Full Movie]]></video:title>
+      <video:description><![CDATA[In the mundane life of Bimal and Antara, new neighbors bring in a fresh breeze of excitement. But behind all the fun and games lies a secret game of dangerous proportion that will change their relationships forever. The question is, for better or for worse?]]></video:description>
+      <video:content_loc>https://www.dailymotion.com/video/k8tPfmhxGeF3iyE9N0m</video:content_loc>
+      <video:player_loc>https://www.dailymotion.com/video/k8tPfmhxGeF3iyE9N0m</video:player_loc>
+      <video:duration>3960</video:duration>
+      <video:view_count>1</video:view_count>
+      <video:publication_date>2025-11-06</video:publication_date>
+      <video:family_friendly>no</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:uploader info="https://capitalroot.vercel.app">Capital Root</video:uploader>
+      <video:live>no</video:live>
+      <video:tags>Tu Haan Kar Ya Naa Kar Part 1, Tu Haan Kar Ya Naa Kar Part 1 2025, Streaming, video, Stream, Streaming media, TV, Online movie streaming services</video:tags>
+      <video:category>Entertainment</video:category>
+    </video:video>
+  </url>
+
+<url>
+    <loc>https://capitalroot.vercel.app/video/k7nqehpaA00q8hE9NPq</loc>
+    <video:video>
+      <video:thumbnail_loc>https://capitalroot.vercel.app/DarkNuns.jpg</video:thumbnail_loc>
+      <video:title><![CDATA[Dark Nuns (2025) Full Movie]]></video:title>
+      <video:description><![CDATA[A young boy Hee-Joon is possessed by an evil spirit. Nun Yunia tries to save him, assisted by Nun Mikaela. Priest Paul attempts medical treatment, while Priest Andrew performs an exorcism to rid Hee-Joon of the spirit.]]></video:description>
+      <video:content_loc>https://www.dailymotion.com/video/k7nqehpaA00q8hE9NPq</video:content_loc>
+      <video:player_loc>https://www.dailymotion.com/video/k7nqehpaA00q8hE9NPq</video:player_loc>
+      <video:duration>3960</video:duration>
+      <video:view_count>1</video:view_count>
+      <video:publication_date>2025-11-06</video:publication_date>
+      <video:family_friendly>no</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:uploader info="https://capitalroot.vercel.app">Capital Root</video:uploader>
+      <video:live>no</video:live>
+      <video:tags>Dark Nuns, Dark Nuns 2025, Streaming, video, Stream, Streaming media, TV, Online movie streaming services</video:tags>
+      <video:category>Entertainment</video:category>
+    </video:video>
+  </url>
+
+   <url>
+    <loc>https://capitalroot.vercel.app/video/k6pgUVtZ2Ud8lZE9NEC</loc>
     <video:video>
       <video:thumbnail_loc>https://capitalroot.vercel.app/Obsession.jpg</video:thumbnail_loc>
       <video:title><![CDATA[Obsession (2025) Full Movie]]></video:title>
       <video:description><![CDATA[Adi's love turns into obsession when Aarti rejects him. Torn between guilt and fear, she faces blackmail through a recording that threatens to destroy everything.]]></video:description>
-      <video:content_loc>https://short.icu/zu0xW4qe5</video:content_loc>
-      <video:player_loc>https://short.icu/zu0xW4qe5</video:player_loc>
+      <video:content_loc>https://www.dailymotion.com/video/k6pgUVtZ2Ud8lZE9NEC</video:content_loc>
+      <video:player_loc>https://www.dailymotion.com/video/k6pgUVtZ2Ud8lZE9NEC</video:player_loc>
       <video:duration>3960</video:duration>
       <video:view_count>32000</video:view_count>
       <video:publication_date>2025-11-04</video:publication_date>
@@ -18,7 +78,7 @@
       <video:requires_subscription>no</video:requires_subscription>
       <video:uploader info="https://capitalroot.vercel.app">Capital Root</video:uploader>
       <video:live>no</video:live>
-      <video:tags>Obsession, Obsession 2025, Obsession Explained, Obsession Analysis, Obsession Explained, Obsession Explanation, Obsession Storytelling, Obsession Movie Breakdown</video:tags>
+      <video:tags>Obsession, Obsession 2025, Streaming, video, Stream, Streaming media, TV, Online movie streaming services</video:tags>
       <video:category>Entertainment</video:category>
     </video:video>
   </url>
@@ -38,19 +98,19 @@
       <video:requires_subscription>no</video:requires_subscription>
       <video:uploader info="https://capitalroot.vercel.app">Capital Root</video:uploader>
       <video:live>no</video:live>
-      <video:tags>Nympho, Nympho 2025, Nympho Explained, Nympho Analysis, Nymphon Explained, Nympho Explanation, Nympho Storytelling, Nympho Movie Breakdown</video:tags>
+      <video:tags>Nympho, Nympho 2025, Streaming, video, Stream, Streaming media, TV, Online movie streaming services</video:tags>
       <video:category>Entertainment</video:category>
     </video:video>
   </url>
 
   <url>
-    <loc>https://capitalroot.vercel.app/video/1GkUlBOYRc</loc>
+    <loc>https://capitalroot.vercel.app/video/k37kRVCAI83OssE9N2c</loc>
     <video:video>
       <video:thumbnail_loc>https://capitalroot.vercel.app/Mamasan.jpg</video:thumbnail_loc>
       <video:title><![CDATA[Mamasan (2025) Full Movie]]></video:title>
       <video:description><![CDATA[A seasoned woman and a budding one collide when passion ignites between them. Tanya, a mamasan, protects Pinky, the new girl in the bar, until she discovers her boyfriend Ador is having an affair with her.]]></video:description>
-      <video:content_loc>https://short.icu/1GkUlBOYRc</video:content_loc>
-      <video:player_loc>https://short.icu/1GkUlBOYRc</video:player_loc>
+      <video:content_loc>https://www.dailymotion.com/video/k37kRVCAI83OssE9N2c</video:content_loc>
+      <video:player_loc>https://www.dailymotion.com/video/k37kRVCAI83OssE9N2c</video:player_loc>
       <video:duration>4500</video:duration>
       <video:view_count>2000</video:view_count>
       <video:publication_date>2025-11-04</video:publication_date>
@@ -58,7 +118,7 @@
       <video:requires_subscription>no</video:requires_subscription>
       <video:uploader info="https://capitalroot.vercel.app">Capital Root</video:uploader>
       <video:live>no</video:live>
-      <video:tags>Mamasan, Mamasan 2025, Mamasan Explained, Mamasan Analysis, Mamasan Explained, Mamasan Explanation, Mamasan Storytelling, Mamasan Movie Breakdown</video:tags>
+      <video:tags>Mamasan, Mamasan 2025, Streaming, video, Stream, Streaming media, TV, Online movie streaming services</video:tags>
       <video:category>Entertainment</video:category>
     </video:video>
   </url>
@@ -78,7 +138,7 @@
       <video:requires_subscription>no</video:requires_subscription>
       <video:uploader info="https://capitalroot.vercel.app">Capital Root</video:uploader>
       <video:live>no</video:live>
-      <video:tags>Kantara Chapter 1, Kantara Chapter 1 2025, Kantara Chapter 1 Explained, Kantara Chapter 1 Analysis, Kantara Chapter 1 Explained, Kantara Chapter 1 Explanation, Kantara Chapter 1 Storytelling, Kantara Chapter 1 Movie Breakdown</video:tags>
+      <video:tags>Kantara Chapter 1, Kantara Chapter 1 2025, Streaming, video, Stream, Streaming media, TV, Online movie streaming services</video:tags>
       <video:category>Entertainment</video:category>
     </video:video>
   </url>
@@ -98,7 +158,7 @@
       <video:requires_subscription>no</video:requires_subscription>
       <video:uploader info="https://capitalroot.vercel.app">Capital Root</video:uploader>
       <video:live>no</video:live>
-      <video:tags>A House Of Dynamite, A House Of Dynamite 2025, A House Of Dynamite Explained, A House Of Dynamite Analysis, A House Of Dynamite Ending Explained, A House Of Dynamite Explanation, A House Of Dynamite Storytelling, A House Of Dynamite Movie Breakdown</video:tags>
+      <video:tags>A House Of Dynamite, A House Of Dynamite 2025, Streaming, video, Stream, Streaming media, TV, Online movie streaming services</video:tags>
       <video:category>Entertainment</video:category>
     </video:video>
   </url>
@@ -118,7 +178,7 @@
       <video:requires_subscription>no</video:requires_subscription>
       <video:uploader info="https://capitalroot.vercel.app">Capital Root</video:uploader>
       <video:live>no</video:live>
-      <video:tags>Tornado, Tornadot2025, TornadotExplained, TornadoMovieAnalysis, TornadoEndingExplained, TornadooExplanation, TornadoStorytelling, TornadoMovieBreakdown</video:tags>
+      <video:tags>Tornado, Tornadot 2025, Streaming, video, Stream, Streaming media, TV, Online movie streaming services</video:tags>
       <video:category>Entertainment</video:category>
     </video:video>
   </url>
@@ -138,7 +198,7 @@
       <video:requires_subscription>no</video:requires_subscription>
       <video:uploader info="https://capitalroot.vercel.app">Capital Root</video:uploader>
       <video:live>no</video:live>
-      <video:tags>TheRatsAWitcherTale, TheRatsAWitcherTalet2025, TheRatsAWitcherTaletExplained, TheRatsAWitcherTaleMovieAnalysis, TheRatsAWitcherTaleEndingExplained, TheRatsAWitcherTaleExplanation, TheRatsAWitcherTaleStorytelling, TheRatsAWitcherTaleMovieBreakdown</video:tags>
+      <video:tags>The Rats A Witcher Tale, The Rats A Witcher Talet 2025, Streaming, video, Stream, Streaming media, TV, Online movie streaming services</video:tags>
       <video:category>Entertainment</video:category>
     </video:video>
   </url>
@@ -158,7 +218,7 @@
       <video:requires_subscription>no</video:requires_subscription>
       <video:uploader info="https://capitalroot.vercel.app">Capital Root</video:uploader>
       <video:live>no</video:live>
-      <video:tags>TheAstronaut, TheAstronaut2025, TheAstronautExplained, TheAstronautMovieAnalysis, TheAstronautEndingExplained, TheAstronautrExplanation, TheAstronautStorytelling, TheAstronautMovieBreakdown</video:tags>
+      <video:tags>The Astronaut, The Astronaut 2025, Streaming, video, Stream, Streaming media, TV, Online movie streaming services</video:tags>
       <video:category>Entertainment</video:category>
     </video:video>
   </url>
@@ -178,7 +238,7 @@
       <video:requires_subscription>no</video:requires_subscription>
       <video:uploader info="https://capitalroot.vercel.app">Capital Root</video:uploader>
       <video:live>no</video:live>
-      <video:tags>PlayDirty, PlayDirty2025, PlayDirtyExplained, PlayDirtyMovieAnalysis, PlayDirtyEndingExplained, PlayDirtyrExplanation, PlayDirtyaStorytelling, PlayDirtyMovieBreakdown</video:tags>
+      <video:tags>Play Dirty, Play Dirty 2025, Streaming, video, Stream, Streaming media, TV, Online movie streaming services</video:tags>
       <video:category>Entertainment</video:category>
     </video:video>
   </url>
@@ -199,7 +259,7 @@
       <video:requires_subscription>no</video:requires_subscription>
       <video:uploader info="https://capitalroot.vercel.app">Capital Root</video:uploader>
       <video:live>no</video:live>
-      <video:tags>investing, beginners, stock market, tutorial</video:tags>
+      <video:tags>Streaming, video, Stream, Streaming media, TV, Online movie streaming services</video:tags>
       <video:category>Education</video:category>
     </video:video>
   </url>
@@ -219,7 +279,7 @@
       <video:requires_subscription>no</video:requires_subscription>
       <video:uploader info="https://capitalroot.vercel.app">Capital Root</video:uploader>
       <video:live>no</video:live>
-      <video:tags>trading, advanced, strategies, 2024</video:tags>
+      <video:tags>Streaming, video, Stream, Streaming media, TV, Online movie streaming services</video:tags>
       <video:category>Education</video:category>
     </video:video>
   </url>
@@ -239,7 +299,7 @@
       <video:requires_subscription>no</video:requires_subscription>
       <video:uploader info="https://capitalroot.vercel.app">Capital Root</video:uploader>
       <video:live>no</video:live>
-      <video:tags>wealth, long term, financial freedom, principles</video:tags>
+      <video:tags>Streaming, video, Stream, Streaming media, TV, Online movie streaming services</video:tags>
       <video:category>Entertainment</video:category>
     </video:video>
   </url>
@@ -259,7 +319,7 @@
       <video:requires_subscription>no</video:requires_subscription>
       <video:uploader info="https://capitalroot.vercel.app">Capital Root</video:uploader>
       <video:live>no</video:live>
-      <video:tags>market analysis, day trading, techniques, trading</video:tags>
+      <video:tags>Streaming, video, Stream, Streaming media, TV, Online movie streaming services</video:tags>
       <video:category>Education</video:category>
     </video:video>
   </url>
@@ -279,7 +339,7 @@
       <video:requires_subscription>no</video:requires_subscription>
       <video:uploader info="https://capitalroot.vercel.app">Capital Root</video:uploader>
       <video:live>no</video:live>
-      <video:tags>SemBreak, SemBreak2025, SemBreakExplained, SemBreakMovieAnalysis, SemBreakEndingExplained, HorrorThrillerExplanation, DarkCinemaStorytelling, DisturbingMovieBreakdown</video:tags>
+      <video:tags>Sem Break, Sem Break 2025, Streaming, video, Stream, Streaming media, TV, Online movie streaming services</video:tags>
       <video:category>Entertainment</video:category>
     </video:video>
   </url>
@@ -299,7 +359,7 @@
       <video:requires_subscription>no</video:requires_subscription>
       <video:uploader info="https://capitalroot.vercel.app">Capital Root</video:uploader>
       <video:live>no</video:live>
-      <video:tags>PaalamSalamat, LigayaStory, TragicLoveFilm, HeartbreakMovieAnalysis, UntoldStoryOfResilience, UnspokenLoveTragedy, CharacterStudyAnalysis, HauntingLoveStory</video:tags>
+      <video:tags>Paalam Salamat, Ligaya Story, Streaming, video, Stream, Streaming media, TV, Online movie streaming services</video:tags>
       <video:category>Entertainment</video:category>
     </video:video>
   </url>
@@ -319,7 +379,7 @@
       <video:requires_subscription>no</video:requires_subscription>
       <video:uploader info="https://capitalroot.vercel.app">Capital Root</video:uploader>
       <video:live>no</video:live>
-      <video:tags>ProsperityMovie, MutantSpiderStory, SpiderHorror, TrueStoryHorror, ProsperityHorror, ProsperityAttack, HorrorBreakdown, MovieAnalysis</video:tags>
+      <video:tags>Prosperity Movie, Streaming, video, Stream, Streaming media, TV, Online movie streaming services</video:tags>
       <video:category>Entertainment</video:category>
     </video:video>
   </url>
@@ -359,7 +419,7 @@
       <video:requires_subscription>no</video:requires_subscription>
       <video:uploader info="https://capitalroot.vercel.app">Capital Root</video:uploader>
       <video:live>no</video:live>
-      <video:tags>Steve2025, SteveFilm, SteveMovie, SteveReview, SteveExplained, SteveAnalysis, StevePlot, SteveCast</video:tags>
+      <video:tags>Steve2025, SteveFilm, Streaming, video, Stream, Streaming media, TV, Online movie streaming services</video:tags>
       <video:category>Education</video:category>
     </video:video>
   </url>
@@ -379,7 +439,7 @@
       <video:requires_subscription>no</video:requires_subscription>
       <video:uploader info="https://capitalroot.vercel.app">Capital Root</video:uploader>
       <video:live>no</video:live>
-      <video:tags>Logout2025, LogoutMovie, LogoutFilm, LogoutTrailer, LogoutExplained, LogoutReview, LogoutStory, LogoutAnalysis</video:tags>
+      <video:tags>Logout 2025, Logout Movie, Streaming, video, Stream, Streaming media, TV, Online movie streaming services</video:tags>
       <video:category>Education</video:category>
     </video:video>
   </url>
@@ -399,7 +459,7 @@
       <video:requires_subscription>no</video:requires_subscription>
       <video:uploader info="https://capitalroot.vercel.app">Capital Root</video:uploader>
       <video:live>no</video:live>
-      <video:tags>TheBengalFiles2025, BengalFilesMovie, BengalFilesExplained, BengalFilesTrueStory, BengalFilesReview, BengalFilesFullMovie, BengalFilesAnalysis, BengalFilesDrama</video:tags>
+      <video:tags>The Bengal Files, The Bengal Files 2025, Streaming, video, Stream, Streaming media, TV, Online movie streaming services/video:tags
       <video:category>Entertainment</video:category>
     </video:video>
   </url>

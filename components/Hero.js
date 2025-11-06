@@ -3,18 +3,19 @@ export default function Hero() {
     <section className="hero">
       <div className="container">
         <div className="hero-content">
-          <h1>Holly,Bolly & Stockwood Market with <span>Capital Root</span></h1>
+          <h1>Watch Movies On Demand with <span>Capital Root</span></h1>
           <p className="hero-subtitle">
-            Capital Root blends storytelling with every video reveals the drama behind trio — Holly,Bolly & Stockwood Market.
+            Capital Root Movies Only On Demand Via Telegram.
           </p>
-          <p className="hero-subtitle">
-            Want To Be in Big Market Value.
-          </p>
-
+        
           <div className="hero-stats">
             <div className="stat">
               <span className="stat-number">50K+</span>
               <span className="stat-label">Subscribers</span>
+            </div>
+              <div className="stat">
+              <span className="stat-number">Unlimited</span>
+              <span className="stat-label">Movies</span>
             </div>
             <div className="stat">
               <span className="stat-number">100+</span>
@@ -27,12 +28,12 @@ export default function Hero() {
           </div>
           <div className="hero-actions">
             <a 
-              href="https://www.youtube.com/channel/UCS7Ahfb_tr9uUz_XuiNJtGg" 
+              href="https://t.me/capitalroot" 
               target="_blank" 
               rel="noopener noreferrer"
               className="cta-button primary"
             >
-              Subscribe on YouTube
+              Subscribe on Telegram
             </a>
             <a href="#videos" className="cta-button secondary">
               Watch Videos

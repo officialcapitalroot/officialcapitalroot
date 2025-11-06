@@ -740,8 +740,6 @@
 
 
 
-
-
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Header from "../../components/Header";
@@ -754,6 +752,14 @@ import { getDisplayDuration } from "../../utils/duration";
 
 export default function VideoPage({ video, relatedVideos }) {
   const router = useRouter();
+
+  // Add data verification
+  console.log('🔍 Video Page Data:', {
+    videoId: video?.videoId,
+    videoSource: video?.videoSource,
+    title: video?.title,
+    hasVideo: !!video
+  })
 
   if (router.isFallback) {
     return (
@@ -817,6 +823,11 @@ export default function VideoPage({ video, relatedVideos }) {
         contentUrl: `https://www.youtube.com/watch?v=${video.videoId}`,
         embedUrl: `https://www.youtube.com/embed/${video.videoId}`
       }
+    } else if (video.videoSource === 'dailymotion') {
+      return {
+        contentUrl: `https://www.dailymotion.com/video/${video.videoId}`,
+        embedUrl: `https://www.dailymotion.com/embed/video/${video.videoId}`
+      }
     } else {
       return {
         contentUrl: `https://short.icu/${video.videoId}`,
@@ -828,43 +839,9 @@ export default function VideoPage({ video, relatedVideos }) {
   const urls = getVideoUrls(video);
   const displayDuration = getDisplayDuration(video.duration);
 
-  // Convert duration to seconds for schema - FIXED FOR SHORTICU
-  const convertDurationToSeconds = (duration) => {
-    if (!duration) return 300; // default 5 minutes
-    
-    if (duration.includes('PT')) {
-      // ISO 8601 format
-      const time = duration.replace('PT', '');
-      let seconds = 0;
-      
-      const hoursMatch = time.match(/(\d+)H/);
-      const minutesMatch = time.match(/(\d+)M/);
-      const secondsMatch = time.match(/(\d+)S/);
-      
-      if (hoursMatch) seconds += parseInt(hoursMatch[1]) * 3600;
-      if (minutesMatch) seconds += parseInt(minutesMatch[1]) * 60;
-      if (secondsMatch) seconds += parseInt(secondsMatch[1]);
-      
-      return seconds;
-    }
-    
-    // Handle other duration formats (like "5:30" or "5 minutes")
-    if (duration.includes(':')) {
-      const parts = duration.split(':');
-      if (parts.length === 2) {
-        return parseInt(parts[0]) * 60 + parseInt(parts[1]);
-      } else if (parts.length === 3) {
-        return parseInt(parts[0]) * 3600 + parseInt(parts[1]) * 60 + parseInt(parts[2]);
-      }
-    }
-    
-    return 300; // default 5 minutes
-  }
-
   // Get proper thumbnail URL with fallback
   const getThumbnailUrl = () => {
     if (!video.thumbnail) {
-      // Default thumbnail for ShortICU videos
       return "https://capitalroot.vercel.app/images/default-video-thumbnail.jpg";
     }
     
@@ -875,13 +852,13 @@ export default function VideoPage({ video, relatedVideos }) {
     }
   }
 
-  // Safe data extraction with fallbacks for ShortICU
+  // Safe data extraction with fallbacks
   const getSafeVideoData = () => {
     return {
       title: video.title || "Untitled Video",
       description: video.description || "Watch this video on Capital Root",
       thumbnailUrl: getThumbnailUrl(),
-      uploadDate: video.uploadDate || new Date().toISOString().split('T')[0], // Current date as fallback
+      uploadDate: video.uploadDate || new Date().toISOString().split('T')[0],
       viewCount: typeof video.viewCount === 'string' 
         ? parseInt(video.viewCount.replace(/[^0-9]/g, '')) || 1000 
         : video.viewCount || 1000,
@@ -893,59 +870,6 @@ export default function VideoPage({ video, relatedVideos }) {
 
   const safeVideo = getSafeVideoData();
   const thumbnailUrl = safeVideo.thumbnailUrl;
-  const durationSeconds = convertDurationToSeconds(safeVideo.duration);
-
-  // VideoObject Schema - COMPLETELY FIXED WITH FALLBACKS FOR SHORTICU
-  const videoSchema = {
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    "name": safeVideo.title, // REQUIRED - using safe title
-    "description": safeVideo.description, // REQUIRED - using safe description
-    "thumbnailUrl": thumbnailUrl, // REQUIRED - using safe thumbnail
-    "uploadDate": safeVideo.uploadDate, // REQUIRED - using safe upload date
-    "duration": `PT${durationSeconds}S`,
-    "contentUrl": urls.contentUrl, // REQUIRED - one of these must be present
-    "embedUrl": urls.embedUrl, // REQUIRED - one of these must be present
-    "url": canonicalUrl,
-    "interactionStatistic": {
-      "@type": "InteractionCounter",
-      "interactionType": { 
-        "@type": "WatchAction" 
-      },
-      "userInteractionCount": safeVideo.viewCount
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Capital Root",
-      "url": "https://capitalroot.vercel.app"
-    }
-  }
-
-  // Breadcrumb Schema
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://capitalroot.vercel.app"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Videos",
-        "item": "https://capitalroot.vercel.app/videos"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": safeVideo.title,
-        "item": canonicalUrl
-      }
-    ]
-  }
 
   return (
     <>
@@ -978,24 +902,6 @@ export default function VideoPage({ video, relatedVideos }) {
         <meta name="twitter:player" content={urls.embedUrl} />
         <meta name="twitter:player:width" content="1280" />
         <meta name="twitter:player:height" content="720" />
-        
-        {/* Video Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(videoSchema)
-          }}
-          key="video-schema"
-        />
-        
-        {/* Breadcrumb Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(breadcrumbSchema)
-          }}
-          key="breadcrumb-schema"
-        />
       </Head>
       
       <Header />
@@ -1023,10 +929,12 @@ export default function VideoPage({ video, relatedVideos }) {
           <div className="video-page-content">
             {/* Video Player Section */}
             <section className="video-player-section">
+              {/* IMPORTANT: Verify data is passed correctly */}
               <VideoPlayerWrapper
-                videoId={video.videoId}
-                videoSource={video.videoSource}
+                videoId={video.videoId} // This should be "x9ta1tq"
+                videoSource={video.videoSource} // This should be "dailymotion"
                 title={safeVideo.title}
+                autoplay={false}
               />
 
               <div className="video-info">

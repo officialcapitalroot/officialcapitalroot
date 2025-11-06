@@ -22,7 +22,7 @@ export default function Document() {
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
         
         {/* SEO Meta Tags */}
-        <meta name="description" content="Capital Root blends storytelling with every video reveals the drama behind trio Holly,Bolly & Stockwood Market" />
+        <meta name="description" content="Capital Root Watch Movies On Demand Only." />
         <meta name="keywords" content="capital root,movie analysis,film breakdown,hollywood movies,financial storytelling,wall street,stock market,business documentaries,profit and loss,company analysis,investor stories,cinematic storytelling,corporate drama,global finance,movie reviews,web series,ai visuals,storytelling meets,finance,film vs finance,market analysis,hollywood insights,data storytelling,cinematic finance,company reports,business news,global economy,stock market" />
         <meta name="author" content="Capital Root" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -30,6 +30,9 @@ export default function Document() {
         <meta name="language" content="English" />
         <meta name="revisit-after" content="7 days" />
         
+      
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+        <link rel="sitemap" type="application/xml" href="/video-sitemap.xml" />
         {/* Open Graph */}
         <meta property="og:site_name" content="Capital Root" />
         <meta property="og:type" content="website" />
@@ -76,7 +79,7 @@ export default function Document() {
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "Capital Root",
-              "description": "Capital Root blends storytelling with every video reveals the drama behind trio Holly,Bolly & Stockwood Market",
+              "description": "About - Capital Root | Watch Movies On Demand",
               "url": "https://capitalroot.vercel.app",
               "logo": "https://capitalroot.vercel.app/icon-512.png",
               "sameAs": [
