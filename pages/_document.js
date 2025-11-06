@@ -23,12 +23,12 @@ export default function Document() {
         
         {/* SEO Meta Tags */}
         <meta name="description" content="Capital Root Watch Movies On Demand Only." />
-        <meta name="keywords" content="capital root,movie analysis,film breakdown,hollywood movies,financial storytelling,wall street,stock market,business documentaries,profit and loss,company analysis,investor stories,cinematic storytelling,corporate drama,global finance,movie reviews,web series,ai visuals,storytelling meets,finance,film vs finance,market analysis,hollywood insights,data storytelling,cinematic finance,company reports,business news,global economy,stock market" />
+        <meta name="keywords" content="capital root,movie analysis,film breakdown,hollywood movies,streaming,video, stream,streaming media,TV,online movie streaming services, video,streaming" />
         <meta name="author" content="Capital Root" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="googlebot" content="index, follow" />
         <meta name="language" content="English" />
-        <meta name="revisit-after" content="7 days" />
+        <meta name="revisit-after" content="1 days" />
         
       
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
