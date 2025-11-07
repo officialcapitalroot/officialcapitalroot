@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="container">
         <div className="footer-content">
           <div className="footer-section">
-            <div className="footer-logo">
+            <div className="footer-logo justify-center">
               <span style={{color: '#6308f5ff'}}>Capital Root </span> 
             </div>
             <p className="footer-description">
@@ -106,7 +106,7 @@ export default function Footer() {
               <ul className="footer-links">
                 <li><a href="/privacy">Privacy Policy</a></li>
                 <li><a href="/terms">Terms of Service</a></li>
-                <li><a href="/disclaimer">Disclaimer</a></li>
+              
               </ul>
               <p>&copy; 2025 Capital Root. All rights reserved.</p>
             </div>

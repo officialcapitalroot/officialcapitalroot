@@ -1,65 +1,40 @@
-// import Link from 'next/link'
-// import Image from 'next/image'
-
-// export default function RelatedVideoCard({ video }) {
-//   return (
-//     <article className="related-video-card" itemScope itemType="https://schema.org/VideoObject">
-//       <Link href={`/video/${video.videoId}`} className="related-video-link">
-//         <div className="related-video-thumbnail">
-//           <img 
-//             src={video.thumbnail} 
-//             alt={video.title}
-//             loading="lazy"
-//             quality="100"
-//             width={320}
-//             height={180}
-//             itemProp="thumbnailUrl"
-//             onError={(e) => {
-//               e.target.src = '/fallback-thumbnail.jpg'
-//             }}
-//           />
-//           <span className="duration-badge">{video.duration}</span>
-//         </div>
-//         <div className="related-video-info">
-//           <h3 itemProp="name">{video.title}</h3>
-//           <div className="related-video-meta">
-//             <span className="views">{video.viewCount} views</span>
-//             <span className="date">
-//               {new Date(video.UploadDate).toLocaleDateString('en-US', {
-//                 year: 'numeric',
-//                 month: 'short',
-//                 day: 'numeric'
-//               })}
-//             </span>
-//           </div>
-//         </div>
-//       </Link>
-//     </article>
-//   )
-// }
-
-
-
-
-
-import Link from 'next/link'
-import { getDisplayDuration } from '../utils/duration'
+import Link from 'next/link';
+import { getDisplayDuration } from '../utils/duration';
 
 export default function RelatedVideoCard({ video }) {
-  const displayDuration = getDisplayDuration(video.duration)
+  const displayDuration = getDisplayDuration(video.duration);
+  
+  const getThumbnailUrl = () => {
+    if (video.thumbnail && video.thumbnail !== "") {
+      return video.thumbnail;
+    }
+
+    if (video.videoSource === "youtube") {
+      return `https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg`;
+    } else if (video.videoSource === "dailymotion") {
+      return `https://www.dailymotion.com/thumbnail/video/${video.videoId}`;
+    } else if (video.videoSource === "shorticu") {
+      return "/default-thumbnail.jpg";
+    }
+
+    return "/default-thumbnail.jpg";
+  };
+
+  const thumbnailUrl = getThumbnailUrl();
+  const videoUrl = `/video/${video.slug}`;
 
   return (
     <article className="related-video-card">
-      <Link href={`/video/${video.videoId}`} className="related-video-link">
+      <Link href={videoUrl} className="related-video-link">
         <div className="related-video-thumbnail">
           <img 
-            src={video.thumbnail} 
+            src={thumbnailUrl} 
             alt={video.title}
             loading="lazy"
             width={320}
             height={180}
             onError={(e) => {
-              e.target.src = '/fallback-thumbnail.jpg'
+              e.target.src = '/default-thumbnail.jpg';
             }}
           />
           <span className="duration-badge">{displayDuration}</span>
@@ -68,12 +43,12 @@ export default function RelatedVideoCard({ video }) {
           <h3>{video.title}</h3>
           <div className="related-video-meta">
             <span className="views">
-              {typeof video.viewCount === 'number' 
+              👁️ {typeof video.viewCount === 'number' 
                 ? video.viewCount.toLocaleString() 
                 : video.viewCount} views
             </span>
             <span className="date">
-              {new Date(video.uploadDate).toLocaleDateString('en-US', {
+              📅 {new Date(video.uploadDate).toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'short',
                 day: 'numeric'
@@ -83,5 +58,5 @@ export default function RelatedVideoCard({ video }) {
         </div>
       </Link>
     </article>
-  )
+  );
 }
