@@ -185,6 +185,9 @@ export default function VideoCard({ video }) {
           <span className="date">
             📅 {isClient ? formatDate(video.uploadDate) : formatDate(video.uploadDate)}
           </span>
+           <p className="video-description" itemProp="description">
+                Language: {video.Language}
+        </p>
         </div>
 
         <meta itemProp="genre" content={video.category || "Entertainment"} />
