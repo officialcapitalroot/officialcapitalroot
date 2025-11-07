@@ -149,6 +149,7 @@ export default function VideoCard({ video }) {
               loading="lazy"
               width={480}
               height={270}
+              quality="100"
               onError={() => setImgError(true)}
               itemProp="image"
               style={{

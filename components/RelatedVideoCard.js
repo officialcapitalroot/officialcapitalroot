@@ -33,6 +33,7 @@ export default function RelatedVideoCard({ video }) {
             loading="lazy"
             width={320}
             height={180}
+            quality="100"
             onError={(e) => {
               e.target.src = '/default-thumbnail.jpg';
             }}
