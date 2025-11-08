@@ -102,27 +102,27 @@ export default function VideoPage({ video, relatedVideos }) {
     ],
   };
 
-  // ADDITIONAL VIDEOOBJECT SCHEMA FOR THE EMBEDDED VIDEO
-  const videoObjectSchema = {
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    name: video.title,
-    description: video.description,
-    thumbnailUrl: thumbnailUrl,
-    uploadDate: video.uploadDate,
-    duration: video.duration,
-    contentUrl: canonicalUrl, // YOUR PAGE URL, NOT EXTERNAL SERVICE
-    embedUrl: canonicalUrl, // YOUR PAGE URL, NOT EXTERNAL SERVICE
-    publisher: {
-      "@type": "Organization",
-      name: "Capital Root",
-      url: "https://capitalroot.vercel.app",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://capitalroot.vercel.app/icon-512.png",
-      },
-    },
-  };
+  // // ADDITIONAL VIDEOOBJECT SCHEMA FOR THE EMBEDDED VIDEO
+  // const videoObjectSchema = {
+  //   "@context": "https://schema.org",
+  //   "@type": "VideoObject",
+  //   name: video.title,
+  //   description: video.description,
+  //   thumbnailUrl: thumbnailUrl,
+  //   uploadDate: video.uploadDate,
+  //   duration: video.duration,
+  //   contentUrl: canonicalUrl, // YOUR PAGE URL, NOT EXTERNAL SERVICE
+  //   embedUrl: canonicalUrl, // YOUR PAGE URL, NOT EXTERNAL SERVICE
+  //   publisher: {
+  //     "@type": "Organization",
+  //     name: "Capital Root",
+  //     url: "https://capitalroot.vercel.app",
+  //     logo: {
+  //       "@type": "ImageObject",
+  //       url: "https://capitalroot.vercel.app/icon-512.png",
+  //     },
+  //   },
+  // };
 
   return (
     <>
@@ -173,13 +173,13 @@ export default function VideoPage({ video, relatedVideos }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
           key="breadcrumb-schema"
         />
-        <script
+        {/* <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(videoObjectSchema),
           }}
           key="videoobject-schema"
-        />
+        /> */}
       </Head>
 
       <Header />
