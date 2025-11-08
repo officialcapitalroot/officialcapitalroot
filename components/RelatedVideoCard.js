@@ -103,6 +103,7 @@ export default function RelatedVideoCard({ video }) {
             width={320}
             height={180}
             quality={100}
+            loading="lazy"
             className="thumbnail-image"
           />
           <span className="duration-badge">{displayDuration}</span>
