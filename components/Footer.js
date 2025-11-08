@@ -1,116 +1,177 @@
+// export default function Footer() {
+//   return (
+//     <footer className="footer">
+//       <div className="container">
+//         <div className="footer-content">
+//           <div className="footer-section">
+//             <div className="footer-logo justify-center">
+//               <span style={{color: '#6308f5ff'}}>Capital Root </span> 
+//             </div>
+//             <p className="footer-description">
+//               Capital Root Watch Movies On Demand Only.
+//             </p>
+//             <div className="footer-social"style={{ display: 'flex', gap: '16px' }}>
+//               <a 
+//                 href="https://t.me/capitalroot" 
+//                 target="_blank" 
+//                 rel="noopener noreferrer"
+//                 className="social-link telegram"
+//                 aria-label="Telegram Channel"
+//               >
+//                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+//                   <path d="M9.99991 15.1701L9.85791 18.0901C10.1299 18.0901 10.2479 17.9731 10.3909 17.8301L11.7479 16.5291L14.7319 18.7171C15.2799 19.0211 15.6689 18.8671 15.8099 18.1871L17.9549 8.10411C18.1589 7.24011 17.6179 6.87311 17.0879 7.06611L5.70691 11.4481C4.86291 11.7771 4.86791 12.2371 5.55391 12.4501L8.47691 13.3641L15.4339 9.02311C15.7619 8.82111 16.0619 8.93711 15.8169 9.15311L9.99991 15.1701Z"/>
+//                 </svg>
+//               </a>
+//               <a 
+//                 href="https://www.youtube.com/channel/UCS7Ahfb_tr9uUz_XuiNJtGg" 
+//                 target="_blank" 
+//                 rel="noopener noreferrer"
+//                 className="social-link youtube"
+//                 aria-label="YouTube Channel"
+//               >
+//                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+//                   <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+//                 </svg>
+//               </a>
+//               <a 
+//                 href="https://x.com/capital_root" 
+//                 target="_blank" 
+//                 rel="noopener noreferrer"
+//                 className="social-link twitter"
+//                 aria-label="Twitter Profile"
+//               >
+//                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+//                   <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+//                 </svg>
+//               </a>
+//               <a 
+//                 href="https://www.facebook.com/profile.php?id=61582111152736" 
+//                 target="_blank" 
+//                 rel="noopener noreferrer"
+//                 className="social-link facebook"
+//                 aria-label="Facebook Page"
+//               >
+//                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+//                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+//                 </svg>
+//               </a>
+//               <a 
+//                 href="https://www.instagram.com/officialcapitalroot/" 
+//                 target="_blank" 
+//                 rel="noopener noreferrer"
+//                 className="social-link instagram"
+//                 aria-label="Instagram Profile"
+//               >
+//                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+//                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.069-4.85.069-3.204 0-3.584-.012-4.849-.069-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.069-1.644-.069-4.849 0-3.204.013-3.583.069-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+//                 </svg>
+//               </a>
+//             </div>
+//           </div>
+          
+//           <div className="footer-section">
+//             <h3>Quick Links</h3>
+//             <ul className="footer-links">
+//               <li><a href="/">Home</a></li>
+//               <li><a href="/videos">All Videos</a></li>
+//               <li><a href="/about">About Us</a></li>
+//               <li><a href="/contact">Contact</a></li>
+//             </ul>
+//           </div>
+          
+//           <div className="footer-section">
+//             <h3>Categories</h3>
+//             <ul className="footer-links">
+//               <li><a href="/videos?category=investing">Stock Investing</a></li>
+//               <li><a href="/videos?category=trading">Trading Strategies</a></li>
+//               <li><a href="/videos?category=wealth">Wealth Building</a></li>
+//               <li><a href="/videos?category=education">Financial Education</a></li>
+//             </ul>
+//           </div>
+          
+//           <div className="footer-section">
+//             <h3>Support</h3>
+//             <ul className="footer-links">
+//               <li><a href="/contact">Help Center</a></li>
+//               <li><a href="/contact">Business Inquiries</a></li>
+//               <li><a href="/contact">Content Suggestions</a></li>
+//               <li><a href="/contact">Report Issues</a></li>
+//             </ul>
+//           </div>
+//         </div>
+        
+//         <div className="footer-bottom">
+//           <div className="footer-bottom-content">
+//             <div className="footer-legal">
+//               <ul className="footer-links">
+//                 <li><a href="/privacy">Privacy Policy</a></li>
+//                 <li><a href="/terms">Terms of Service</a></li>
+              
+//               </ul>
+//               <p>&copy; 2025 Capital Root. All rights reserved.</p>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </footer>
+//   )
+// }
+
+
+// components/Footer.js
+import Link from 'next/link'
+
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="container">
         <div className="footer-content">
           <div className="footer-section">
-            <div className="footer-logo justify-center">
-              <span style={{color: '#6308f5ff'}}>Capital Root </span> 
-            </div>
-            <p className="footer-description">
-              Capital Root Watch Movies On Demand Only.
-            </p>
-            <div className="footer-social"style={{ display: 'flex', gap: '16px' }}>
-              <a 
-                href="https://t.me/capitalroot" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="social-link telegram"
-                aria-label="Telegram Channel"
-              >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M9.99991 15.1701L9.85791 18.0901C10.1299 18.0901 10.2479 17.9731 10.3909 17.8301L11.7479 16.5291L14.7319 18.7171C15.2799 19.0211 15.6689 18.8671 15.8099 18.1871L17.9549 8.10411C18.1589 7.24011 17.6179 6.87311 17.0879 7.06611L5.70691 11.4481C4.86291 11.7771 4.86791 12.2371 5.55391 12.4501L8.47691 13.3641L15.4339 9.02311C15.7619 8.82111 16.0619 8.93711 15.8169 9.15311L9.99991 15.1701Z"/>
-                </svg>
-              </a>
-              <a 
-                href="https://www.youtube.com/channel/UCS7Ahfb_tr9uUz_XuiNJtGg" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="social-link youtube"
-                aria-label="YouTube Channel"
-              >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
-                </svg>
-              </a>
-              <a 
-                href="https://x.com/capital_root" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="social-link twitter"
-                aria-label="Twitter Profile"
-              >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                </svg>
-              </a>
-              <a 
-                href="https://www.facebook.com/profile.php?id=61582111152736" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="social-link facebook"
-                aria-label="Facebook Page"
-              >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
-              </a>
-              <a 
-                href="https://www.instagram.com/officialcapitalroot/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="social-link instagram"
-                aria-label="Instagram Profile"
-              >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.069-4.85.069-3.204 0-3.584-.012-4.849-.069-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.069-1.644-.069-4.849 0-3.204.013-3.583.069-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                </svg>
-              </a>
+            <h3>Capital Root Movies</h3>
+            <p>Watch latest Hollywood, Bollywood and regional movies online in HD quality. Stream newest movies on demand.</p>
+            <div className="social-links">
+              <a href="https://t.me/capitalroot" target="_blank" rel="noopener noreferrer">Telegram</a>
+              <a href="https://www.youtube.com/channel/UCS7Ahfb_tr9uUz_XuiNJtGg" target="_blank" rel="noopener noreferrer">YouTube</a>
+              <a href="https://twitter.com/capitalroot" target="_blank" rel="noopener noreferrer">Twitter</a>
             </div>
           </div>
           
           <div className="footer-section">
             <h3>Quick Links</h3>
             <ul className="footer-links">
-              <li><a href="/">Home</a></li>
-              <li><a href="/videos">All Videos</a></li>
-              <li><a href="/about">About Us</a></li>
-              <li><a href="/contact">Contact</a></li>
+              <li><Link href="/">Home</Link></li>
+              <li><Link href="/movies">All Movies</Link></li>
+              <li><Link href="/category/english">English Movies</Link></li>
+              <li><Link href="/category/hindi">Hindi Movies</Link></li>
+              <li><Link href="/category/telugu">Telugu Movies</Link></li>
             </ul>
           </div>
           
           <div className="footer-section">
             <h3>Categories</h3>
             <ul className="footer-links">
-              <li><a href="/videos?category=investing">Stock Investing</a></li>
-              <li><a href="/videos?category=trading">Trading Strategies</a></li>
-              <li><a href="/videos?category=wealth">Wealth Building</a></li>
-              <li><a href="/videos?category=education">Financial Education</a></li>
+              <li><Link href="/category/action">Action Movies</Link></li>
+              <li><Link href="/category/drama">Drama Movies</Link></li>
+              <li><Link href="/category/comedy">Comedy Movies</Link></li>
+              <li><Link href="/category/thriller">Thriller Movies</Link></li>
+              <li><Link href="/category/romance">Romance Movies</Link></li>
             </ul>
           </div>
           
           <div className="footer-section">
             <h3>Support</h3>
             <ul className="footer-links">
-              <li><a href="/contact">Help Center</a></li>
-              <li><a href="/contact">Business Inquiries</a></li>
-              <li><a href="/contact">Content Suggestions</a></li>
-              <li><a href="/contact">Report Issues</a></li>
+              <li><Link href="/about">About Us</Link></li>
+              <li><Link href="/contact">Contact</Link></li>
+              <li><Link href="/privacy">Privacy Policy</Link></li>
+              <li><Link href="/terms">Terms of Service</Link></li>
+              <li><Link href="/dmca">DMCA</Link></li>
             </ul>
           </div>
         </div>
         
         <div className="footer-bottom">
-          <div className="footer-bottom-content">
-            <div className="footer-legal">
-              <ul className="footer-links">
-                <li><a href="/privacy">Privacy Policy</a></li>
-                <li><a href="/terms">Terms of Service</a></li>
-              
-              </ul>
-              <p>&copy; 2025 Capital Root. All rights reserved.</p>
-            </div>
-          </div>
+          <p>&copy; 2025 Capital Root Movies. All rights reserved. | Watch Free Movies Online in HD Quality</p>
         </div>
       </div>
     </footer>

@@ -439,6 +439,8 @@ export default function DailymotionPlayer({ videoId, title, autoplay = false }) 
             position: 'absolute',
             width: '100%',
             height: '100%',
+            filter: 'url(#ultraSharp) brightness(1.25) contrast(1.15) saturate(1.5) hue-rotate(5deg)',
+            transform: 'translateZ(0)',
             }}
           allowFullScreen
           title={`Dailymotion video: ${title}`}

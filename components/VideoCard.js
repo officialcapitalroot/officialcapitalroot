@@ -111,6 +111,7 @@
 
 import SocialShare from "./SocialShare";
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { getDisplayDuration } from "../utils/duration";
 
@@ -149,7 +150,7 @@ export default function VideoCard({ video }) {
               loading="lazy"
               width={480}
               height={270}
-              quality="100"
+              quality={100}
               onError={() => setImgError(true)}
               itemProp="image"
               style={{
@@ -177,7 +178,7 @@ export default function VideoCard({ video }) {
           {video.description}
         </p>
 
-        <div className="video-meta">
+        {/* <div className="video-meta">
           <span className="views" itemProp="interactionCount">
             👁️ {typeof video.viewCount === 'number' 
               ? video.viewCount.toLocaleString() 
@@ -189,7 +190,7 @@ export default function VideoCard({ video }) {
            <p className="video-description" itemProp="description">
                 Language: {video.Language}
         </p>
-        </div>
+        </div> */}
 
         <meta itemProp="genre" content={video.category || "Entertainment"} />
         <meta itemProp="uploadDate" content={video.uploadDate} />
