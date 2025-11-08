@@ -1,5 +1,155 @@
 {
   "videos": [
+     {
+      "id": "35",
+      "videoId": "g2bJIizmv",
+      "slug": "the-rats-a-witcher-tale-2025-hindi-dubbed-full-movie",
+      "videoSource": "shorticu",
+      "title": "The Rats: A Witcher Tale (2025) Hindi Dubbed Full Movie",
+      "description": "Follows a group of thieves as they plan the biggest heist of their lives against the most dangerous crime ring in the kingdom.",
+      "thumbnail": "/TRAWT.jpg",
+      "uploadDate": "2025-11-06T00:00:00Z",
+      "viewCount": 1,
+      "duration": "PT1H55M3S",
+      "Language": "Hindi",
+      "category": "Hindi",
+      "tags": ["The Rats: A Witcher Tale", "Action", "Drama", "Thriller"],
+      "director": "Mairzee Almas",
+      "cast": ["Christelle Elwin", "Ben Radcliffe", "Fabian McCallum"],
+      "genre": "Action, Thriller",
+      "rating": "4.5/10",
+      "releaseYear": "2025",
+      "country": "United States",
+      "quality": "HD 1080p",
+      "size": "1.9 GB",
+      "language": "Hindi",
+      "subtitles": "N/A"
+    },
+    {
+      "id": "34",
+      "videoId": "gSECwauZf",
+      "slug": "the-fantastic-four-first-steps-2025-hindi-dubbed-full-movie",
+      "videoSource": "shorticu",
+      "title": "The Fantastic Four: First Steps (2025) Hindi Dubbed Full Movie",
+      "description": "Forced to balance their roles as heroes with the strength of their family bond, the Fantastic Four must defend Earth from a ravenous space god called Galactus and his enigmatic herald, the Silver Surfer.",
+      "thumbnail": "/TheFantasticFourFirstSteps.jpg",
+      "uploadDate": "2025-11-06T00:00:00Z",
+      "viewCount": 1,
+      "duration": "PT1H55M3S",
+      "Language": "Hindi",
+      "category": "Hindi",
+      "tags": ["The Fantastic Four: First Steps", "Sci-Fi", "Drama", "Thriller"],
+      "director": "Matt Shakman",
+      "cast": ["Pedro Pascal", "Vanessa Kirby", "Ebon Moss-Bachrach"],
+      "genre": "Sci-Fi, Thriller",
+      "rating": "7.0/10",
+      "releaseYear": "2025",
+      "country": "United States",
+      "quality": "HD 1080p",
+      "size": "1.9 GB",
+      "language": "Hindi",
+      "subtitles": "N/A"
+    },
+    {
+      "id": "33",
+      "videoId": "5K2Hbd_sO",
+      "slug": "predator-badlands-2025-hindi-dubbed-full-movie",
+      "videoSource": "shorticu",
+      "title": "Predator Badlands (2025) Hindi Dubbed Full Movie",
+      "description": "A young Predator outcast from his clan finds an unlikely ally on his journey in search of the ultimate adversary.",
+      "thumbnail": "/PredatorBadlands.jpg",
+      "uploadDate": "2025-11-06T00:00:00Z",
+      "viewCount": 1,
+      "duration": "PT1H40M3S",
+      "Language": "Hindi",
+      "category": "Hindi",
+      "tags": ["Predator Badlands", "Sci-Fi", "Drama", "Thriller"],
+      "director": "Dan Trachtenberg",
+      "cast": ["Reuben de Jong", "Elle Fanning", "Dimitrius Schuster-Koloamatangi"],
+      "genre": "Sci-Fi, Thriller",
+      "rating": "7.6/10",
+      "releaseYear": "2025",
+      "country": "United States",
+      "quality": "HD 1080p",
+      "size": "1.9 GB",
+      "language": "Hindi",
+      "subtitles": "N/A"
+    },
+    {
+      "id": "32",
+      "videoId": "lpb-p3P2R",
+      "slug": "frankenstein-2025-hindi-dubbed-full-movie",
+      "videoSource": "shorticu",
+      "title": "Frankenstein (2025) Hindi Dubbed Full Movie",
+      "description": "A brilliant but egotistical scientist brings a creature to life in a monstrous experiment that ultimately leads to the undoing of both the creator and his tragic creation.",
+      "thumbnail": "/Frankenstein.jpg",
+      "uploadDate": "2025-11-06T00:00:00Z",
+      "viewCount": 1,
+      "duration": "PT2H32M3S",
+      "Language": "Hindi",
+      "category": "Hindi",
+      "tags": ["Frankenstein", "Horror", "Drama", "Thriller"],
+      "director": "Guillermo del Toro",
+      "cast": ["Oscar Isaac", "Jacob Elordi", "Christoph Waltz"],
+      "genre": "Horror, Thriller",
+      "rating": "7.7/10",
+      "releaseYear": "2025",
+      "country": "United States",
+      "quality": "HD 1080p",
+      "size": "1.9 GB",
+      "language": "Hindi",
+      "subtitles": "N/A"
+    },
+    {
+      "id": "31",
+      "videoId": "x9teyn8",
+      "slug": "mango-2025-hindi-dubbed-full-movie",
+      "videoSource": "dailymotion",
+      "title": "Mango (2025) Hindi Dubbed Full Movie",
+      "description": "Lærke, an ambitious hotel manager, is sent to Malaga to develop a hotel on Alex's mango farm. Lærke's daughter joins, expecting a rare holiday. Unexpected feelings arise between Lærke and Alex, forcing them to make life-altering choices.",
+      "thumbnail": "/Mango.jpg",
+      "uploadDate": "2025-11-06T00:00:00Z",
+      "viewCount": 1,
+      "duration": "PT1H36M3S",
+      "Language": "Hindi",
+      "category": "Hindi",
+      "tags": ["Mango", "Comedy", "Drama", "Romance"],
+      "director": "Mehdi Avaz",
+      "cast": ["Josephine Park", "Dar Salim", "Josephine Højbjerg"],
+      "genre": "Comedy, Drama",
+      "rating": "5.7/10",
+      "releaseYear": "2025",
+      "country": "Denmark",
+      "quality": "HD 1080p",
+      "size": "1.9 GB",
+      "language": "Hindi",
+      "subtitles": "N/A"
+    },
+    {
+      "id": "30",
+      "videoId": "x9tezhi",
+      "slug": "assassin-2025-hindi-dubbed-full-movie",
+      "videoSource": "dailymotion",
+      "title": "Assassin (2025) Hindi Dubbed Full Movie",
+      "description": "In 1932 Shanghai, a resistance leader and a gangster join forces to eliminate a Japanese military strategist. Their mission leads to violent encounters, public uprising, and ultimate sacrifice in the fight for freedom.",
+      "thumbnail": "/Assassin.jpg",
+      "uploadDate": "2025-11-06T00:00:00Z",
+      "viewCount": 1,
+      "duration": "PT1H30M3S",
+      "Language": "Hindi",
+      "category": "Hindi",
+      "tags": ["Assassin", "Action", "Thriller", "2025"],
+      "director": "Jiuqin Zhou",
+      "cast": ["Ray Lui", "Ming Wang"],
+      "genre": "Action, Thriller",
+      "rating": "6.7/10",
+      "releaseYear": "2025",
+      "country": "China",
+      "quality": "HD 1080p",
+      "size": "1.9 GB",
+      "language": "Hindi",
+      "subtitles": "N/A"
+    },
     {
       "id": "29",
       "videoId": "Llk2S7eSI",
@@ -273,7 +423,7 @@
       "quality": "HD 1080p",
       "size": "1.5 GB",
       "language": "English",
-      "subtitles": "Multiple Languages"
+      "subtitles": "N/A"
     },
     {
       "id": "18",
@@ -323,7 +473,7 @@
       "quality": "HD 1080p",
       "size": "1.9 GB",
       "language": "English",
-      "subtitles": "Multiple Languages"
+      "subtitles": "N/A"
     },
      {
       "id": "16",
@@ -348,7 +498,7 @@
       "quality": "HD 1080p",
       "size": "1.9 GB",
       "language": "English",
-      "subtitles": "Multiple Languages"
+      "subtitles": "N/A"
     },
      {
       "id": "15",
@@ -398,7 +548,7 @@
       "quality": "HD 1080p",
       "size": "1.9 GB",
       "language": "English",
-      "subtitles": "Multiple Languages"
+      "subtitles": "N/A"
     },
     {
       "id": "13",
@@ -423,7 +573,7 @@
       "quality": "HD 1080p",
       "size": "1.9 GB",
       "language": "English",
-      "subtitles": "Multiple Languages"
+      "subtitles": "N/A"
     },
     {
       "id": "12",
@@ -477,17 +627,17 @@
     },
     {
       "id": "10",
-      "videoId": "k7nqehpaA00q8hE9NPq",
+      "videoId": "x9tezxs",
       "slug": "dark-nuns-2025-full-movie",
       "videoSource": "dailymotion",
-      "title": "Dark Nuns (2025) Full Movie",
+      "title": "Dark Nuns (2025) Hindi Dubbed Full Movie",
       "description": "A young boy Hee-Joon is possessed by an evil spirit. Nun Yunia tries to save him, assisted by Nun Mikaela. Priest Paul attempts medical treatment, while Priest Andrew performs an exorcism to rid Hee-Joon of the spirit.",
       "thumbnail": "/DarkNuns.jpg",
       "uploadDate": "2025-11-06T00:00:00Z",
       "viewCount": 1,
       "duration": "PT1H54M3S",
-      "Language": "Korean",
-      "category": "Korean",
+      "Language": "Hindi",
+      "category": "Hindi",
       "tags": ["Dark Nuns", "Horror", "Exorcism", "2025"],
       "director": "Hyeok-jae Kwon",
       "cast": ["Song Hye-kyo", "Jeon Yeo-been", "Lee Jin-wook"],
@@ -497,8 +647,8 @@
       "country": "South Korea",
       "quality": "HD 1080p",
       "size": "1.9 GB",
-      "language": "Korean",
-      "subtitles": "Multiple Languages"
+      "language": "Hindi",
+      "subtitles": "N/A"
     },
     {
       "id": "9",
@@ -598,13 +748,13 @@
       "quality": "HD 1080p",
       "size": "1.9 GB",
       "language": "English",
-      "subtitles": "Multiple Languages"
+      "subtitles": "N/A"
     },
     {
       "id": "5",
-      "videoId": "GpogfndIN",
+      "videoId": "x9tf0ts",
       "slug": "tornado-2025-full-movie",
-      "videoSource": "shorticu",
+      "videoSource": "dailymotion",
       "title": "Tornado (2025) Full Movie",
       "description": "A Japanese puppeteer's daughter gets caught up with criminals when their show crosses paths with a crime gang, led by Sugarman and his son Little Sugar.",
       "thumbnail": "/Tornado.jpg",
@@ -623,7 +773,7 @@
       "quality": "HD 1080p",
       "size": "1.9 GB",
       "language": "English",
-      "subtitles": "Multiple Languages"
+      "subtitles": "N/A"
     },
     {
       "id": "4",
@@ -648,7 +798,7 @@
       "quality": "HD 1080p",
       "size": "1.9 GB",
       "language": "English",
-      "subtitles": "Multiple Languages"
+      "subtitles": "N/A"
     },
     {
       "id": "3",
@@ -673,7 +823,7 @@
       "quality": "HD 1080p",
       "size": "1.9 GB",
       "language": "English",
-      "subtitles": "Multiple Languages"
+      "subtitles": "N/A"
     },
     {
       "id": "2",
@@ -698,7 +848,7 @@
       "quality": "HD 1080p",
       "size": "1.9 GB",
       "language": "English",
-      "subtitles": "Multiple Languages"
+      "subtitles": "N/A"
     },
     {
       "id": "1",
