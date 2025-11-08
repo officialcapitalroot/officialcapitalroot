@@ -22,10 +22,11 @@ export default function VideoPage({ video, relatedVideos }) {
 
   const canonicalUrl = `https://capitalroot.vercel.app/video/${video.slug}`;
   const displayDuration = getDisplayDuration(video.duration);
-  
+
   const getThumbnailUrl = () => {
-    if (!video.thumbnail) return "https://capitalroot.vercel.app/default-thumbnail.jpg";
-    if (video.thumbnail.startsWith('http')) return video.thumbnail;
+    if (!video.thumbnail)
+      return "https://capitalroot.vercel.app/default-thumbnail.jpg";
+    if (video.thumbnail.startsWith("http")) return video.thumbnail;
     return `https://capitalroot.vercel.app${video.thumbnail}`;
   };
 
@@ -35,97 +36,115 @@ export default function VideoPage({ video, relatedVideos }) {
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": `${video.title} - Watch Online | Capital Root`,
-    "description": video.description,
-    "url": canonicalUrl,
-    "mainEntity": {
+    name: `${video.title} - Watch Online | Capital Root`,
+    description: video.description,
+    url: canonicalUrl,
+    mainEntity: {
       "@type": "Movie",
-      "name": video.title,
-      "description": video.description,
-      "image": thumbnailUrl,
-      "thumbnailUrl": thumbnailUrl,
-      "dateCreated": video.releaseYear ? `${video.releaseYear}` : undefined,
-      "genre": video.genre || video.category || "Entertainment",
-      "duration": video.duration,
-      "actor": video.cast ? video.cast.map(actor => ({ "@type": "Person", "name": actor })) : undefined,
-      "director": video.director ? { "@type": "Person", "name": video.director } : undefined,
-      "countryOfOrigin": video.country ? { "@type": "Country", "name": video.country } : undefined
+      name: video.title,
+      description: video.description,
+      image: thumbnailUrl,
+      thumbnailUrl: thumbnailUrl,
+      dateCreated: video.releaseYear ? `${video.releaseYear}` : undefined,
+      genre: video.genre || video.category || "Entertainment",
+      duration: video.duration,
+      actor: video.cast
+        ? video.cast.map((actor) => ({ "@type": "Person", name: actor }))
+        : undefined,
+      director: video.director
+        ? { "@type": "Person", name: video.director }
+        : undefined,
+      countryOfOrigin: video.country
+        ? { "@type": "Country", name: video.country }
+        : undefined,
     },
-    "publisher": {
+    publisher: {
       "@type": "Organization",
-      "name": "Capital Root",
-      "url": "https://capitalroot.vercel.app",
-      "logo": {
+      name: "Capital Root",
+      url: "https://capitalroot.vercel.app",
+      logo: {
         "@type": "ImageObject",
-        "url": "https://capitalroot.vercel.app/icon-512.png"
-      }
+        url: "https://capitalroot.vercel.app/icon-512.png",
+      },
     },
-    "interactionStatistic": {
+    interactionStatistic: {
       "@type": "InteractionCounter",
-      "interactionType": { "@type": "WatchAction" },
-      "userInteractionCount": typeof video.viewCount === 'string' 
-        ? parseInt(video.viewCount.replace(/[^0-9]/g, '')) || 1000 
-        : video.viewCount
-    }
+      interactionType: { "@type": "WatchAction" },
+      userInteractionCount:
+        typeof video.viewCount === "string"
+          ? parseInt(video.viewCount.replace(/[^0-9]/g, "")) || 1000
+          : video.viewCount,
+    },
   };
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [
+    itemListElement: [
       {
         "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://capitalroot.vercel.app"
+        position: 1,
+        name: "Home",
+        item: "https://capitalroot.vercel.app",
       },
       {
         "@type": "ListItem",
-        "position": 2,
-        "name": "Movies",
-        "item": "https://capitalroot.vercel.app/videos"
+        position: 2,
+        name: "Movies",
+        item: "https://capitalroot.vercel.app/videos",
       },
       {
         "@type": "ListItem",
-        "position": 3,
-        "name": video.title,
-        "item": canonicalUrl
-      }
-    ]
+        position: 3,
+        name: video.title,
+        item: canonicalUrl,
+      },
+    ],
   };
 
   // ADDITIONAL VIDEOOBJECT SCHEMA FOR THE EMBEDDED VIDEO
   const videoObjectSchema = {
     "@context": "https://schema.org",
     "@type": "VideoObject",
-    "name": video.title,
-    "description": video.description,
-    "thumbnailUrl": thumbnailUrl,
-    "uploadDate": video.uploadDate,
-    "duration": video.duration,
-    "contentUrl": canonicalUrl, // YOUR PAGE URL, NOT EXTERNAL SERVICE
-    "embedUrl": canonicalUrl, // YOUR PAGE URL, NOT EXTERNAL SERVICE
-    "publisher": {
+    name: video.title,
+    description: video.description,
+    thumbnailUrl: thumbnailUrl,
+    uploadDate: video.uploadDate,
+    duration: video.duration,
+    contentUrl: canonicalUrl, // YOUR PAGE URL, NOT EXTERNAL SERVICE
+    embedUrl: canonicalUrl, // YOUR PAGE URL, NOT EXTERNAL SERVICE
+    publisher: {
       "@type": "Organization",
-      "name": "Capital Root",
-      "url": "https://capitalroot.vercel.app",
-      "logo": {
+      name: "Capital Root",
+      url: "https://capitalroot.vercel.app",
+      logo: {
         "@type": "ImageObject",
-        "url": "https://capitalroot.vercel.app/icon-512.png"
-      }
-    }
+        url: "https://capitalroot.vercel.app/icon-512.png",
+      },
+    },
   };
 
   return (
     <>
       <Head>
         <title>{video.title} - Watch Online | Capital Root</title>
-        <meta name="description" content={`Watch ${video.title} online in HD quality. ${video.description}`} />
-        <meta name="keywords" content={`${video.title}, watch online, stream, ${video.tags?.join(', ') || ''}, ${video.category}, movies`} />
+        <meta
+          name="description"
+          content={`Watch ${video.title} online in HD quality. ${video.description}`}
+        />
+        <meta
+          name="keywords"
+          content={`${video.title}, watch online, stream, ${
+            video.tags?.join(", ") || ""
+          }, ${video.category}, movies`}
+        />
         <link rel="canonical" href={canonicalUrl} />
-        
+
         {/* Open Graph Meta Tags */}
-        <meta property="og:title" content={`${video.title} - Watch Online | Capital Root`} />
+        <meta
+          property="og:title"
+          content={`${video.title} - Watch Online | Capital Root`}
+        />
         <meta property="og:description" content={video.description} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonicalUrl} />
@@ -134,7 +153,7 @@ export default function VideoPage({ video, relatedVideos }) {
         <meta property="og:image:height" content="720" />
         <meta property="og:image:alt" content={video.title} />
         <meta property="og:site_name" content="Capital Root" />
-        
+
         {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@capitalroot" />
@@ -142,7 +161,7 @@ export default function VideoPage({ video, relatedVideos }) {
         <meta name="twitter:description" content={video.description} />
         <meta name="twitter:image" content={thumbnailUrl} />
         <meta name="twitter:image:alt" content={video.title} />
-        
+
         {/* CORRECTED STRUCTURED DATA - FOR PAGE RANKING */}
         <script
           type="application/ld+json"
@@ -156,11 +175,13 @@ export default function VideoPage({ video, relatedVideos }) {
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(videoObjectSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(videoObjectSchema),
+          }}
           key="videoobject-schema"
         />
       </Head>
-      
+
       <Header />
       <main className="video-page-main">
         <div className="container">
@@ -170,7 +191,12 @@ export default function VideoPage({ video, relatedVideos }) {
               className="back-button"
               aria-label="Go back to all videos"
             >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
                 <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
               </svg>
               Back to All Movies
@@ -178,7 +204,7 @@ export default function VideoPage({ video, relatedVideos }) {
           </div>
 
           <div className="video-page-content">
-            <section className="video-player-section">
+            <section className="video-player-section"style={{ marginTop: "60px" }}>
               <VideoPlayerWrapper
                 videoId={video.videoId}
                 videoSource={video.videoSource}
@@ -190,8 +216,7 @@ export default function VideoPage({ video, relatedVideos }) {
             <section className="video-info-section">
               <div className="video-info-header">
                 <h1>{video.title} </h1>
-                   {/* <h1>{video.title} ({video.releaseYear})</h1> */}
-
+                {/* <h1>{video.title} ({video.releaseYear})</h1> */}
               </div>
 
               <div className="video-content-grid">
@@ -216,7 +241,7 @@ export default function VideoPage({ video, relatedVideos }) {
                     )}
                     {video.cast && video.cast.length > 0 && (
                       <div className="info-item">
-                        <strong>Cast:</strong> {video.cast.join(', ')}
+                        <strong>Cast:</strong> {video.cast.join(", ")}
                       </div>
                     )}
                     {video.genre && (
@@ -246,29 +271,39 @@ export default function VideoPage({ video, relatedVideos }) {
                     )}
                     {video.duration && (
                       <div className="info-item">
-                        <strong>Duration:</strong> {video.duration.replace('PT', '').replace('H', 'h ').replace('M', 'm')}
+                        <strong>Duration:</strong>{" "}
+                        {video.duration
+                          .replace("PT", "")
+                          .replace("H", "h ")
+                          .replace("M", "m")}
                       </div>
                     )}
                     {video.rating && (
                       <div className="info-item">
-                        <strong>Rating:</strong> <span className="rating">{video.rating}</span>
+                        <strong>Rating:</strong>{" "}
+                        <span className="rating">{video.rating}</span>
                       </div>
                     )}
                   </div>
                 </div>
               </div>
-<div className="page-navigation">
-            <button
-              onClick={() => router.push("/videos")}
-              className="back-button"
-              aria-label="Go back to all videos"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
-              </svg>
-              Back to All Movies
-            </button>
-          </div>
+              <div className="page-navigation">
+                <button
+                  onClick={() => router.push("/videos")}
+                  className="back-button"
+                  aria-label="Go back to all videos"
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+                  </svg>
+                  Back to All Movies
+                </button>
+              </div>
               {video.description && (
                 <div className="movie-storyline">
                   <h2>Storyline</h2>
@@ -284,7 +319,9 @@ export default function VideoPage({ video, relatedVideos }) {
               {video.tags && video.tags.length > 0 && (
                 <div className="video-tags">
                   {video.tags.map((tag, index) => (
-                    <span key={index} className="tag">#{tag}</span>
+                    <span key={index} className="tag">
+                      #{tag}
+                    </span>
                   ))}
                 </div>
               )}
@@ -342,7 +379,10 @@ export default function VideoPage({ video, relatedVideos }) {
                 <h2>More Movies You Might Like</h2>
                 <div className="related-videos-grid">
                   {relatedVideos.map((relatedVideo) => (
-                    <RelatedVideoCard key={relatedVideo.id} video={relatedVideo} />
+                    <RelatedVideoCard
+                      key={relatedVideo.id}
+                      video={relatedVideo}
+                    />
                   ))}
                 </div>
               </section>
@@ -494,7 +534,8 @@ export default function VideoPage({ video, relatedVideos }) {
           font-size: 1.1rem;
         }
 
-        .movie-storyline, .video-description {
+        .movie-storyline,
+        .video-description {
           margin-bottom: 2rem;
           padding: 1.5rem;
           background: rgba(255, 255, 255, 0.03);
@@ -502,14 +543,16 @@ export default function VideoPage({ video, relatedVideos }) {
           border-left: 4px solid #00a8ff;
         }
 
-        .movie-storyline h2, .video-description h2 {
+        .movie-storyline h2,
+        .video-description h2 {
           color: #00a8ff;
           font-size: 1.5rem;
           margin-bottom: 1rem;
           font-weight: 600;
         }
 
-        .movie-storyline p, .video-description p {
+        .movie-storyline p,
+        .video-description p {
           color: #ccc;
           line-height: 1.7;
           font-size: 1.1rem;
@@ -613,25 +656,25 @@ export default function VideoPage({ video, relatedVideos }) {
           .video-info-header h1 {
             font-size: 2rem;
           }
-          
+
           .video-content-grid {
             grid-template-columns: 1fr;
           }
-          
+
           .movie-poster {
             max-width: 300px;
             margin: 0 auto;
           }
-          
+
           .details-grid {
             grid-template-columns: 1fr;
           }
-          
+
           .video-meta {
             flex-direction: column;
             align-items: center;
           }
-          
+
           .technical-specs .specs-grid {
             grid-template-columns: 1fr;
           }
@@ -665,7 +708,7 @@ function LoadingState() {
 // Not Found State Component
 function NotFoundState() {
   const router = useRouter();
-  
+
   return (
     <>
       <Head>
@@ -677,9 +720,14 @@ function NotFoundState() {
         <div className="container">
           <div className="error-message">
             <h1>404 - Video Not Found</h1>
-            <p>The video you're looking for doesn't exist or has been removed.</p>
+            <p>
+              The video you're looking for doesn't exist or has been removed.
+            </p>
             <div className="navigation-buttons">
-              <button onClick={() => router.back()} className="cta-button secondary">
+              <button
+                onClick={() => router.back()}
+                className="cta-button secondary"
+              >
                 Go Back
               </button>
               <a href="/videos" className="cta-button primary">
@@ -706,8 +754,6 @@ export async function getStaticPaths() {
   };
 }
 
-
-
 export async function getStaticProps({ params }) {
   const video = videoData.videos.find((v) => v.slug === params.slug);
 
@@ -717,9 +763,9 @@ export async function getStaticProps({ params }) {
     };
   }
 
-   // Get all videos except current one
+  // Get all videos except current one
   const otherVideos = videoData.videos.filter((v) => v.slug !== video.slug);
-  
+
   // Shuffle array randomly
   const shuffledVideos = [...otherVideos].sort(() => Math.random() - 0.5);
 
@@ -735,7 +781,6 @@ export async function getStaticProps({ params }) {
   // }
   // Take first 6 random videos
   const relatedVideos = shuffledVideos.slice(0, 6);
-
 
   return {
     props: {
