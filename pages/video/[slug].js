@@ -23,12 +23,26 @@ export default function VideoPage({ video, relatedVideos }) {
   const canonicalUrl = `https://capitalroot.vercel.app/video/${video.slug}`;
   const displayDuration = getDisplayDuration(video.duration);
 
+  // const getThumbnailUrl = () => {
+  //   if (!video.thumbnail)
+  //     return "https://capitalroot.vercel.app/default-thumbnail.jpg";
+  //   if (video.thumbnail.startsWith("http")) return video.thumbnail;
+  //   return `https://capitalroot.vercel.app${video.thumbnail}`;
+  // };
+
+
+  // Get proper thumbnail URL with fallback
   const getThumbnailUrl = () => {
-    if (!video.thumbnail)
-      return "https://capitalroot.vercel.app/default-thumbnail.jpg";
-    if (video.thumbnail.startsWith("http")) return video.thumbnail;
-    return `https://capitalroot.vercel.app${video.thumbnail}`;
-  };
+    if (!video.thumbnail) {
+      return "https://capitalroot.vercel.app/og-image.jpg";
+    }
+    
+    if (video.thumbnail.startsWith('http')) {
+      return video.thumbnail;
+    } else {
+      return `https://capitalroot.vercel.app${video.thumbnail}`;
+    }
+  }
 
   const thumbnailUrl = getThumbnailUrl();
 
