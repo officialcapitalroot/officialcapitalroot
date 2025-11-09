@@ -957,17 +957,17 @@ export default function VideoPage({ video, relatedVideos }) {
     ],
   };
 
-  // FIXED VIDEOOBJECT SCHEMA FOR SHORTICU VIDEOS
+  // CORRECTED VIDEOOBJECT SCHEMA - POINT TO OUR PAGE URL, NOT EXTERNAL SERVICE
   const videoObjectSchema = {
     "@context": "https://schema.org",
     "@type": "VideoObject",
     name: video.title,
     description: video.description,
-    thumbnailUrl: thumbnailUrl, // Use the absolute URL
+    thumbnailUrl: thumbnailUrl,
     uploadDate: video.uploadDate,
     duration: video.duration,
-    contentUrl: canonicalUrl,
-    embedUrl: canonicalUrl,
+    contentUrl: canonicalUrl, // POINT TO OUR PAGE
+    embedUrl: canonicalUrl,   // POINT TO OUR PAGE
     publisher: {
       "@type": "Organization",
       name: "Capital Root",
@@ -978,15 +978,6 @@ export default function VideoPage({ video, relatedVideos }) {
       },
     },
   };
-
-  // For shorticu videos, add additional properties
-  if (video.videoSource === 'shorticu') {
-    videoObjectSchema.embedUrl = `https://short.icu/embed/${video.videoId}`;
-    videoObjectSchema.contentUrl = `https://short.icu/${video.videoId}`;
-  } else if (video.videoSource === 'dailymotion') {
-    videoObjectSchema.embedUrl = `https://www.dailymotion.com/embed/video/${video.videoId}`;
-    videoObjectSchema.contentUrl = `https://www.dailymotion.com/video/${video.videoId}`;
-  }
   
   return (
     <>
@@ -1026,7 +1017,7 @@ export default function VideoPage({ video, relatedVideos }) {
         <meta name="twitter:image" content={thumbnailUrl} />
         <meta name="twitter:image:alt" content={video.title} />
 
-        {/* CORRECTED STRUCTURED DATA - FOR PAGE RANKING */}
+        {/* CORRECTED STRUCTURED DATA */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
@@ -1068,7 +1059,7 @@ export default function VideoPage({ video, relatedVideos }) {
           </div>
 
           <div className="video-page-content">
-            <section className="video-player-section"style={{ marginTop: "60px" }}>
+            <section className="video-player-section" style={{ marginTop: "60px" }}>
               <VideoPlayerWrapper
                 videoId={video.videoId}
                 videoSource={video.videoSource}
@@ -1079,7 +1070,7 @@ export default function VideoPage({ video, relatedVideos }) {
 
             <section className="video-info-section">
               <div className="video-info-header">
-                <h1>{video.title} </h1>
+                <h1>{video.title}</h1>
               </div>
 
               <div className="video-content-grid">
@@ -1150,6 +1141,7 @@ export default function VideoPage({ video, relatedVideos }) {
                   </div>
                 </div>
               </div>
+              
               <div className="page-navigation">
                 <button
                   onClick={() => router.push("/videos")}
@@ -1167,6 +1159,7 @@ export default function VideoPage({ video, relatedVideos }) {
                   Back to All Movies
                 </button>
               </div>
+              
               {video.description && (
                 <div className="movie-storyline">
                   <h2>Storyline</h2>
@@ -1375,8 +1368,7 @@ export default function VideoPage({ video, relatedVideos }) {
           font-size: 1.1rem;
         }
 
-        .movie-storyline,
-        .video-description {
+        .movie-storyline {
           margin-bottom: 2rem;
           padding: 1.5rem;
           background: rgba(255, 255, 255, 0.03);
@@ -1384,16 +1376,14 @@ export default function VideoPage({ video, relatedVideos }) {
           border-left: 4px solid #00a8ff;
         }
 
-        .movie-storyline h2,
-        .video-description h2 {
+        .movie-storyline h2 {
           color: #00a8ff;
           font-size: 1.5rem;
           margin-bottom: 1rem;
           font-weight: 600;
         }
 
-        .movie-storyline p,
-        .video-description p {
+        .movie-storyline p {
           color: #ccc;
           line-height: 1.7;
           font-size: 1.1rem;
@@ -1453,28 +1443,6 @@ export default function VideoPage({ video, relatedVideos }) {
           color: #00d2d3;
         }
 
-        .video-meta {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 1.5rem;
-          margin-bottom: 2rem;
-          padding: 1.5rem;
-          background: rgba(255, 255, 255, 0.03);
-          border-radius: 8px;
-          border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .video-meta span {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.5rem;
-          font-size: 0.95rem;
-          color: #ccc;
-          padding: 0.5rem 1rem;
-          background: rgba(255, 255, 255, 0.05);
-          border-radius: 6px;
-        }
-
         .related-videos {
           margin-top: 2rem;
         }
@@ -1508,15 +1476,6 @@ export default function VideoPage({ video, relatedVideos }) {
           }
 
           .details-grid {
-            grid-template-columns: 1fr;
-          }
-
-          .video-meta {
-            flex-direction: column;
-            align-items: center;
-          }
-
-          .technical-specs .specs-grid {
             grid-template-columns: 1fr;
           }
         }
