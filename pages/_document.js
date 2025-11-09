@@ -1,4 +1,3 @@
-// pages/_document.js
 import { Html, Head, Main, NextScript } from 'next/document'
 
 export default function Document() {
@@ -29,12 +28,31 @@ export default function Document() {
         
         <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         
+        {/* Open Graph Meta Tags */}
         <meta property="og:site_name" content="Capital Root Movies" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_US" />
+        <meta property="og:title" content="Capital Root Movies - Watch Latest Movies Online in HD" />
+        <meta property="og:description" content="Watch latest Hollywood, Bollywood and regional movies online in HD quality. Stream newest movies on demand with Capital Root Movies." />
+        <meta property="og:url" content="https://capitalroot.vercel.app" />
+        <meta property="og:image" content="https://capitalroot.vercel.app/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:alt" content="Capital Root Movies - Watch Latest Movies Online in HD" />
         
+        {/* Twitter Card Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:creator" content="@capitalroot" />
+        <meta name="twitter:site" content="@capitalroot" />
+        <meta name="twitter:title" content="Capital Root Movies - Watch Latest Movies Online in HD" />
+        <meta name="twitter:description" content="Watch latest Hollywood, Bollywood and regional movies online in HD quality. Stream newest movies on demand with Capital Root Movies." />
+        <meta name="twitter:image" content="https://capitalroot.vercel.app/og-image.jpg" />
+        <meta name="twitter:image:alt" content="Capital Root Movies - Watch Latest Movies Online in HD" />
+        
+        {/* Facebook Meta Tags */}
+        <meta property="fb:app_id" content="your-facebook-app-id" />
+        <meta property="fb:pages" content="https://www.facebook.com/profile.php?id=61582111152736" />
         
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-KGJEF0RJQF"></script>
         <script
