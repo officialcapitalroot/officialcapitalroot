@@ -957,34 +957,48 @@ export default function VideoPage({ video, relatedVideos }) {
     ],
   };
 
-  // SEPARATE VIDEOOBJECT SCHEMAS FOR DIFFERENT SOURCES
-  const getVideoObjectSchema = () => {
-    const baseSchema = {
-      "@context": "https://schema.org",
-      "@type": "VideoObject",
-      name: video.title,
-      description: video.description,
-      thumbnailUrl: thumbnailUrl,
-      uploadDate: video.uploadDate,
-      duration: video.duration,
-      contentUrl: canonicalUrl,
-      embedUrl: canonicalUrl,
-      publisher: {
-        "@type": "Organization",
-        name: "Capital Root",
-        url: "https://capitalroot.vercel.app",
-        logo: {
-          "@type": "ImageObject",
-          url: "https://capitalroot.vercel.app/icon-512.png",
-        },
+  // SEPARATE VIDEOOBJECT SCHEMAS FOR EACH SOURCE
+  const shorticuVideoSchema = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: video.title,
+    description: video.description,
+    thumbnailUrl: thumbnailUrl,
+    uploadDate: video.uploadDate,
+    duration: video.duration,
+    contentUrl: canonicalUrl,
+    embedUrl: canonicalUrl,
+    publisher: {
+      "@type": "Organization",
+      name: "Capital Root",
+      url: "https://capitalroot.vercel.app",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://capitalroot.vercel.app/icon-512.png",
       },
-    };
-
-    return baseSchema;
+    },
   };
 
-  // Generate VideoObject schema based on video source
-  const videoObjectSchema = getVideoObjectSchema();
+  const dailymotionVideoSchema = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: video.title,
+    description: video.description,
+    thumbnailUrl: thumbnailUrl,
+    uploadDate: video.uploadDate,
+    duration: video.duration,
+    contentUrl: canonicalUrl,
+    embedUrl: canonicalUrl,
+    publisher: {
+      "@type": "Organization",
+      name: "Capital Root",
+      url: "https://capitalroot.vercel.app",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://capitalroot.vercel.app/icon-512.png",
+      },
+    },
+  };
   
   return (
     <>
@@ -1036,31 +1050,12 @@ export default function VideoPage({ video, relatedVideos }) {
           key="breadcrumb-schema"
         />
         
-        {/* VIDEOOBJECT SCHEMA - SEPARATE FOR EACH SOURCE */}
+        {/* SEPARATE VIDEOOBJECT SCHEMAS FOR EACH SOURCE */}
         {video.videoSource === 'shorticu' && (
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "VideoObject",
-                "name": video.title,
-                "description": video.description,
-                "thumbnailUrl": thumbnailUrl,
-                "uploadDate": video.uploadDate,
-                "duration": video.duration,
-                "contentUrl": canonicalUrl,
-                "embedUrl": canonicalUrl,
-                "publisher": {
-                  "@type": "Organization",
-                  "name": "Capital Root",
-                  "url": "https://capitalroot.vercel.app",
-                  "logo": {
-                    "@type": "ImageObject",
-                    "url": "https://capitalroot.vercel.app/icon-512.png"
-                  }
-                }
-              }),
+              __html: JSON.stringify(shorticuVideoSchema),
             }}
             key="shorticu-videoobject-schema"
           />
@@ -1070,26 +1065,7 @@ export default function VideoPage({ video, relatedVideos }) {
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
-              __html: JSON.stringify({
-                "@context": "https://schema.org",
-                "@type": "VideoObject",
-                "name": video.title,
-                "description": video.description,
-                "thumbnailUrl": thumbnailUrl,
-                "uploadDate": video.uploadDate,
-                "duration": video.duration,
-                "contentUrl": canonicalUrl,
-                "embedUrl": canonicalUrl,
-                "publisher": {
-                  "@type": "Organization",
-                  "name": "Capital Root",
-                  "url": "https://capitalroot.vercel.app",
-                  "logo": {
-                    "@type": "ImageObject",
-                    "url": "https://capitalroot.vercel.app/icon-512.png"
-                  }
-                }
-              }),
+              __html: JSON.stringify(dailymotionVideoSchema),
             }}
             key="dailymotion-videoobject-schema"
           />
