@@ -140,21 +140,21 @@ export default function Footer() {
             <h3>Quick Links</h3>
             <ul className="footer-links">
               <li><Link href="/">Home</Link></li>
-              <li><Link href="/movies">All Movies</Link></li>
-              <li><Link href="/category/english">English Movies</Link></li>
-              <li><Link href="/category/hindi">Hindi Movies</Link></li>
-              <li><Link href="/category/telugu">Telugu Movies</Link></li>
+              <li><Link href="/videos">All Movies</Link></li>
+              <li><Link href="/videos">English Movies</Link></li>
+              <li><Link href="/videos">Hindi Movies</Link></li>
+              <li><Link href="/videos">Telugu Movies</Link></li>
             </ul>
           </div>
           
           <div className="footer-section">
             <h3>Categories</h3>
             <ul className="footer-links">
-              <li><Link href="/category/action">Action Movies</Link></li>
-              <li><Link href="/category/drama">Drama Movies</Link></li>
-              <li><Link href="/category/comedy">Comedy Movies</Link></li>
-              <li><Link href="/category/thriller">Thriller Movies</Link></li>
-              <li><Link href="/category/romance">Romance Movies</Link></li>
+              <li><Link href="/videos">Action Movies</Link></li>
+              <li><Link href="/videos">Drama Movies</Link></li>
+              <li><Link href="/videos">Comedy Movies</Link></li>
+              <li><Link href="/videos">Thriller Movies</Link></li>
+              <li><Link href="/videos">Romance Movies</Link></li>
             </ul>
           </div>
           
