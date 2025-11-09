@@ -957,27 +957,34 @@ export default function VideoPage({ video, relatedVideos }) {
     ],
   };
 
-  // CORRECTED VIDEOOBJECT SCHEMA - POINT TO OUR PAGE URL, NOT EXTERNAL SERVICE
-  const videoObjectSchema = {
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    name: video.title,
-    description: video.description,
-    thumbnailUrl: thumbnailUrl,
-    uploadDate: video.uploadDate,
-    duration: video.duration,
-    contentUrl: canonicalUrl, // POINT TO OUR PAGE
-    embedUrl: canonicalUrl,   // POINT TO OUR PAGE
-    publisher: {
-      "@type": "Organization",
-      name: "Capital Root",
-      url: "https://capitalroot.vercel.app",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://capitalroot.vercel.app/icon-512.png",
+  // SEPARATE VIDEOOBJECT SCHEMAS FOR DIFFERENT SOURCES
+  const getVideoObjectSchema = () => {
+    const baseSchema = {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      name: video.title,
+      description: video.description,
+      thumbnailUrl: thumbnailUrl,
+      uploadDate: video.uploadDate,
+      duration: video.duration,
+      contentUrl: canonicalUrl,
+      embedUrl: canonicalUrl,
+      publisher: {
+        "@type": "Organization",
+        name: "Capital Root",
+        url: "https://capitalroot.vercel.app",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://capitalroot.vercel.app/icon-512.png",
+        },
       },
-    },
+    };
+
+    return baseSchema;
   };
+
+  // Generate VideoObject schema based on video source
+  const videoObjectSchema = getVideoObjectSchema();
   
   return (
     <>
@@ -1028,13 +1035,65 @@ export default function VideoPage({ video, relatedVideos }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
           key="breadcrumb-schema"
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(videoObjectSchema),
-          }}
-          key="videoobject-schema"
-        />
+        
+        {/* VIDEOOBJECT SCHEMA - SEPARATE FOR EACH SOURCE */}
+        {video.videoSource === 'shorticu' && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "VideoObject",
+                "name": video.title,
+                "description": video.description,
+                "thumbnailUrl": thumbnailUrl,
+                "uploadDate": video.uploadDate,
+                "duration": video.duration,
+                "contentUrl": canonicalUrl,
+                "embedUrl": canonicalUrl,
+                "publisher": {
+                  "@type": "Organization",
+                  "name": "Capital Root",
+                  "url": "https://capitalroot.vercel.app",
+                  "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://capitalroot.vercel.app/icon-512.png"
+                  }
+                }
+              }),
+            }}
+            key="shorticu-videoobject-schema"
+          />
+        )}
+
+        {video.videoSource === 'dailymotion' && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "VideoObject",
+                "name": video.title,
+                "description": video.description,
+                "thumbnailUrl": thumbnailUrl,
+                "uploadDate": video.uploadDate,
+                "duration": video.duration,
+                "contentUrl": canonicalUrl,
+                "embedUrl": canonicalUrl,
+                "publisher": {
+                  "@type": "Organization",
+                  "name": "Capital Root",
+                  "url": "https://capitalroot.vercel.app",
+                  "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://capitalroot.vercel.app/icon-512.png"
+                  }
+                }
+              }),
+            }}
+            key="dailymotion-videoobject-schema"
+          />
+        )}
       </Head>
 
       <Header />
