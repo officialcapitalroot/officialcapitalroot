@@ -963,7 +963,7 @@ export default function VideoPage({ video, relatedVideos }) {
     "@type": "VideoObject",
     name: video.title,
     description: video.description,
-    thumbnailUrl: video.thumbnail,
+    thumbnailUrl: thumbnailUrl,
     uploadDate: video.uploadDate,
     duration: video.duration,
     contentUrl: canonicalUrl,
@@ -1051,7 +1051,7 @@ export default function VideoPage({ video, relatedVideos }) {
         />
         
         {/* SEPARATE VIDEOOBJECT SCHEMAS FOR EACH SOURCE */}
-        {/* {video.videoSource === 'shorticu' && ( */}
+        {video.videoSource === 'shorticu' && (
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
@@ -1059,9 +1059,9 @@ export default function VideoPage({ video, relatedVideos }) {
             }}
             key="shorticu-videoobject-schema"
           />
-        {/* )} */}
+        )}
 
-        {/* {video.videoSource === 'dailymotion' && ( */}
+        {video.videoSource === 'dailymotion' && (
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
@@ -1069,7 +1069,7 @@ export default function VideoPage({ video, relatedVideos }) {
             }}
             key="dailymotion-videoobject-schema"
           />
-        {/* )} */}
+        )}
       </Head>
 
       <Header />
