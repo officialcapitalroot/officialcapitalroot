@@ -103,16 +103,40 @@ export default function VideoPage({ video, relatedVideos }) {
   };
 
   // ADDITIONAL VIDEOOBJECT SCHEMA FOR THE EMBEDDED VIDEO
+  // const videoObjectSchema = {
+  //   "@context": "https://schema.org",
+  //   "@type": "VideoObject",
+  //   name: video.title,
+  //   description: video.description,
+  //   thumbnailUrl: thumbnailUrl,
+  //   uploadDate: video.uploadDate,
+  //   duration: video.duration,
+  //   contentUrl: canonicalUrl, // YOUR PAGE URL, NOT EXTERNAL SERVICE
+  //   embedUrl: canonicalUrl, // YOUR PAGE URL, NOT EXTERNAL SERVICE
+  //   publisher: {
+  //     "@type": "Organization",
+  //     name: "Capital Root",
+  //     url: "https://capitalroot.vercel.app",
+  //     logo: {
+  //       "@type": "ImageObject",
+  //       url: "https://capitalroot.vercel.app/icon-512.png",
+  //     },
+  //   },
+  // };
+
+  const urls = (video);
+  // ADDITIONAL VIDEOOBJECT SCHEMA FOR THE EMBEDDED VIDEO
   const videoObjectSchema = {
     "@context": "https://schema.org",
     "@type": "VideoObject",
-    name: video.title,
-    description: video.description,
-    thumbnailUrl: thumbnailUrl,
-    uploadDate: video.uploadDate,
-    duration: video.duration,
-    contentUrl: canonicalUrl, // YOUR PAGE URL, NOT EXTERNAL SERVICE
-    embedUrl: canonicalUrl, // YOUR PAGE URL, NOT EXTERNAL SERVICE
+    "name": video.title,
+    "description": video.description,
+    "thumbnailUrl": thumbnailUrl,
+    "uploadDate": video.uploadDate,
+    "duration": video.duration,
+    "contentUrl": canonicalUrl,
+    "embedUrl": urls.embedUrl,
+    // url: canonicalUrl,
     publisher: {
       "@type": "Organization",
       name: "Capital Root",
@@ -124,6 +148,7 @@ export default function VideoPage({ video, relatedVideos }) {
     },
   };
 
+  
   return (
     <>
       <Head>
