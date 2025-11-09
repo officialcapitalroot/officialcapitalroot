@@ -2,8 +2,7 @@ export default function ShortICUPlayer({ videoId, title }) {
   return (
         <div 
       className="shorticu-player-container"
-      itemScope
-      itemType="https://schema.org/VideoObject"
+      
     >
 
     <div style={{
