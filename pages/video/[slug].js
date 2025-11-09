@@ -957,27 +957,27 @@ export default function VideoPage({ video, relatedVideos }) {
     ],
   };
 
-  // // SINGLE VIDEOOBJECT SCHEMA FOR ALL SOURCES
-  // const videoObjectSchema = {
-  //   "@context": "https://schema.org",
-  //   "@type": "VideoObject",
-  //   name: video.title,
-  //   description: video.description,
-  //   thumbnailUrl: thumbnailUrl,
-  //   uploadDate: video.uploadDate,
-  //   duration: video.duration,
-  //   contentUrl: canonicalUrl,
-  //   embedUrl: canonicalUrl,
-  //   publisher: {
-  //     "@type": "Organization",
-  //     name: "Capital Root",
-  //     url: "https://capitalroot.vercel.app",
-  //     logo: {
-  //       "@type": "ImageObject",
-  //       url: "https://capitalroot.vercel.app/icon-512.png",
-  //     },
-  //   },
-  // };
+  // SINGLE VIDEOOBJECT SCHEMA FOR ALL SOURCES
+  const videoObjectSchema = {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    name: video.title,
+    description: video.description,
+    thumbnailUrl: thumbnailUrl,
+    uploadDate: video.uploadDate,
+    duration: video.duration,
+    contentUrl: canonicalUrl,
+    embedUrl: canonicalUrl,
+    publisher: {
+      "@type": "Organization",
+      name: "Capital Root",
+      url: "https://capitalroot.vercel.app",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://capitalroot.vercel.app/icon-512.png",
+      },
+    },
+  };
   
   return (
     <>
@@ -1030,13 +1030,13 @@ export default function VideoPage({ video, relatedVideos }) {
         />
         
         {/* SINGLE VIDEOOBJECT SCHEMA */}
-        {/* <script
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(videoObjectSchema),
           }}
           key="videoobject-schema"
-        /> */}
+        />
       </Head>
 
       <Header />
