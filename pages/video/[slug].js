@@ -1050,26 +1050,21 @@ export default function VideoPage({ video, relatedVideos }) {
           key="breadcrumb-schema"
         />
         
-        {/* SEPARATE VIDEOOBJECT SCHEMAS FOR EACH SOURCE */}
-        {video.videoSource === 'shorticu' && (
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify(shorticuVideoSchema),
-            }}
-            key="shorticu-videoobject-schema"
-          />
-        )}
-
-        {video.videoSource === 'dailymotion' && (
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify(dailymotionVideoSchema),
-            }}
-            key="dailymotion-videoobject-schema"
-          />
-        )}
+        {/* SEPARATE VIDEOOBJECT SCHEMAS - NO CONDITIONS */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(shorticuVideoSchema),
+          }}
+          key="shorticu-videoobject-schema"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(dailymotionVideoSchema),
+          }}
+          key="dailymotion-videoobject-schema"
+        />
       </Head>
 
       <Header />
