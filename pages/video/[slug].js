@@ -145,11 +145,11 @@ export default function VideoPage({ video, relatedVideos }) {
     "@type": "VideoObject",
     "name": video.title,
     "description": video.description,
-    "thumbnailUrl": thumbnailUrl,
+    "thumbnailUrl": video.thumbnail,
     "uploadDate": video.uploadDate,
     "duration": video.duration,
     "contentUrl": canonicalUrl,
-    "embedUrl": urls.embedUrl,
+    "embedUrl": canonicalUrl,
     // url: canonicalUrl,
     publisher: {
       "@type": "Organization",
