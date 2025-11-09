@@ -194,7 +194,8 @@ export default function VideoCard({ video }) {
 
         <meta itemProp="genre" content={video.category || "Entertainment"} />
         <meta itemProp="uploadDate" content={video.uploadDate} />
-        
+        <meta itemProp="dateCreated" content={video.uploadDate} />
+        <meta itemProp="director" content={video.director} />
         <SocialShare
           title={video.title}
           description={video.description}
