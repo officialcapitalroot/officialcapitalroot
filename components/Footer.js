@@ -129,7 +129,7 @@ export default function Footer() {
           <div className="footer-section">
             <h3>Capital Root Movies</h3>
             <p>Watch latest Hollywood, Bollywood and regional movies online in HD quality. Stream newest movies on demand.</p>
-            <div className="social-links">
+            <div className="social-links"style={{ display: 'flex', gap: '16px', }}>
               <a href="https://t.me/capitalroot" target="_blank" rel="noopener noreferrer">Telegram</a>
               <a href="https://www.youtube.com/channel/UCS7Ahfb_tr9uUz_XuiNJtGg" target="_blank" rel="noopener noreferrer">YouTube</a>
               <a href="https://twitter.com/capitalroot" target="_blank" rel="noopener noreferrer">Twitter</a>
