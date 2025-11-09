@@ -221,7 +221,9 @@ export default function Videos({ videos }) {
         "url": `https://capitalroot.vercel.app/video/${video.slug}`,
         "name": video.title,
         "image": video.thumbnail,
-        "description": video.description
+        "description": video.description,
+        "dateCreated": video.uploadDate,
+        "director": video.director
       }))
     },
     "breadcrumb": {
