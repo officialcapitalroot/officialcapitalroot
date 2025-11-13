@@ -110,26 +110,26 @@
 
 
 
-// components/VideoPlayer.js
-export default function VideoPlayer({ movie }) {
-  const getPlayerSrc = () => {
-    if (movie.videoSource === 'dailymotion') {
-      return `https://geo.dailymotion.com/player.html?video=${movie.videoId}`
-    } else if (movie.videoSource === 'shorticu') {
-      return `https://short.icu/embed/${movie.videoId}`
-    }
-    return `https://geo.dailymotion.com/player.html?video=${movie.videoId}`
-  }
+// // components/VideoPlayer.js
+// export default function VideoPlayer({ movie }) {
+//   const getPlayerSrc = () => {
+//     if (movie.videoSource === 'dailymotion') {
+//       return `https://geo.dailymotion.com/player.html?video=${movie.videoId}`
+//     } else if (movie.videoSource === 'shorticu') {
+//       return `https://short.icu/embed/${movie.videoId}`
+//     }
+//     return `https://geo.dailymotion.com/player.html?video=${movie.videoId}`
+//   }
 
-  return (
-    <div className="video-player-container">
-      <iframe
-        src={getPlayerSrc()}
-        className="video-player"
-        allowFullScreen
-        title={`Watch ${movie.title}`}
-        allow="autoplay; fullscreen; picture-in-picture"
-      />
-    </div>
-  )
-}
+//   return (
+//     <div className="video-player-container">
+//       <iframe
+//         src={getPlayerSrc()}
+//         className="video-player"
+//         allowFullScreen
+//         title={`Watch ${movie.title}`}
+//         allow="autoplay; fullscreen; picture-in-picture"
+//       />
+//     </div>
+//   )
+// }
