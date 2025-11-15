@@ -2247,14 +2247,15 @@ export default function VideoPage({
                   Back to All {mediaType === 'tv' ? 'TV Shows' : 'Movies'}
                 </button>
               </nav>
-
-
+              
 <SocialShare 
   mediaData={isTMDB ? media : null}
   videoData={!isTMDB ? video : null}
   mediaType={mediaType}
-/>
-             
+  currentUrl={canonicalUrl} // FORCE the canonical URL
+  currentImage={thumbnailUrl} // FORCE the thumbnail image
+  currentTitle={currentMedia.title || currentMedia.name} // FORCE the title
+/>             
             </section>
 
             {(relatedVideos && relatedVideos.length > 0) || (relatedMedia && relatedMedia.length > 0) ? (

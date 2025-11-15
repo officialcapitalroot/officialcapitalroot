@@ -99,74 +99,80 @@
 
 // components/SocialShare.js
 import { FaTwitter, FaFacebook, FaLinkedin, FaLink, FaWhatsapp, FaTelegram, FaPinterest } from 'react-icons/fa'
-import { useEffect, useState } from 'react'
 
 export default function SocialShare({ 
   videoData = null, 
   mediaData = null, 
-  mediaType = 'movie'
+  mediaType = 'movie',
+  currentUrl = '',
+  currentImage = '',
+  currentTitle = ''
 }) {
-  const [shareData, setShareData] = useState(null)
+  // FORCE the current page URL - don't rely on window.location
+  const getShareData = () => {
+    let shareUrl = currentUrl;
+    let shareImage = currentImage;
+    let shareTitle = currentTitle;
+    
+    console.log('🔗 FORCED URL:', shareUrl);
+    console.log('🖼️ FORCED IMAGE:', shareImage);
+    console.log('📝 FORCED TITLE:', shareTitle);
 
-  useEffect(() => {
-    // Get current page URL and data IMMEDIATELY
-    if (typeof window !== 'undefined') {
-      const currentUrl = window.location.href;
-      const pageTitle = document.title.replace(' - Capital Root Movies', '').replace(' | Capital Root Movies', '');
-      
-      console.log('🔗 CURRENT PAGE URL:', currentUrl);
-      console.log('📄 CURRENT PAGE TITLE:', pageTitle);
-
-      let shareImage = '';
-      let shareDescription = 'Watch now on Capital Root Movies';
-
-      // Get image from Open Graph meta tag or other sources
-      const ogImage = document.querySelector('meta[property="og:image"]');
-      if (ogImage) {
-        shareImage = ogImage.getAttribute('content');
-        console.log('🖼️ OG IMAGE FOUND:', shareImage);
-      }
-
-      // If no OG image, try to get from media data
-      if (!shareImage) {
-        if (mediaData) {
-          // TMDB Data
-          shareImage = `https://image.tmdb.org/t/p/w500${mediaData.poster_path || mediaData.backdrop_path}`;
-          shareDescription = mediaData.overview || shareDescription;
-          console.log('🎬 TMDB IMAGE USED:', shareImage);
-        } else if (videoData) {
-          // JSON Video Data  
-          shareImage = videoData.thumbnail.startsWith('http') 
-            ? videoData.thumbnail 
-            : `https://capitalroot.vercel.app${videoData.thumbnail}`;
-          shareDescription = videoData.description || shareDescription;
-          console.log('🎥 VIDEO IMAGE USED:', shareImage);
-        }
-      }
-
-      // Final fallback - use site logo ONLY if nothing else works
-      if (!shareImage) {
-        shareImage = 'https://capitalroot.vercel.app/icon-512.png';
-        console.log('⚠️ USING FALLBACK IMAGE');
-      }
-
-      const finalShareData = {
-        title: pageTitle,
-        description: shareDescription,
-        image: shareImage,
-        url: currentUrl
-      };
-
-      console.log('🎯 FINAL SHARE DATA:', finalShareData);
-      setShareData(finalShareData);
+    // If URL not provided, try to get from window as last resort
+    if (!shareUrl && typeof window !== 'undefined') {
+      shareUrl = window.location.href;
+      console.log('⚠️ USING WINDOW URL:', shareUrl);
     }
-  }, [mediaData, videoData, mediaType]);
 
-  // Don't render until we have share data
-  if (!shareData) {
-    return <div style={{padding: '1rem', textAlign: 'center'}}>Loading share options...</div>;
-  }
+    // If image not provided, try to get from media data
+    if (!shareImage) {
+      if (mediaData) {
+        shareImage = `https://image.tmdb.org/t/p/w500${mediaData.poster_path || mediaData.backdrop_path}`;
+        console.log('🎬 USING TMDB IMAGE:', shareImage);
+      } else if (videoData && videoData.thumbnail) {
+        shareImage = videoData.thumbnail.startsWith('http') 
+          ? videoData.thumbnail 
+          : `https://capitalroot.vercel.app${videoData.thumbnail}`;
+        console.log('🎥 USING VIDEO IMAGE:', shareImage);
+      }
+    }
 
+    // If title not provided, try to get from media data
+    if (!shareTitle) {
+      if (mediaData) {
+        shareTitle = mediaData.title || mediaData.name;
+      } else if (videoData) {
+        shareTitle = videoData.title;
+      }
+    }
+
+    // Final fallback - use site logo
+    if (!shareImage) {
+      shareImage = 'https://capitalroot.vercel.app/icon-512.png';
+    }
+
+    // CRITICAL: If still no URL, use a default that includes the slug
+    if (!shareUrl) {
+      if (videoData && videoData.slug) {
+        shareUrl = `https://capitalroot.vercel.app/video/${videoData.slug}`;
+      } else if (mediaData && mediaData.id) {
+        shareUrl = `https://capitalroot.vercel.app/video/${mediaType}-${mediaData.id}`;
+      } else {
+        shareUrl = 'https://capitalroot.vercel.app';
+      }
+      console.log('🚨 ULTIMATE FALLBACK URL:', shareUrl);
+    }
+
+    return {
+      title: shareTitle || 'Capital Root Movies',
+      description: 'Watch now on Capital Root Movies',
+      image: shareImage,
+      url: shareUrl
+    };
+  };
+
+  const shareData = getShareData();
+  
   const shareText = `${shareData.title} - Watch on Capital Root Movies`;
   
   const shareLinks = {
@@ -183,7 +189,6 @@ export default function SocialShare({
       await navigator.clipboard.writeText(shareData.url);
       alert('✅ Link copied to clipboard!');
     } catch (err) {
-      // Fallback for older browsers
       const textArea = document.createElement('textarea');
       textArea.value = shareData.url;
       document.body.appendChild(textArea);
