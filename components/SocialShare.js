@@ -106,66 +106,99 @@ export default function SocialShare({
   mediaData = null, 
   mediaType = 'movie',
   customTitle = '',
-  customImage = '' 
+  customImage = '',
+  forceUrl = '',
+  forceImage = ''
 }) {
   const [pageUrl, setPageUrl] = useState('')
-  const [shareData, setShareData] = useState({
-    title: '',
-    description: '',
-    image: '',
-    url: ''
-  })
+  const [shareData, setShareData] = useState(null)
+  const [isReady, setIsReady] = useState(false)
 
   useEffect(() => {
-    // Get current page URL dynamically
+    // Get current page URL dynamically - FORCE the actual page URL
     if (typeof window !== 'undefined') {
-      setPageUrl(window.location.href)
-    }
-  }, [])
+      const currentUrl = window.location.href
+      console.log('🔄 SocialShare - Current URL:', currentUrl)
+      setPageUrl(currentUrl)
+      
+      // Set share data immediately with current URL
+      let finalUrl = forceUrl || currentUrl
+      let finalImage = forceImage || ''
+      let finalTitle = customTitle || ''
+      let finalDescription = 'Watch now on Capital Root Movies'
 
-  useEffect(() => {
-    // Determine share data based on source (TMDB vs JSON)
-    if (mediaData) {
-      // TMDB Data
-      setShareData({
-        title: mediaData.title || mediaData.name || 'Capital Root Movies',
-        description: mediaData.overview || 'Watch now on Capital Root Movies',
-        image: getTMDBImageUrl(mediaData.poster_path || mediaData.backdrop_path),
-        url: pageUrl
+      // Determine data source
+      if (mediaData) {
+        // TMDB Data - NO FALLBACK
+        finalTitle = mediaData.title || mediaData.name
+        finalDescription = mediaData.overview || finalDescription
+        finalImage = getTMDBImageUrl(mediaData.poster_path || mediaData.backdrop_path)
+      } else if (videoData) {
+        // JSON Video Data - NO FALLBACK
+        finalTitle = videoData.title
+        finalDescription = videoData.description || finalDescription
+        finalImage = getVideoThumbnailUrl(videoData.thumbnail)
+      } else {
+        // Use page title as last resort
+        const pageTitle = typeof document !== 'undefined' ? document.title : 'Capital Root Movies'
+        finalTitle = customTitle || pageTitle.replace(' - Capital Root Movies', '').replace(' | Capital Root Movies', '')
+      }
+
+      // ENSURE we have an image - use site logo only as absolute last resort
+      if (!finalImage) {
+        finalImage = getDefaultImage()
+      }
+
+      console.log('🎯 SocialShare - Final Share Data:', {
+        title: finalTitle,
+        image: finalImage,
+        url: finalUrl
       })
-    } else if (videoData) {
-      // JSON Video Data
+
       setShareData({
-        title: videoData.title || 'Capital Root Movies',
-        description: videoData.description || 'Watch now on Capital Root Movies',
-        image: getVideoThumbnailUrl(videoData.thumbnail),
-        url: pageUrl
+        title: finalTitle,
+        description: finalDescription,
+        image: finalImage,
+        url: finalUrl
       })
-    } else {
-      // Fallback to page data
-      const pageTitle = typeof document !== 'undefined' ? document.title : 'Capital Root Movies'
-      setShareData({
-        title: customTitle || pageTitle.replace(' - Capital Root Movies', '').replace(' | Capital Root Movies', ''),
-        description: 'Watch now on Capital Root Movies',
-        image: customImage || getDefaultImage(),
-        url: pageUrl
-      })
+      setIsReady(true)
     }
-  }, [mediaData, videoData, pageUrl, customTitle, customImage])
+  }, [mediaData, videoData, customTitle, customImage, forceUrl, forceImage])
 
   const getTMDBImageUrl = (path, size = 'w500') => {
-    if (!path) return getDefaultImage()
+    if (!path) return null
     return `https://image.tmdb.org/t/p/${size}${path}`
   }
 
   const getVideoThumbnailUrl = (thumbnail) => {
-    if (!thumbnail) return getDefaultImage()
+    if (!thumbnail) return null
     if (thumbnail.startsWith('http')) return thumbnail
-    return `https://capitalroot.vercel.app${thumbnail}`
+    // Ensure absolute URL for thumbnails
+    if (thumbnail.startsWith('/')) {
+      return `https://capitalroot.vercel.app${thumbnail}`
+    }
+    return thumbnail
   }
 
   const getDefaultImage = () => {
+    // Only use as absolute last resort
     return 'https://capitalroot.vercel.app/icon-512.png'
+  }
+
+  // Don't render until we have data
+  if (!isReady || !shareData) {
+    return (
+      <div className="social-share-loading">
+        <style jsx>{`
+          .social-share-loading {
+            padding: 1.5rem;
+            text-align: center;
+            color: #666;
+          }
+        `}</style>
+        Loading share options...
+      </div>
+    )
   }
 
   const shareText = `${shareData.title} - Watch on Capital Root Movies`
@@ -175,7 +208,7 @@ export default function SocialShare({
 
   const shareLinks = {
     twitter: `https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`,
-    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&picture=${encodedImage}&title=${encodedText}&description=${encodeURIComponent(shareData.description)}`,
     linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
     whatsapp: `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + shareData.url)}`,
     telegram: `https://t.me/share/url?url=${encodedUrl}&text=${encodedText}`,
@@ -185,7 +218,7 @@ export default function SocialShare({
   const copyToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(shareData.url)
-      alert('Link copied to clipboard!')
+      alert('✅ Link copied to clipboard!')
     } catch (err) {
       console.error('Failed to copy: ', err)
       // Fallback for older browsers
@@ -195,7 +228,7 @@ export default function SocialShare({
       textArea.select()
       document.execCommand('copy')
       document.body.removeChild(textArea)
-      alert('Link copied to clipboard!')
+      alert('✅ Link copied to clipboard!')
     }
   }
 
@@ -225,12 +258,14 @@ export default function SocialShare({
           background: #f8f9fa;
           border-radius: 8px;
           margin: 2rem 0;
+          border: 1px solid #e9ecef;
         }
 
         .social-share span {
           font-weight: 600;
           color: #333;
           white-space: nowrap;
+          font-size: 1rem;
         }
 
         .share-buttons {
@@ -244,31 +279,39 @@ export default function SocialShare({
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 40px;
-          height: 40px;
+          width: 42px;
+          height: 42px;
           border-radius: 50%;
-          border: none;
+          border: 2px solid #e9ecef;
           background: #fff;
           color: #555;
           cursor: pointer;
           transition: all 0.3s ease;
           box-shadow: 0 2px 4px rgba(0,0,0,0.1);
           text-decoration: none;
+          font-size: 1.1rem;
         }
 
         .share-buttons a:hover,
         .share-buttons button:hover {
           transform: translateY(-2px);
-          box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+          box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
 
-        .share-buttons a:nth-child(1):hover { background: #1da1f2; color: white; } /* Twitter */
-        .share-buttons a:nth-child(2):hover { background: #1877f2; color: white; } /* Facebook */
-        .share-buttons a:nth-child(3):hover { background: #0a66c2; color: white; } /* LinkedIn */
-        .share-buttons a:nth-child(4):hover { background: #25d366; color: white; } /* WhatsApp */
-        .share-buttons a:nth-child(5):hover { background: #0088cc; color: white; } /* Telegram */
-        .share-buttons a:nth-child(6):hover { background: #e60023; color: white; } /* Pinterest */
-        .share-buttons button:hover { background: #6c757d; color: white; } /* Copy */
+        .share-buttons a.twitter:hover { background: #1da1f2; color: white; border-color: #1da1f2; }
+        .share-buttons a.facebook:hover { background: #1877f2; color: white; border-color: #1877f2; }
+        .share-buttons a.linkedin:hover { background: #0a66c2; color: white; border-color: #0a66c2; }
+        .share-buttons a.whatsapp:hover { background: #25d366; color: white; border-color: #25d366; }
+        .share-buttons a.telegram:hover { background: #0088cc; color: white; border-color: #0088cc; }
+        .share-buttons a.pinterest:hover { background: #e60023; color: white; border-color: #e60023; }
+        .share-buttons button.copy:hover { background: #6c757d; color: white; border-color: #6c757d; }
+
+        .share-debug {
+          display: none;
+          font-size: 0.8rem;
+          color: #666;
+          margin-top: 0.5rem;
+        }
 
         @media (max-width: 768px) {
           .social-share {
@@ -285,13 +328,14 @@ export default function SocialShare({
 
         @media (max-width: 480px) {
           .share-buttons {
-            gap: 0.3rem;
+            gap: 0.4rem;
           }
           
           .share-buttons a,
           .share-buttons button {
-            width: 35px;
-            height: 35px;
+            width: 38px;
+            height: 38px;
+            font-size: 1rem;
           }
         }
       `}</style>
@@ -307,6 +351,7 @@ export default function SocialShare({
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Share on Twitter"
+          className="twitter"
         >
           <FaTwitter />
         </a>
@@ -319,6 +364,7 @@ export default function SocialShare({
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Share on Facebook"
+          className="facebook"
         >
           <FaFacebook />
         </a>
@@ -331,6 +377,7 @@ export default function SocialShare({
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Share on LinkedIn"
+          className="linkedin"
         >
           <FaLinkedin />
         </a>
@@ -343,6 +390,7 @@ export default function SocialShare({
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Share on WhatsApp"
+          className="whatsapp"
         >
           <FaWhatsapp />
         </a>
@@ -355,6 +403,7 @@ export default function SocialShare({
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Share on Telegram"
+          className="telegram"
         >
           <FaTelegram />
         </a>
@@ -367,15 +416,22 @@ export default function SocialShare({
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Share on Pinterest"
+          className="pinterest"
         >
           <FaPinterest />
         </a>
         <button 
           onClick={copyToClipboard}
           aria-label="Copy link to clipboard"
+          className="copy"
         >
           <FaLink />
         </button>
+      </div>
+      
+      {/* Debug info - remove in production */}
+      <div className="share-debug">
+        URL: {shareData.url} | Image: {shareData.image}
       </div>
     </div>
   )
