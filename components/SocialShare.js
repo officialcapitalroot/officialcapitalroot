@@ -1,9 +1,120 @@
+// // components/SocialShare.js
+// import { FaTwitter, FaFacebook, FaLinkedin, FaLink, FaWhatsapp, FaTelegram } from 'react-icons/fa'
+// import { useEffect, useState } from 'react'
+
+// export default function SocialShare() {
+//   const [pageUrl, setPageUrl] = useState('')
+
+//   useEffect(() => {
+//     // Get current page URL dynamically
+//     if (typeof window !== 'undefined') {
+//       setPageUrl(window.location.href)
+//     }
+//   }, [])
+
+//   // Use the actual page title from the document
+//   const pageTitle = typeof document !== 'undefined' ? document.title : 'Capital Root'
+//   const shareText = `${pageTitle.replace(' - Capital Root Movies', '').replace(' | Capital Root Movies', '')} - Capital Root`
+
+//   const shareLinks = {
+//     twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(pageUrl)}`,
+//     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`,
+//     linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}`,
+//     whatsapp: `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + pageUrl)}`,
+//     telegram: `https://t.me/share/url?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(shareText)}`
+//   }
+
+//   const copyToClipboard = async () => {
+//     try {
+//       await navigator.clipboard.writeText(pageUrl)
+//       alert('Link copied to clipboard!')
+//     } catch (err) {
+//       console.error('Failed to copy: ', err)
+//     }
+//   }
+
+//   return (
+//     <div className="social-share">
+//       <span>Share this video:</span>
+//       <div className="share-buttons">
+//         <a 
+//           href={shareLinks.twitter} 
+//           target="_blank" 
+//           rel="noopener noreferrer"
+//           aria-label="Share on Twitter"
+//         >
+//           <FaTwitter />
+//         </a>
+//         <a 
+//           href={shareLinks.facebook} 
+//           target="_blank" 
+//           rel="noopener noreferrer"
+//           aria-label="Share on Facebook"
+//         >
+//           <FaFacebook />
+//         </a>
+//         <a 
+//           href={shareLinks.linkedin} 
+//           target="_blank" 
+//           rel="noopener noreferrer"
+//           aria-label="Share on LinkedIn"
+//         >
+//           <FaLinkedin />
+//         </a>
+//         <a 
+//           href={shareLinks.whatsapp} 
+//           target="_blank" 
+//           rel="noopener noreferrer"
+//           aria-label="Share on WhatsApp"
+//         >
+//           <FaWhatsapp />
+//         </a>
+//         <a 
+//           href={shareLinks.telegram} 
+//           target="_blank" 
+//           rel="noopener noreferrer"
+//           aria-label="Share on Telegram"
+//         >
+//           <FaTelegram />
+//         </a>
+//         <button 
+//           onClick={copyToClipboard}
+//           aria-label="Copy link"
+//         >
+//           <FaLink />
+//         </button>
+//       </div>
+
+//           </div>
+//   )
+// }
+
+
+
+
+
+
+
+
+
 // components/SocialShare.js
-import { FaTwitter, FaFacebook, FaLinkedin, FaLink, FaWhatsapp, FaTelegram } from 'react-icons/fa'
+import { FaTwitter, FaFacebook, FaLinkedin, FaLink, FaWhatsapp, FaTelegram, FaPinterest } from 'react-icons/fa'
 import { useEffect, useState } from 'react'
 
-export default function SocialShare() {
+export default function SocialShare({ 
+  videoData = null, 
+  mediaData = null, 
+  mediaType = 'movie',
+  customTitle = '',
+  customImage = '' 
+}) {
   const [pageUrl, setPageUrl] = useState('')
+  const [shareData, setShareData] = useState({
+    title: '',
+    description: '',
+    image: '',
+    url: ''
+  })
 
   useEffect(() => {
     // Get current page URL dynamically
@@ -12,79 +123,260 @@ export default function SocialShare() {
     }
   }, [])
 
-  // Use the actual page title from the document
-  const pageTitle = typeof document !== 'undefined' ? document.title : 'Capital Root'
-  const shareText = `${pageTitle.replace(' - Capital Root Movies', '').replace(' | Capital Root Movies', '')} - Capital Root`
+  useEffect(() => {
+    // Determine share data based on source (TMDB vs JSON)
+    if (mediaData) {
+      // TMDB Data
+      setShareData({
+        title: mediaData.title || mediaData.name || 'Capital Root Movies',
+        description: mediaData.overview || 'Watch now on Capital Root Movies',
+        image: getTMDBImageUrl(mediaData.poster_path || mediaData.backdrop_path),
+        url: pageUrl
+      })
+    } else if (videoData) {
+      // JSON Video Data
+      setShareData({
+        title: videoData.title || 'Capital Root Movies',
+        description: videoData.description || 'Watch now on Capital Root Movies',
+        image: getVideoThumbnailUrl(videoData.thumbnail),
+        url: pageUrl
+      })
+    } else {
+      // Fallback to page data
+      const pageTitle = typeof document !== 'undefined' ? document.title : 'Capital Root Movies'
+      setShareData({
+        title: customTitle || pageTitle.replace(' - Capital Root Movies', '').replace(' | Capital Root Movies', ''),
+        description: 'Watch now on Capital Root Movies',
+        image: customImage || getDefaultImage(),
+        url: pageUrl
+      })
+    }
+  }, [mediaData, videoData, pageUrl, customTitle, customImage])
+
+  const getTMDBImageUrl = (path, size = 'w500') => {
+    if (!path) return getDefaultImage()
+    return `https://image.tmdb.org/t/p/${size}${path}`
+  }
+
+  const getVideoThumbnailUrl = (thumbnail) => {
+    if (!thumbnail) return getDefaultImage()
+    if (thumbnail.startsWith('http')) return thumbnail
+    return `https://capitalroot.vercel.app${thumbnail}`
+  }
+
+  const getDefaultImage = () => {
+    return 'https://capitalroot.vercel.app/icon-512.png'
+  }
+
+  const shareText = `${shareData.title} - Watch on Capital Root Movies`
+  const encodedText = encodeURIComponent(shareText)
+  const encodedUrl = encodeURIComponent(shareData.url)
+  const encodedImage = encodeURIComponent(shareData.image)
 
   const shareLinks = {
-    twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(pageUrl)}`,
-    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`,
-    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}`,
-    whatsapp: `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + pageUrl)}`,
-    telegram: `https://t.me/share/url?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(shareText)}`
+    twitter: `https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`,
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
+    whatsapp: `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + shareData.url)}`,
+    telegram: `https://t.me/share/url?url=${encodedUrl}&text=${encodedText}`,
+    pinterest: `https://pinterest.com/pin/create/button/?url=${encodedUrl}&media=${encodedImage}&description=${encodedText}`
   }
 
   const copyToClipboard = async () => {
     try {
-      await navigator.clipboard.writeText(pageUrl)
+      await navigator.clipboard.writeText(shareData.url)
       alert('Link copied to clipboard!')
     } catch (err) {
       console.error('Failed to copy: ', err)
+      // Fallback for older browsers
+      const textArea = document.createElement('textarea')
+      textArea.value = shareData.url
+      document.body.appendChild(textArea)
+      textArea.select()
+      document.execCommand('copy')
+      document.body.removeChild(textArea)
+      alert('Link copied to clipboard!')
+    }
+  }
+
+  const handleShare = (platform, url) => {
+    if (typeof window !== 'undefined') {
+      const width = 600
+      const height = 400
+      const left = (window.screen.width - width) / 2
+      const top = (window.screen.height - height) / 2
+      
+      window.open(
+        url,
+        'share',
+        `width=${width},height=${height},left=${left},top=${top},toolbar=0,status=0`
+      )
     }
   }
 
   return (
     <div className="social-share">
-      <span>Share this video:</span>
+      <style jsx>{`
+        .social-share {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          padding: 1.5rem;
+          background: #f8f9fa;
+          border-radius: 8px;
+          margin: 2rem 0;
+        }
+
+        .social-share span {
+          font-weight: 600;
+          color: #333;
+          white-space: nowrap;
+        }
+
+        .share-buttons {
+          display: flex;
+          gap: 0.5rem;
+          flex-wrap: wrap;
+        }
+
+        .share-buttons a,
+        .share-buttons button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          border: none;
+          background: #fff;
+          color: #555;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+          text-decoration: none;
+        }
+
+        .share-buttons a:hover,
+        .share-buttons button:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .share-buttons a:nth-child(1):hover { background: #1da1f2; color: white; } /* Twitter */
+        .share-buttons a:nth-child(2):hover { background: #1877f2; color: white; } /* Facebook */
+        .share-buttons a:nth-child(3):hover { background: #0a66c2; color: white; } /* LinkedIn */
+        .share-buttons a:nth-child(4):hover { background: #25d366; color: white; } /* WhatsApp */
+        .share-buttons a:nth-child(5):hover { background: #0088cc; color: white; } /* Telegram */
+        .share-buttons a:nth-child(6):hover { background: #e60023; color: white; } /* Pinterest */
+        .share-buttons button:hover { background: #6c757d; color: white; } /* Copy */
+
+        @media (max-width: 768px) {
+          .social-share {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+          }
+          
+          .share-buttons {
+            width: 100%;
+            justify-content: center;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .share-buttons {
+            gap: 0.3rem;
+          }
+          
+          .share-buttons a,
+          .share-buttons button {
+            width: 35px;
+            height: 35px;
+          }
+        }
+      `}</style>
+
+      <span>Share this {mediaData ? (mediaType === 'tv' ? 'TV show' : 'movie') : 'video'}:</span>
       <div className="share-buttons">
         <a 
-          href={shareLinks.twitter} 
-          target="_blank" 
+          href={shareLinks.twitter}
+          onClick={(e) => {
+            e.preventDefault()
+            handleShare('twitter', shareLinks.twitter)
+          }}
+          target="_blank"
           rel="noopener noreferrer"
           aria-label="Share on Twitter"
         >
           <FaTwitter />
         </a>
         <a 
-          href={shareLinks.facebook} 
-          target="_blank" 
+          href={shareLinks.facebook}
+          onClick={(e) => {
+            e.preventDefault()
+            handleShare('facebook', shareLinks.facebook)
+          }}
+          target="_blank"
           rel="noopener noreferrer"
           aria-label="Share on Facebook"
         >
           <FaFacebook />
         </a>
         <a 
-          href={shareLinks.linkedin} 
-          target="_blank" 
+          href={shareLinks.linkedin}
+          onClick={(e) => {
+            e.preventDefault()
+            handleShare('linkedin', shareLinks.linkedin)
+          }}
+          target="_blank"
           rel="noopener noreferrer"
           aria-label="Share on LinkedIn"
         >
           <FaLinkedin />
         </a>
         <a 
-          href={shareLinks.whatsapp} 
-          target="_blank" 
+          href={shareLinks.whatsapp}
+          onClick={(e) => {
+            e.preventDefault()
+            handleShare('whatsapp', shareLinks.whatsapp)
+          }}
+          target="_blank"
           rel="noopener noreferrer"
           aria-label="Share on WhatsApp"
         >
           <FaWhatsapp />
         </a>
         <a 
-          href={shareLinks.telegram} 
-          target="_blank" 
+          href={shareLinks.telegram}
+          onClick={(e) => {
+            e.preventDefault()
+            handleShare('telegram', shareLinks.telegram)
+          }}
+          target="_blank"
           rel="noopener noreferrer"
           aria-label="Share on Telegram"
         >
           <FaTelegram />
         </a>
+        <a 
+          href={shareLinks.pinterest}
+          onClick={(e) => {
+            e.preventDefault()
+            handleShare('pinterest', shareLinks.pinterest)
+          }}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Share on Pinterest"
+        >
+          <FaPinterest />
+        </a>
         <button 
           onClick={copyToClipboard}
-          aria-label="Copy link"
+          aria-label="Copy link to clipboard"
         >
           <FaLink />
         </button>
       </div>
-
-          </div>
+    </div>
   )
 }

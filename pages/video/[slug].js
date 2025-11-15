@@ -2247,8 +2247,15 @@ export default function VideoPage({
                   Back to All {mediaType === 'tv' ? 'TV Shows' : 'Movies'}
                 </button>
               </nav>
+  <SocialShare 
+    videoData={!isTMDB ? video : null}
+    mediaData={isTMDB ? media : null}
+    mediaType={mediaType}
+    customTitle={currentMedia.title || currentMedia.name}
+    customImage={thumbnailUrl}
+  />
 
-              <SocialShare />
+             
             </section>
 
             {(relatedVideos && relatedVideos.length > 0) || (relatedMedia && relatedMedia.length > 0) ? (
