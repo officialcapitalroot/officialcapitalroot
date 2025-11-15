@@ -2248,14 +2248,11 @@ export default function VideoPage({
                 </button>
               </nav>
 
+
 <SocialShare 
-  videoData={!isTMDB ? video : null}
   mediaData={isTMDB ? media : null}
+  videoData={!isTMDB ? video : null}
   mediaType={mediaType}
-  customTitle={currentMedia.title || currentMedia.name}
-  customImage={thumbnailUrl}
-  forceUrl={canonicalUrl} // FORCE the canonical URL
-  forceImage={thumbnailUrl} // FORCE the thumbnail image
 />
              
             </section>
@@ -2277,6 +2274,7 @@ export default function VideoPage({
           </article>
         </div>
       </main>
+      
       <Footer />
 
       <style jsx>{`
