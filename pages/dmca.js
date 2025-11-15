@@ -153,7 +153,34 @@ export default function DMCAPage() {
         <h1>DMCA Policy</h1>
         <p>Digital Millennium Copyright Act Compliance</p>
       </div>
-
+<div className="container" style={{padding: '40px 20px'}}>
+          {/* <div style={{
+            background: 'white',
+            borderRadius: '15px',
+            padding: '40px',
+            boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
+            maxWidth: '900px',
+            margin: '0 auto'
+          }}> */}
+            {/* Back to Home Button */}
+            <div style={{marginBottom: '30px'}}>
+              <a 
+                href="/" 
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  color: '#667eea',
+                  textDecoration: 'none',
+                  fontWeight: '600',
+                  fontSize: '16px'
+                }}
+              >
+                <span style={{marginRight: '8px'}}>←</span>
+                Back to Home
+              </a>
+            </div>
+            </div>
+            {/* </div> */}
       <div className="dmca-content">
         <div className="section">
           <h2>Copyright Infringement Notification</h2>
@@ -219,14 +246,14 @@ export default function DMCAPage() {
           </p>
         </div>
 
-        <div className="nav-buttons">
+        {/* <div className="nav-buttons">
           <Link href="/" className="nav-button">
             ← Back to Home
           </Link>
           <Link href="/videos" className="nav-button">
             Browse Videos →
           </Link>
-        </div>
+        </div> */}
       </div>
     </div>
   );
