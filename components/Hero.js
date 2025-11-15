@@ -83,7 +83,7 @@ export default function Hero() {
                 <path d="M8 5v14l11-7z"/>
               </svg>
             </a>
-            <a href="/movies" className="cta-button secondary">
+            <a href="/videos" className="cta-button secondary">
               <span>Browse All</span>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>

@@ -1,22 +1,32 @@
+// components/SocialShare.js
 import { FaTwitter, FaFacebook, FaLinkedin, FaLink, FaWhatsapp, FaTelegram } from 'react-icons/fa'
+import { useEffect, useState } from 'react'
 
-export default function SocialShare({ title, description, slug }) {
-  const shareText = `${title} - Capital Root`
-  
-  // Use absolute URL for sharing
-  const shareUrl = `https://capitalroot.vercel.app/video/${slug}`
-  
+export default function SocialShare() {
+  const [pageUrl, setPageUrl] = useState('')
+
+  useEffect(() => {
+    // Get current page URL dynamically
+    if (typeof window !== 'undefined') {
+      setPageUrl(window.location.href)
+    }
+  }, [])
+
+  // Use the actual page title from the document
+  const pageTitle = typeof document !== 'undefined' ? document.title : 'Capital Root'
+  const shareText = `${pageTitle.replace(' - Capital Root Movies', '').replace(' | Capital Root Movies', '')} - Capital Root`
+
   const shareLinks = {
-    twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`,
-    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`,
-    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`,
-    whatsapp: `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + shareUrl)}`,
-    telegram: `https://t.me/share/url?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`
+    twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(pageUrl)}`,
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`,
+    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}`,
+    whatsapp: `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + pageUrl)}`,
+    telegram: `https://t.me/share/url?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(shareText)}`
   }
 
   const copyToClipboard = async () => {
     try {
-      await navigator.clipboard.writeText(shareUrl)
+      await navigator.clipboard.writeText(pageUrl)
       alert('Link copied to clipboard!')
     } catch (err) {
       console.error('Failed to copy: ', err)
@@ -74,6 +84,7 @@ export default function SocialShare({ title, description, slug }) {
           <FaLink />
         </button>
       </div>
-    </div>
+
+          </div>
   )
 }
