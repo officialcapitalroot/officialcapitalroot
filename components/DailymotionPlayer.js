@@ -212,6 +212,62 @@
 
 
 
+// was ok 
+
+
+// import { useState } from 'react'
+
+// export default function DailymotionPlayer({ videoId, title, autoplay = false }) {
+//   const [playerReady, setPlayerReady] = useState(false)
+
+//   if (!videoId) {
+//     return (
+//       <div className="video-player-error">
+//         <h3>MISSING VIDEO ID</h3>
+//         <p>Dailymotion player requires a videoId</p>
+//       </div>
+//     )
+//   }
+
+//   return (
+//     <div className="video-player-container" >
+//       <div style={{
+//         position: 'relative',
+//         paddingBottom: '56.25%',
+//         height: 0,
+//         overflow: 'hidden',
+//         width: '100%'
+//       }}>
+//         <iframe 
+//           src={`https://geo.dailymotion.com/player.html?video=${videoId}`}
+//           style={{
+//             position: 'absolute',
+//             width: '100%',
+//             height: '100%',
+//             filter: 'url(#ultraSharp) brightness(1.25) contrast(1.15) saturate(1.5) hue-rotate(5deg)',
+//             transform: 'translateZ(0)',
+//             }}
+//           allowFullScreen
+//           title={`Dailymotion video: ${title}`}
+//           allow="autoplay; fullscreen; picture-in-picture"
+//           onLoad={() => {
+//             console.log('Dailymotion geo player loaded with fullscreen')
+//             setPlayerReady(true)
+//           }}
+//         />
+//       </div>
+      
+//       {!playerReady && (
+//         <div className="player-loading">
+//           <div className="loading-spinner"></div>
+//           <p>Loading Dailymotion Player...</p>
+//         </div>
+//       )}
+//     </div>
+//   )
+// }
+
+
 
 
 
@@ -230,7 +286,7 @@ export default function DailymotionPlayer({ videoId, title, autoplay = false }) 
   }
 
   return (
-    <div className="video-player-container" >
+    <div className="video-player-container">
       <div style={{
         position: 'relative',
         paddingBottom: '56.25%',
@@ -239,17 +295,22 @@ export default function DailymotionPlayer({ videoId, title, autoplay = false }) 
         width: '100%'
       }}>
         <iframe 
-          src={`https://geo.dailymotion.com/player.html?video=${videoId}`}
+          src={`https://geo.dailymotion.com/player.html?video=${videoId}&api=postMessage`}
           style={{
             position: 'absolute',
+            top: 0,
+            left: 0,
             width: '100%',
             height: '100%',
             filter: 'url(#ultraSharp) brightness(1.25) contrast(1.15) saturate(1.5) hue-rotate(5deg)',
             transform: 'translateZ(0)',
-            }}
+            border: 'none'
+          }}
           allowFullScreen
           title={`Dailymotion video: ${title}`}
-          allow="autoplay; fullscreen; picture-in-picture"
+          allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
+          webkitallowfullscreen="true"
+          mozallowfullscreen="true"
           onLoad={() => {
             console.log('Dailymotion geo player loaded with fullscreen')
             setPlayerReady(true)
@@ -266,10 +327,6 @@ export default function DailymotionPlayer({ videoId, title, autoplay = false }) 
     </div>
   )
 }
-
-
-
-
 
 
 
