@@ -135,8 +135,9 @@ const nextConfig = {
       'image.tmdb.org',
       'themoviedb.org',
       // Add any other domains from your JSON thumbnails
+      'imgbb.com',
       'i.ibb.co',
-      'example.com',
+      'ibb.co',
       'your-image-host.com'
     ],  
     formats: ['image/webp', 'image/avif'],
